@@ -35,6 +35,7 @@ const CitizenshipTest = (props) => (
                     googleLink="https://play.google.com/store/apps/details?id=com.binuapp.react.CanadianCitizenshipTestRN" />
                 </p>
             </section>
+            <hr class="major" />
             <section id="australian-citizenship-test">
                 <header className="major">
                     <h1>Australian Citizenship Test</h1>
@@ -58,6 +59,7 @@ const CitizenshipTest = (props) => (
                     googleLink="https://play.google.com/store/apps/details?id=com.binuapp.react.AustralianCitizenshipTestRN" />
                 </p>
             </section>
+            <hr class="major" />
             <section id="life-in-uk-test">
                 <header className="major">
                     <h1>Life in the UK Test</h1>
@@ -81,6 +83,7 @@ const CitizenshipTest = (props) => (
                     googleLink="https://play.google.com/store/apps/details?id=com.binuapp.react.LifeInTheUKTestRN" />
                 </p>
             </section>
+            <hr class="major" />
             <section id="us-citizenship-test">
                 <header className="major">
                     <h1>US Citizenship Naturalization Test</h1>
