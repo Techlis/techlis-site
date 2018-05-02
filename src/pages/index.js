@@ -28,41 +28,41 @@ class HomeIndex extends React.Component {
                 <Banner />
 
                 <div id="main">
-                    <section id="one" className="tiles">
+                    <section id="recent-work" className="tiles">
                         <article style={{backgroundImage: `url(${pic01})`}}>
                             <header className="major">
                                 <h3>OpenVideo</h3>
                                 <p>Working on a Netflix-like application using React Native/Expo/Redux. The app will stream video from open source APIs</p>
                             </header>
-                            <Link to="/projects" className="link primary"></Link>
+                            <Link to="/projects/open-video/" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic02})`}}>
                             <header className="major">
                                 <h3>MDV Driving Test</h3>
                                 <p>One app fits all to theory driving test for US, Canada, UK</p>
                             </header>
-                            <Link to="/projects" className="link primary"></Link>
+                            <Link to="/projects/driving-test/" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic03})`}}>
                             <header className="major">
                                 <h3>Citizenship Test</h3>
                                 <p>Rewrite a multiple choice test base application using React Native from my original native Android and native iOS (Swift) apps. The base code is highly scalable and reusable so that it can be used and extends to many multiple choice app such as Canadian/US/UK/Australia Citizenship Tests.</p>
                             </header>
-                            <Link to="/projects" className="link primary"></Link>
+                            <Link to="/projects/citizenship-test/" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic04})`}}>
                             <header className="major">
                                 <h3>Turn Off the TV</h3>
                                 <p>Watch these useful videos instead of seating hours watch TV</p>
                             </header>
-                            <Link to="/projects" className="link primary"></Link>
+                            <Link to="/projects/turn-off-tv/" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic05})`}}>
                             <header className="major">
                                 <h3>Family TV Channels</h3>
                                 <p>A Safe environment for family to watch youtube channels</p>
                             </header>
-                            <Link to="/projects" className="link primary"></Link>
+                            <Link to="/projects/family-channels/" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic06})`}}>
                             <header className="major">
@@ -72,7 +72,7 @@ class HomeIndex extends React.Component {
                             <Link to="/projects/catch-them/" className="link primary"></Link>
                         </article>
                     </section>
-                    <section id="two">
+                    <section id="who-we-are">
                         <div className="inner">
                             <header className="major">
                                 <h2>Who We Are</h2>

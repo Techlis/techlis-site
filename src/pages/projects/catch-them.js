@@ -12,7 +12,7 @@ const CatchThem = (props) => (
             <meta name="description" content="Catch Them Game Page" />
         </Helmet>
 
-        <div id="main" className="alt">
+        <div className="alt">
             <div className="inner">
                 <header className="major">
                     <h1>Catch Them! Catch Them All!</h1>

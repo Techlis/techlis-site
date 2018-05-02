@@ -5,7 +5,9 @@ const Contact = (props) => (
         <div className="inner">
             <section>
                 <h3>Have a project in mind? <br/>Let's create something together.</h3>
-                <form method="post" action="#">
+                <p></p>
+                <form action="https://formspree.io/contact@techlis.com" method="POST">
+                    <input type="hidden" name="_subject" value="Contact from techlis.com" />
                     <div className="field half first">
                         <label htmlFor="name">Name</label>
                         <input type="text" name="name" id="name" />
