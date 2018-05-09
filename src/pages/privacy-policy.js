@@ -17,8 +17,8 @@ const PrivacyPolicy = (props) => (
                         <em>Last updated on May 1, 2018</em>
                     </header>
                     <h2 id="general">1. General</h2>
-                    <p>Techlis System Inc’s Privacy Policy is designed to provide clarity about the information we collect and how we use it to provide a better social experience. By accepting our Privacy Policy in registration or game/app installation, you consent to our collection, storage, use and disclosure of your personal information as described in this Privacy Policy.</p>
-                    <p>Techlis System Inc. (“Techlis”) develops and publishes web and mobile apps. It also operates several websites aside from this website. In this policy, “Techlis” refers to Techlis System Inc. and its Affiliates, which shall mean subsidiaries, parent companies, joint ventures and other corporate entities under common ownership. We may also refer to Techlis as “We” or “Us”.</p>
+                    <p>Techlis Systems Inc’s Privacy Policy is designed to provide clarity about the information we collect and how we use it to provide a better social experience. By accepting our Privacy Policy in registration or game/app installation, you consent to our collection, storage, use and disclosure of your personal information as described in this Privacy Policy.</p>
+                    <p>Techlis Systems Inc. (“Techlis”) develops and publishes web and mobile apps. It also operates several websites aside from this website. In this policy, “Techlis” refers to Techlis Systems Inc. and its Affiliates, which shall mean subsidiaries, parent companies, joint ventures and other corporate entities under common ownership. We may also refer to Techlis as “We” or “Us”.</p>
                     <p>This Privacy Policy describes:</p>
                         <ol>
                             <li>the information We collect, how We do so and the purposes of our collection</li>

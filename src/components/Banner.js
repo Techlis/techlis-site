@@ -4,7 +4,7 @@ const Banner = (props) => (
     <section id="banner" className="major">
         <div className="inner">
             <header className="major">
-                <h1>Techlis System Inc.</h1>
+                <h1>Techlis Systems Inc.</h1>
             </header>
             <div className="content">
                 <p>Techlis is a software development & consulting company<br/>

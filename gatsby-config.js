@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Techlis System - Tech leader in Succession",
+    title: "Techlis Systems - Tech leader in Succession",
     author: "Jonny Nguyen",
-    description: "Techlis System Inc. Homepage"
+    description: "Techlis Systems Inc. Homepage"
   },
   pathPrefix: '/',
   plugins: [
