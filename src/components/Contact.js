@@ -8,6 +8,7 @@ const Contact = (props) => (
                 <p></p>
                 <form action="https://formspree.io/contact@techlis.com" method="POST">
                     <input type="hidden" name="_subject" value="Contact from techlis.com" />
+                    <input type="hidden" name="_cc" value="jonnyn@live.com" />
                     <div className="field half first">
                         <label htmlFor="name">Name</label>
                         <input type="text" name="name" id="name" />
