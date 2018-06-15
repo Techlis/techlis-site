@@ -589,4 +589,4 @@ Finally, you must forward all the used ports for this implementation to your Ras
 - DKIM: 12301
 - And possibly 110, 143, and 995
 
-**Viola!!!** If everything is setup right you should have a fully functioned email server at low cost. Enjoy your custom email!
+**Viola!!!** If everything is setup right you should have a fully functional email server at low cost. Enjoy your custom email!

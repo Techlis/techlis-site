@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import AppStoreLink from '../../components/AppStoreLink'
+import { IMAGES } from '../../constants';
 
 const TurnOffTV = (props) => (
     <div>
@@ -15,6 +16,7 @@ const TurnOffTV = (props) => (
                 <header className="major">
                     <h1>Turn off the TV</h1>
                 </header>
+                <span className="image right"><img src={IMAGES.turn_off_tv_icon} alt="" /></span>
                 <p>The idea is to learn something meaning full than wasting time in front of the TV. Instead of wasting your life watching TV, spent few minutes a day to watch something mind-opening and educational. New educational videos have been updated daily to help you learn or gain a new perspective.</p>
                 <blockquote>"You watch television to turn your brain off and you work on your computer when you want to turn your brain on."</blockquote>
                 <p>-- Steve Jobs, co-founder of Apple Computer and Pixar, in Macworld Magazine, February 2004</p>

@@ -52,6 +52,7 @@ class Template extends React.Component {
                     <Footer />
                 </div>
                 <Menu onToggleMenu={this.handleToggleMenu} />
+                
             </div>
         )
     }

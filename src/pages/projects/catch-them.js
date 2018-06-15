@@ -1,9 +1,8 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
-import AppStoreLink from '../../components/AppStoreLink'
-import catchThem from '../../assets/images/thumbs/CatchThem2.png'
-import catchThemIcon from '../../assets/images/icons/catch-them.png'
+import React from 'react';
+import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
+import AppStoreLink from '../../components/AppStoreLink';
+import { IMAGES } from '../../constants';
 
 const CatchThem = (props) => (
     <div>
@@ -17,9 +16,9 @@ const CatchThem = (props) => (
                 <header className="major">
                     <h1>Catch Them! Catch Them All!</h1>
                 </header>
-                <span className="image main"><img src={catchThem} alt="" /></span>
+                <span className="image main"><img src={IMAGES.catch_them_thumb} alt="" /></span>
                 <p>
-                {/* <span className="image right"><img src={catchThemIcon} alt="" /></span> */}
+                {/* <span className="image right"><img src={IMAGES.catch_them_icon} alt="" /></span> */}
                 Catch as much fruits as you could before the time runs out, but avoid bombing. See who got the highest score in town.</p>
                 <p>Game rule:</p>
                 <ul>

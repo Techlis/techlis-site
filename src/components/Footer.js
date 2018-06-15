@@ -13,7 +13,6 @@ const Footer = (props) => (
             </ul>
             <ul className="copyright">
                 <li>&copy; 2018 Techlis Systems Inc.</li>
-                <li>Designed by: <a href="https://jonnyn.com">JonnyN</a></li>
                 <li><Link to="/privacy-policy/">Privacy Policy</Link></li>
                 <li><Link to="/terms-of-use/">Terms of Use</Link></li>
                 <li>Sitemap</li>

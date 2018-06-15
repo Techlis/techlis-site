@@ -1,11 +1,11 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
-import BannerLanding from '../components/BannerLanding'
-
-import pic08 from '../assets/images/pic08.jpg'
-import pic09 from '../assets/images/pic09.jpg'
-import pic10 from '../assets/images/pic10.jpg'
+import React from 'react';
+import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
+import BannerLanding from '../components/BannerLanding';
+import { IMAGES } from '../constants';
+import pic08 from '../assets/images/pic08.jpg';
+import pic09 from '../assets/images/pic09.jpg';
+import pic10 from '../assets/images/pic10.jpg';
 
 const Projects = (props) => (
     <div>
@@ -30,7 +30,7 @@ const Projects = (props) => (
             <section className="spotlights">
                 <section>
                     <Link to="/projects/open-video/" className="image">
-                        <img src={pic08} alt="" />
+                        <img src={IMAGES.open_video_thumb} alt="" />
                     </Link>
                     <div className="content">
                         <div className="inner">
@@ -46,7 +46,7 @@ const Projects = (props) => (
                 </section>
                 <section>
                     <Link to="/projects/driving-test" className="image">
-                        <img src={pic09} alt="" />
+                        <img src={IMAGES.dmv_driving_thumb} alt="" />
                     </Link>
                     <div className="content">
                         <div className="inner">
@@ -62,7 +62,7 @@ const Projects = (props) => (
                 </section>
                 <section>
                     <Link to="/projects/citizenship-test" className="image">
-                        <img src={pic10} alt="" />
+                        <img src={IMAGES.canada_citizen_thumb} alt="" />
                     </Link>
                     <div className="content">
                         <div className="inner">
@@ -84,7 +84,7 @@ const Projects = (props) => (
                 </section>
                 <section>
                     <Link to="/projects/catch-them/" className="image">
-                        <img src={pic09} alt="" />
+                        <img src={IMAGES.catch_them_thumb} alt="" />
                     </Link>
                     <div className="content">
                         <div className="inner">
@@ -100,7 +100,7 @@ const Projects = (props) => (
                 </section>
                 <section>
                     <Link to="/projects/family-channels" className="image">
-                        <img src={pic10} alt="" />
+                        <img src={IMAGES.family_channels_thumb} alt="" />
                     </Link>
                     <div className="content">
                         <div className="inner">
@@ -116,7 +116,7 @@ const Projects = (props) => (
                 </section>
                 <section>
                     <Link to="/projects/top-best-youtube-channels" className="image">
-                        <img src={pic09} alt="" />
+                        <img src={pic08} alt="" />
                     </Link>
                     <div className="content">
                         <div className="inner">
@@ -132,7 +132,7 @@ const Projects = (props) => (
                 </section>
                 <section>
                     <Link to="/projects/turn-off-tv" className="image">
-                        <img src={pic10} alt="" />
+                        <img src={IMAGES.turn_off_tv_thumb} alt="" />
                     </Link>
                     <div className="content">
                         <div className="inner">
