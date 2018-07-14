@@ -3,7 +3,7 @@ Using Gatsby static site generator, designed by [HTML5 UP](https://html5up.net/f
 
 ## Preview
 
-https://techlis.com/
+https://www.techlis.com/
 
 ## Installation
 

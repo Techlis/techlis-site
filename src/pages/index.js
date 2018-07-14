@@ -95,7 +95,7 @@ class HomeIndex extends React.Component {
                             <ul className="actions">
                                 <li><AppStoreLink 
                                         appleLink="https://itunes.apple.com/us/developer/techlis-systems-inc/id987066377?mt=8"
-                                        googleLink="https://play.google.com/store/apps/developer?id=Techlis"
+                                        googleLink="https://play.google.com/store/apps/developer?id=Techlis+Systems+Inc."
                                         otherLink="https://play.google.com/store/apps/developer?id=BinuApp" />
                                 </li>
                             </ul>
