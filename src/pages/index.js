@@ -21,12 +21,12 @@ class HomeIndex extends React.Component {
 
                 <div id="main">
                     <section id="recent-work" className="tiles">
-                        <article style={{backgroundImage: `url(${IMAGES.open_video_thumb})`}}>
+                        <article style={{backgroundImage: `url(${IMAGES.novie_thumb_2})`}}>
                             <header className="major">
-                                <h3>OpenVideo</h3>
-                                <p>Working on a Netflix-like application using React Native/Expo/Redux. The app will stream video from open source APIs</p>
+                                <h3>Novie: The Movie Hub</h3>
+                                <p>Getting movie information. Working on a Netflix-like application using React Native/Expo/Redux.</p>
                             </header>
-                            <Link to="/projects/open-video/" className="link primary"></Link>
+                            <Link to="/projects/novie/" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${IMAGES.dmv_driving_thumb})`}}>
                             <header className="major">

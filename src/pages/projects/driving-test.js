@@ -34,6 +34,19 @@ const DrivingTest = (props) => (
 
             <div className="inner">
                 <header className="major">
+                    <h1>Canadian Driving Test</h1>
+                </header>
+                <span className="image right"><img src={IMAGES.canadian_driving_icon} alt="" /></span>
+                <p>#1 largest knowledge test database for Canadian driver. Practice your driving test in fast and easy way before going to the actual exam. Refresh your driving knowledge.</p>
+                <p>Across Canada, in every province one of the primary requirements to obtain a full driving license is a written driving test. Regardless of province of residence you are required to complete a driving test comprising of rules of the roads and traffic signs specific to your province. These free driving practice tests are available for all provinces in Canada and ensure you are well prepared for the real driving test prior to obtaining your learner license.</p>
+                <p>The app is free to use!</p>
+                <AppStoreLink 
+                    appleLink="https://itunes.apple.com/us/app/canadian-driving-test/id1399329480?mt=8"
+                    googleLink="https://play.google.com/store/apps/details?id=com.techlis.CanadianDrivingTestRN" />
+            </div>
+
+            <div className="inner">
+                <header className="major">
                     <h1>ICBC Driving Theory Test</h1>
                 </header>
                 <p>Rewrite using React Native to deploy faster to both Android and iOS. The next version of driving test will cover all provinces of Canada, and all States of U.S.</p>

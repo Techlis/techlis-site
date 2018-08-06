@@ -8,3 +8,5 @@ https://www.techlis.com/
 ## Installation
 
 Run `gatsby develop` in the terminal to start.
+
+Run `gatsby build` in the terminal to build.
