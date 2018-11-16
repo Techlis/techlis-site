@@ -1,6 +1,6 @@
-<span style="font-family:arial,helvetica,sans-serif;"><span style="color:#000000;">.background {
+.background {
   background-color: rgb(155, 255, 100);
-}</span>
+}
 .logo {
   background-image: url('https://raw.githubusercontent.com/Techlis/TechlisSite/master/src/assets/LaunchScreen1024x768.png');
 }
@@ -10,5 +10,3 @@
 .splash {
   background-image: url('https://raw.githubusercontent.com/Techlis/TechlisSite/master/src/assets/LaunchScreen1024x768.png');
 }
- 
- </span>
