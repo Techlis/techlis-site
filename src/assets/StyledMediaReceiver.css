@@ -1,3 +1,15 @@
 .background {
-  background: center no-repeat url('./LaunchScreen2048x1536.png');
+  background: center no-repeat url('./LaunchScreen1024x768.png');
 }
+.logo {
+  background-image: url('./LaunchScreen1024x768.png');
+}
+
+.progressBar {
+  background-color: rgb(238, 255, 65);
+}
+
+.splash {
+  background-image: url('./LaunchScreen1024x768.png');
+}
+
