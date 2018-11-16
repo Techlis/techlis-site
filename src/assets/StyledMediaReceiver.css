@@ -1,14 +1,6 @@
 .background {
   background: center no-repeat url('https://raw.githubusercontent.com/Techlis/TechlisSite/master/src/assets/LaunchScreen1024x768.png');
 }
-.logo {
-  background-image: url('https://raw.githubusercontent.com/Techlis/TechlisSite/master/src/assets/LaunchScreen1024x768.png');
-}
-
-.progressBar {
-  background-color: rgb(238, 255, 65);
-}
-
 .splash {
   background-image: url('https://raw.githubusercontent.com/Techlis/TechlisSite/master/src/assets/LaunchScreen1024x768.png');
 }
