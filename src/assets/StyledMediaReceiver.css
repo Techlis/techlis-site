@@ -1,20 +1,21 @@
 .background {
-  --theme-hue: 180;
-  --progress-color: rgb(0, 255, 255);
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.80)), rgba(0,0,0,0.55) url(https://raw.githubusercontent.com/Techlis/TechlisSite/master/src/assets/LaunchScreen1024x768.png) no-repeat center fixed;
+  background-size: cover;
 }
 
 .logo {
-  background-color: rgb(155, 255, 100);
+    background-image: url(https://raw.githubusercontent.com/Techlis/TechlisSite/master/src/assets/512.png);
 }
 
 .progressBar {
-  background-color: rgb(155, 255, 100);
+  background-color: rgba(226, 0, 121, 0.55);
 }
 
 .splash {
-  background-color: rgb(155, 255, 100);
-}
+  width: 55%;
+  height: auto;
+  margin: 0 auto;
+  background: url(https://raw.githubusercontent.com/Techlis/TechlisSite/master/src/assets/splash.png);
+  background-size: contain;
 
-.watermark {
-  background-color: rgb(155, 255, 100);
 }
