@@ -39,10 +39,10 @@ const Contact = (props) => (
                     <div className="contact-method">
                         <span className="icon alt fa-phone"></span>
                         <h3>Phone</h3>
-                        <span>(604) 635-3855<br/>(778) 896-5826</span>
+                        <span>(778) 896-5826<br/>(604) 635-3855</span>
                     </div>
                 </section>
-                <section>
+                {/* <section>
                     <div className="contact-method">
                         <span className="icon alt fa-home"></span>
                         <h3>Address</h3>
@@ -50,7 +50,7 @@ const Contact = (props) => (
                         Coquitlam, BC V3E 0K3<br />
                         Canada</span>
                     </div>
-                </section>
+                </section> */}
             </section>
         </div>
     </section>
