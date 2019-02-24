@@ -35,13 +35,13 @@ const Contact = (props) => (
                         <a href="mailto:contact@techlis.com">contact@techlis.com</a>
                     </div>
                 </section>
-                <section>
+                {/* <section>
                     <div className="contact-method">
                         <span className="icon alt fa-phone"></span>
                         <h3>Phone</h3>
                         <span>(778) 896-5826<br/>(604) 635-3855</span>
                     </div>
-                </section>
+                </section> */}
                 {/* <section>
                     <div className="contact-method">
                         <span className="icon alt fa-home"></span>
