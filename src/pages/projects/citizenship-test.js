@@ -9,6 +9,8 @@ const CitizenshipTest = (props) => (
         <Helmet>
             <title>Citizenship Tests</title>
             <meta name="description" content="Citizenship Tests Page" />
+            <meta name="apple-itunes-app" content="app-id=1458665674, app-argument=citizenship>"></meta>
+            <link rel="manifest" href="https://raw.githubusercontent.com/Techlis/TechlisSite/master/static/manifest.json"></link>
         </Helmet>
 
         <div className="alt inner">

@@ -39,15 +39,15 @@ const Contact = (props) => (
                     <div className="contact-method">
                         <span className="icon alt fa-phone"></span>
                         <h3>Phone</h3>
-                        <span>(778) 896-5826<br/>(604) 635-3855</span>
+                        <span>(111) 111-1111<br/>(222) 222-2222</span>
                     </div>
                 </section> */}
                 {/* <section>
                     <div className="contact-method">
                         <span className="icon alt fa-home"></span>
                         <h3>Address</h3>
-                        <span>3502 Princeton Ave<br />
-                        Coquitlam, BC V3E 0K3<br />
+                        <span>Address line 1<br />
+                        City, State Postal Code<br />
                         Canada</span>
                     </div>
                 </section> */}
