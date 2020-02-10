@@ -10,3 +10,10 @@ https://www.techlis.com/
 Run `gatsby develop` in the terminal to start.
 
 Run `gatsby build` in the terminal to build.
+
+Run `gatsby serve` to serve the recent build on localhost
+
+Run `gatsby` for help
+
+Open Github desktop app and push to master.
+The build will be processed and deployed to server by netlify
