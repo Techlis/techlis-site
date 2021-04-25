@@ -1,7 +1,5 @@
 import React from "react"
 import Link from "gatsby-link"
-import Helmet from "react-helmet"
-import GoogleAd from "../components/GoogleAd";
 
 export default class Blogs extends React.Component {
     render() {
@@ -27,7 +25,6 @@ export default class Blogs extends React.Component {
                             );
                         })}
                         </div>
-                        <GoogleAd client="ca-pub-6411689155905256" slot="" />
                     </div>
                 </section>
             </div>

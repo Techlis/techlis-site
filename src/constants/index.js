@@ -21,5 +21,7 @@ export const IMAGES = {
     'novie_full': require('../assets/images/fulls/Novie/app_feature_graphic_1024x500.png'),
     'novie_thumb': require('../assets/images/thumbs/novie_thumb_539.png'),
     'novie_thumb_2': require('../assets/images/thumbs/novie_thumb_2_539.jpg'),
-    'reddu_icon': require('../assets/images/icons/reddu_icon.png')
+    'reddu_icon': require('../assets/images/icons/reddu_icon.png'),
+    'decal_hoang_oanh': require('../assets/images/thumbs/decalHoangOanh.png'),
+    'top_best_youtube_channels_icon': require('../assets/images/icons/topBestYoutubeChannels.png')
 }

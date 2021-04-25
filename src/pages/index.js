@@ -111,7 +111,6 @@ class HomeIndex extends React.Component {
                         </div>
                     </section>
                 </div>
-
             </div>
         )
     }
