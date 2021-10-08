@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 
 const Footer = (props) => (
     <footer id="footer">
@@ -12,10 +11,7 @@ const Footer = (props) => (
                 <li><a href="#" className="icon alt fa-linkedin"><span className="label">LinkedIn</span></a></li>
             </ul>
             <ul className="copyright">
-                <li>&copy; 2018 Techlis Systems Inc.</li>
-                <li><Link to="/privacy-policy/">Privacy Policy</Link></li>
-                <li><Link to="/terms-of-use/">Terms of Use</Link></li>
-                <li>Sitemap</li>
+                <li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
             </ul>
         </div>
     </footer>

@@ -4,11 +4,7 @@ const Contact = (props) => (
     <section id="contact">
         <div className="inner">
             <section>
-                <h3>Have a project in mind? <br/>Let's create something together.</h3>
-                <p></p>
-                <form action="https://formspree.io/contact@techlis.com" method="POST">
-                    <input type="hidden" name="_subject" value="Contact from techlis.com" />
-                    <input type="hidden" name="_cc" value="jonnyn@live.com" />
+                <form method="post" action="#">
                     <div className="field half first">
                         <label htmlFor="name">Name</label>
                         <input type="text" name="name" id="name" />
@@ -32,25 +28,25 @@ const Contact = (props) => (
                     <div className="contact-method">
                         <span className="icon alt fa-envelope"></span>
                         <h3>Email</h3>
-                        <a href="mailto:contact@techlis.com">contact@techlis.com</a>
+                        <a href="#">information@untitled.tld</a>
                     </div>
                 </section>
-                {/* <section>
+                <section>
                     <div className="contact-method">
                         <span className="icon alt fa-phone"></span>
                         <h3>Phone</h3>
-                        <span>(111) 111-1111<br/>(222) 222-2222</span>
+                        <span>(000) 000-0000 x12387</span>
                     </div>
-                </section> */}
-                {/* <section>
+                </section>
+                <section>
                     <div className="contact-method">
                         <span className="icon alt fa-home"></span>
                         <h3>Address</h3>
-                        <span>Address line 1<br />
-                        City, State Postal Code<br />
-                        Canada</span>
+                        <span>1234 Somewhere Road #5432<br />
+                        Nashville, TN 00000<br />
+                        United States of America</span>
                     </div>
-                </section> */}
+                </section>
             </section>
         </div>
     </section>

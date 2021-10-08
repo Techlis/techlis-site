@@ -1,22 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types';
 
 const BannerLanding = (props) => (
     <section id="banner" className="style2">
         <div className="inner">
             <header className="major">
-                <h1>{props.header}</h1>
+                <h1>Landing</h1>
             </header>
             <div className="content">
-                {props.description}
+                <p>Lorem ipsum dolor sit amet nullam consequat<br />
+                sed veroeros. tempus adipiscing nulla.</p>
             </div>
         </div>
     </section>
 )
-
-BannerLanding.PropTypes = {
-    header: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
-};
 
 export default BannerLanding
