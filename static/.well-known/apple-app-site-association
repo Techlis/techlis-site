@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "35Z2N998NA.com.techlis.allcitizenshiptestrn",
+                "paths": [ "/projects/citizenship-test/*" ]
+            }
+        ]
+    }
+}

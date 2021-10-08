@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-forty-v2",
-  "description": "Gatsby Starter - Forty V2",
-  "version": "1.0.0",
-  "author": "Hunter Chang",
+  "name": "TechlisSite",
+  "description": "Software development & consulting company",
+  "version": "2.0.0",
+  "author": "Luan Nguyen",
   "dependencies": {
     "gatsby": "^2.19.5",
     "gatsby-plugin-manifest": "^2.2.38",

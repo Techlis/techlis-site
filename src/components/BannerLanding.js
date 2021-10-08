@@ -4,11 +4,12 @@ const BannerLanding = (props) => (
     <section id="banner" className="style2">
         <div className="inner">
             <header className="major">
-                <h1>Landing</h1>
+                <h1>Techlis</h1>
             </header>
             <div className="content">
-                <p>Lorem ipsum dolor sit amet nullam consequat<br />
-                sed veroeros. tempus adipiscing nulla.</p>
+              <p>Techlis is a software development & consulting company<br/>
+                &nbsp;We build high quality mobile games and apps, with love
+              </p>
             </div>
         </div>
     </section>
