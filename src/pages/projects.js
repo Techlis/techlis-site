@@ -3,10 +3,8 @@ import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import BannerLanding from '../components/BannerLanding'
+import ProjectSection from '../components/ProjectSection'
 import { IMAGES } from '../constants'
-import pic08 from '../assets/images/pic08.jpg'
-import pic09 from '../assets/images/pic09.jpg'
-import pic10 from '../assets/images/pic10.jpg'
 
 const Projects = props => (
   <Layout>
@@ -16,13 +14,16 @@ const Projects = props => (
     </Helmet>
 
     <BannerLanding
-      header="Our Projects"
+      header="Techlis..."
       description={
         <p>
           We love creating. We love problem solving.
           <br />
           And we love turning ideas into successful products.
         </p>
+        // <p>Techlis is a software development & consulting company<br/>
+        //   &nbsp;We build high quality mobile games and apps, with love
+        // </p>
       }
     />
 
@@ -40,152 +41,112 @@ const Projects = props => (
         </div>
       </section>
       <section className="spotlights">
-        <section>
-          <Link to="/projects/open-video/" className="image">
-            <img src={IMAGES.open_video_thumb} alt="" />
-          </Link>
-          <div className="content">
-            <div className="inner">
-              <header className="major">
-                <h3>OpenVideo</h3>
-              </header>
-              <p>
-                Available on Android and iOS. Working on a Netflix-like
-                application using React Native/Expo/Redux. The app will stream
-                video from open source APIs.
-              </p>
-              <ul className="actions">
-                <li>
-                  <Link to="/projects/open-video/" className="button">
-                    Learn more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <Link to="/projects/driving-test" className="image">
-            <img src={IMAGES.dmv_driving_thumb} alt="" />
-          </Link>
-          <div className="content">
-            <div className="inner">
-              <header className="major">
-                <h3>Driving Theory Quiz</h3>
-              </header>
-              <p>
-                Using this convenience app to test your knowledge of driving
-                theory. The app will be available in U.S., Canada, UK,
-                Australia, etc. Available on Google Play and Apple AppStore.
-              </p>
-              <ul className="actions">
-                <li>
-                  <Link to="/projects/driving-test" className="button">
-                    Learn more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <Link to="/projects/citizenship-test" className="image">
-            <img src={IMAGES.canada_citizen_thumb} alt="" />
-          </Link>
-          <div className="content">
-            <div className="inner">
-              <header className="major">
-                <h3>Citizenship Test</h3>
-              </header>
-              <p>
-                Multiple choice test base application using React Native from my
-                original native Android and native iOS (Swift) apps. The base
-                code is highly scalable and reusable so that it can be used and
-                extends to many multiple choice app such as:
-              </p>
-              <ul>
-                <li>
-                  <Link to="/projects/citizenship-test#canadian-citizenship-test">
-                    Canadian Citizenship Test
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/projects/citizenship-test#australian-citizenship-test">
-                    Australian Citizenship Test
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/projects/citizenship-test#us-citizenship-test">
-                    US Citizenship Naturalization Test
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/projects/citizenship-test#life-in-uk-test">
-                    Life in the UK Test
-                  </Link>
-                </li>
-              </ul>
-              <ul className="actions">
-                <li>
-                  <Link to="/projects/citizenship-test" className="button">
-                    Learn more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <Link to="/projects/catch-them/" className="image">
-            <img src={IMAGES.catch_them_thumb} alt="" />
-          </Link>
-          <div className="content">
-            <div className="inner">
-              <header className="major">
-                <h3>Catch Them Game</h3>
-              </header>
-              <p>
-                A mini game to release some stress :) Trying to catch as many
-                fruits as you could while avoiding bombing. The highest score
-                player wins the prize. The game is available on Google Play and
-                Apple AppStore.
-              </p>
-              <ul className="actions">
-                <li>
-                  <Link to="/projects/catch-them/" className="button">
-                    Learn more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <Link to="/projects/family-channels" className="image">
-            <img src={IMAGES.family_channels_thumb} alt="" />
-          </Link>
-          <div className="content">
-            <div className="inner">
-              <header className="major">
-                <h3>Family Video Channels</h3>
-              </header>
-              <p>
-                A good collection of Youtube channels that is useful and
-                resourceful for family. A safe and fun environment that is
-                suitable for home family use. App is available on Google Play
-                only.
-              </p>
-              <ul className="actions">
-                <li>
-                  <Link to="/projects/family-channels" className="button">
-                    Learn more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
+        <ProjectSection
+          title='Novie: The Movie Hub'
+          link='/projects/novie/'
+          thumb={IMAGES.novie_thumb_2}
+        >
+          <p>
+            Available on Android and iOS. Working on a Netflix-like
+            application using React Native/Expo/Redux. The app will stream
+            video from open source APIs.
+          </p>
+        </ProjectSection>
+        <ProjectSection
+          title='Driving Theory Quiz'
+          link='/projects/driving-test'
+          thumb={IMAGES.dmv_driving_thumb}
+        >
+          <p>
+            Using this convenience app to test your knowledge of driving
+            theory. The app will be available in U.S., Canada, UK,
+            Australia, etc. Available on Google Play and Apple AppStore.
+          </p>
+          <ul>
+            <li>
+              <Link to="/projects/driving-test#dmv-driving-test">
+                DMV Driving Theory Test
+              </Link>
+            </li>
+            <li>
+              <Link to="/projects/driving-test#canadian-driving-test">
+                Canadian Driving Test
+              </Link>
+            </li>
+            <li>
+              <Link to="/projects/driving-test#icbc-driving-theory-test">
+                ICBC Driving Theory Test
+              </Link>
+            </li>
+          </ul>
+        </ProjectSection>
+        <ProjectSection
+          title='Citizenship Test'
+          link='/projects/citizenship-test'
+          thumb={IMAGES.canada_citizen_thumb}
+        >
+          <p>
+            Multiple choice test base application using React Native from my
+            original native Android and native iOS (Swift) apps. The base
+            code is highly scalable and reusable so that it can be used and
+            extends to many multiple choice app such as:
+          </p>
+          <ul>
+            <li>
+              <Link to="/projects/citizenship-test#canadian-citizenship-test">
+                Canadian Citizenship Test
+              </Link>
+            </li>
+            <li>
+              <Link to="/projects/citizenship-test#australian-citizenship-test">
+                Australian Citizenship Test
+              </Link>
+            </li>
+            <li>
+              <Link to="/projects/citizenship-test#us-citizenship-test">
+                US Citizenship Naturalization Test
+              </Link>
+            </li>
+            <li>
+              <Link to="/projects/citizenship-test#life-in-uk-test">
+                Life in the UK Test
+              </Link>
+            </li>
+          </ul>
+        </ProjectSection>
+        <ProjectSection
+          title='Catch Them Game'
+          link='/projects/catch-them/'
+          thumb={IMAGES.catch_them_thumb}
+        >
+          <p>
+            A mini game to release some stress :) Trying to catch as many
+            fruits as you could while avoiding bombing. The highest score
+            player wins the prize. The game is available on Google Play and Apple AppStore.
+          </p>
+        </ProjectSection>
+        <ProjectSection
+          title='Family Video Channels'
+          link='/projects/family-channels'
+          thumb={IMAGES.family_channels_thumb}
+        >
+          <p>
+            A good collection of Youtube channels that is useful and
+            resourceful for family. A safe and fun environment that is
+            suitable for home family use. App is available on Google Play only.
+          </p>
+        </ProjectSection>
+        <ProjectSection
+          title='Turn of the TV'
+          link='/projects/turn-off-tv'
+          thumb={IMAGES.turn_off_tv_thumb}
+        >
+          <p>
+            Watch these useful videos instead of seating hours watch TV.
+            Available on Google Play
+          </p>
+        </ProjectSection>
+        {/* <section>
           <Link to="/projects/top-best-youtube-channels" className="image">
             <img src={pic08} alt="" />
           </Link>
@@ -210,31 +171,8 @@ const Projects = props => (
               </ul>
             </div>
           </div>
-        </section>
-        <section>
-          <Link to="/projects/turn-off-tv" className="image">
-            <img src={IMAGES.turn_off_tv_thumb} alt="" />
-          </Link>
-          <div className="content">
-            <div className="inner">
-              <header className="major">
-                <h3>Turn of the TV</h3>
-              </header>
-              <p>
-                Watch these useful videos instead of seating hours watch TV.
-                Available on Google Play
-              </p>
-              <ul className="actions">
-                <li>
-                  <Link to="/projects/turn-off-tv" className="button">
-                    Learn more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
+        </section> */}
+        {/* <section>
           <a
             href="https://decalhoangoanh.com/"
             target="_blank"
@@ -289,7 +227,7 @@ const Projects = props => (
               </ul>
             </div>
           </div>
-        </section>
+        </section> */}
       </section>
     </div>
   </Layout>

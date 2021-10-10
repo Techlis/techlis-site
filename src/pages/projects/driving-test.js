@@ -13,7 +13,7 @@ const DrivingTest = props => (
     </Helmet>
 
     <div className="alt">
-      <div className="inner">
+      <div id="dmv-driving-test" className="inner">
         <header className="major">
           <h1>DMV Driving Theory Test</h1>
         </header>
@@ -73,7 +73,7 @@ const DrivingTest = props => (
         />
       </div>
 
-      <div className="inner">
+      <div className="inner" id="canadian-driving-test">
         <header className="major">
           <h1>Canadian Driving Test</h1>
         </header>
@@ -101,7 +101,7 @@ const DrivingTest = props => (
         />
       </div>
 
-      <div className="inner">
+      <div className="inner" id="icbc-driving-theory-test">
         <header className="major">
           <h1>ICBC Driving Theory Test</h1>
         </header>

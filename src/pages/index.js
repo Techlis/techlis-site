@@ -77,15 +77,15 @@ class HomeIndex extends React.Component {
               </header>
               <p>We design, develop amd deliver world class software and mobile apps for startups and enterprise companies. We make the magic happen while you take on the world.</p>
               <div className="grid-wrapper">
-                <div className="col-4">
+                <div className="col-3" style={{position: 'relative'}}>
                   <h4><u>We Design</u></h4>
-                  <img className="image fit" src={IMAGES.weDesign} alt="" />
+                  <img className="image fit" style={{position: 'absolute', bottom: '0px'}} src={IMAGES.weDesign} alt="" />
                 </div>
-                <div className="col-4">
+                <div className="col-6" style={{position: 'relative'}}>
                   <h4><u>We Develop</u></h4>
-                  <img className="image fit" src={IMAGES.weDevelop} alt="" />
+                  <img className="image fit" style={{position: 'absolute', bottom: '0px'}} src={IMAGES.weDevelop} alt="" />
                 </div>
-                <div className="col-4">
+                <div className="col-3">
                   <h4><u>We Deliver</u></h4>
                   <img className="image fit" src={IMAGES.weDeliver} alt="" />
                 </div>
