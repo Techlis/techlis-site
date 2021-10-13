@@ -1,4 +1,5 @@
 export const IMAGES = {
+  'nfb_film_app_thumb': require('../assets/images/thumbs/NFB_thumb.png'),
   'open_video_thumb': require('../assets/images/thumbs/OpenVideo.png'),
   'dmv_driving_thumb': require('../assets/images/thumbs/dmv_driving_thumb.png'),
   'canada_citizen_thumb': require('../assets/images/thumbs/canada-test.png'),

@@ -42,6 +42,16 @@ const Projects = props => (
       </section>
       <section className="spotlights">
         <ProjectSection
+          title='NFB Film App'
+          link='/projects/nfb-film-app/'
+          thumb={IMAGES.nfb_film_app_thumb}
+        >
+          <p>
+            NFB Film App is mobile application by National Film Board of Canada.
+            Great ways to enjoy thousands of NFB documentaries and animations for free on your Android & iOS devices.
+          </p>
+        </ProjectSection>
+        <ProjectSection
           title='Novie: The Movie Hub'
           link='/projects/novie/'
           thumb={IMAGES.novie_thumb_2}

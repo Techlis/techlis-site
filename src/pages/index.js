@@ -27,6 +27,13 @@ class HomeIndex extends React.Component {
 
         <div id="main">
           <section id="recent-work" className="tiles">
+            <article style={{backgroundImage: `url(${IMAGES.nfb_film_app_thumb})`}}>
+              <header className="major">
+                <h3>National Film Board of Canada - NFB Film App</h3>
+                <p>Great ways to enjoy thousands of NFB Canadian documentaries and animations for free on your Android & iOS devices.</p>
+              </header>
+              <Link to="/projects/nfb-film-app/" className="link primary"></Link>
+            </article>
             <article style={{backgroundImage: `url(${IMAGES.novie_thumb_2})`}}>
               <header className="major">
                 <h3>Novie: The Movie Hub</h3>
@@ -55,13 +62,13 @@ class HomeIndex extends React.Component {
               </header>
               <Link to="/projects/turn-off-tv/" className="link primary"></Link>
             </article>
-            <article style={{backgroundImage: `url(${IMAGES.family_channels_thumb})`}}>
+            {/* <article style={{backgroundImage: `url(${IMAGES.family_channels_thumb})`}}>
               <header className="major">
                 <h3>Family TV Channels</h3>
                 <p>A Safe environment for family to watch Youtube channels</p>
               </header>
               <Link to="/projects/family-channels/" className="link primary"></Link>
-            </article>
+            </article> */}
             <article style={{backgroundImage: `url(${IMAGES.catch_them_thumb})`}}>
               <header className="major">
                 <h3>Catch Them Game</h3>

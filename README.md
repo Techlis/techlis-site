@@ -34,4 +34,6 @@ Here is an example of using the grid, for a 3 column layout:
 ```
 
 ## Troubleshoot
-current working node version is v12.22.6, make sure rung nvm switch to correct version before `npm install`
+1. Current working node version is v12.22.6, make sure rung nvm switch to correct version before `npm install`
+- Make sure nvm is installed, cmd `nvm ls` or run `source ~/.nvm/nvm.sh`
+- Use `nvm use 12.22.6`
