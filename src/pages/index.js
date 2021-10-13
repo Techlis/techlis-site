@@ -4,11 +4,12 @@ import Helmet from 'react-helmet'
 import { Layout, Banner, AppStoreLink } from '../components'
 import { IMAGES } from '../constants';
 
-class HomeIndex extends React.Component {
+export default class HomeIndex extends React.Component {
   render() {
     // console.log('siteMetadata', this.props.data.site.siteMetadata)
     // const siteTitle = this.props.data.site.siteMetadata.title
     // const siteDescription = this.props.data.site.siteMetadata.description
+    const { edges: posts } = this.props.data.allMarkdownRemark
 
     return (
       <Layout>
@@ -100,7 +101,7 @@ class HomeIndex extends React.Component {
           <section id="explore-our-projects">
             <div className="inner">
               <header className="major">
-                <h2>Exploring...</h2>
+                <h2>Exploring</h2>
               </header>
               <p>Get to know us more from our App Stores</p>
               <ul className="actions">
@@ -115,11 +116,40 @@ class HomeIndex extends React.Component {
                 <ul className="actions">
                   <li><Link to="/projects" className="button next">Full Portfolio</Link></li>
                 </ul>
-                <ul></ul>
-                <ul className="actions">
-                  <li><Link to="/blogs" className="button next">Or Our Blogs</Link></li>
-                </ul>
               </div>
+            </div>
+          </section>
+          <section id="our-blogs">
+            <div className="inner">
+              <header className="major">
+                <h2>Our Blogs</h2>
+              </header>
+              <p>Get to know what is going on</p>
+              <div className="grid-wrapper">
+                {posts
+                .filter(post => post.node.frontmatter.title.length > 0).slice(0, 3)
+                .map(({ node: post }) => {
+                  return (
+                    <div className="col-4" key={post.id}>
+                      <h3 style={{ marginBottom: 0, color: '#006FC5' }}>
+                        <Link to={post.frontmatter.path}>
+                          {post.frontmatter.title}
+                        </Link>
+                      </h3>
+                      <h6 style={{ marginBottom: 15 }}>
+                        {post.frontmatter.date}
+                      </h6>
+                      <p style={{ paddingLeft: 25, paddingRight: 25 }}>
+                        {post.excerpt}
+                      </p>
+                      <hr />
+                    </div>
+                  )
+                })}
+              </div>
+              <ul className="actions">
+                <li><Link to="/blogs" className="button next">Full Blogs</Link></li>
+              </ul>
             </div>
           </section>
         </div>
@@ -128,4 +158,20 @@ class HomeIndex extends React.Component {
   }
 }
 
-export default HomeIndex
+export const pageQuery = graphql`
+  query HomeQuery {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          excerpt(pruneLength: 250)
+          id
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            path
+          }
+        }
+      }
+    }
+  }
+`
