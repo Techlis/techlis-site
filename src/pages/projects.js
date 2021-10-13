@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
-import Layout from '../components/layout'
-import BannerLanding from '../components/BannerLanding'
-import ProjectSection from '../components/ProjectSection'
+import { Layout, BannerLanding, ProjectSection } from '../components'
 import { IMAGES } from '../constants'
 
 const Projects = props => (

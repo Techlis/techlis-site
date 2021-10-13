@@ -1,8 +1,6 @@
 import React from 'react'
-// import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
-import Layout from '../../components/layout'
-import AppStoreLink from '../../components/AppStoreLink'
+import { Layout, AppStoreLink } from '../../components'
 import { IMAGES } from '../../constants'
 
 const CatchThem = props => (

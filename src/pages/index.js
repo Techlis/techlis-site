@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
-import Layout from '../components/layout'
-import Banner from '../components/Banner'
-import AppStoreLink from '../components/AppStoreLink';
+import { Layout, Banner, AppStoreLink } from '../components'
 import { IMAGES } from '../constants';
 
 class HomeIndex extends React.Component {
@@ -117,10 +115,10 @@ class HomeIndex extends React.Component {
                 <ul className="actions">
                   <li><Link to="/projects" className="button next">Full Portfolio</Link></li>
                 </ul>
-                {/* <ul></ul>
+                <ul></ul>
                 <ul className="actions">
                   <li><Link to="/blogs" className="button next">Or Our Blogs</Link></li>
-                </ul> */}
+                </ul>
               </div>
             </div>
           </section>
