@@ -3,11 +3,14 @@ import Helmet from 'react-helmet'
 import { Layout, AppStoreLink } from '../../components'
 import { IMAGES } from '../../constants'
 
-const Novie = props => (
+const NFBFilms = props => (
   <Layout>
     <Helmet>
       <title>NFB Film App</title>
-      <meta name="description" content="National Film Board of Canada Mobile Film App" />
+      <meta
+        name="description"
+        content="National Film Board of Canada Mobile Film App"
+      />
     </Helmet>
 
     <div className="alt">
@@ -15,27 +18,41 @@ const Novie = props => (
         <header className="major">
           <h1>NFB Film App</h1>
         </header>
-        <span className="image main"><img src={IMAGES.nfb_film_app_thumb} alt="" /></span>
+        <span className="image main">
+          <img src={IMAGES.nfb_film_app_thumb} alt="" />
+        </span>
         {/* <span className="image right">
           <img src={IMAGES.nfb_film_app_thumb} alt="" />
         </span> */}
         <p>
           NFB Film App is mobile application by National Film Board of Canada.
-          Great ways to enjoy thousands of NFB documentaries and animations for free on your Android & iOS devices.
+          Great ways to enjoy thousands of NFB documentaries and animations for
+          free on your Android & iOS devices.
         </p>
         <p>
-          NFB Film App helps you keep track of your favorite films. See what film is hot right now. Watch related videos.
+          NFB Film App helps you keep track of your favorite films. See what
+          film is hot right now. Watch related videos.
         </p>
         <p>The app is free to use! Main features include:</p>
         <ul>
-          <li>Discover hot topics, Now Playing, Update Coming, Top Rated films, Featured, Interactive, and Blogs.</li>
+          <li>
+            Discover hot topics, Now Playing, Update Coming, Top Rated films,
+            Featured, Interactive, and Blogs.
+          </li>
           <li>Get detailed information about Films, Cast and Crew.</li>
-          <li>Find similar films and films related to film or a certain actor.</li>
+          <li>
+            Find similar films and films related to film or a certain actor.
+          </li>
           <li>Download and watch films offline</li>
           <li>Chromecast and Airplay support</li>
           <li>Share using to social media</li>
-          <li>Keep track and notifications of social NFB events at your local</li>
-          <li>Get notifications and up-to-date with recent films, interactive projects, NFB blogs, and events</li>
+          <li>
+            Keep track and notifications of social NFB events at your local
+          </li>
+          <li>
+            Get notifications and up-to-date with recent films, interactive
+            projects, NFB blogs, and events
+          </li>
           <li>Bilingual, subtitles, and multiple video quality settings</li>
         </ul>
         <AppStoreLink
@@ -47,4 +64,4 @@ const Novie = props => (
   </Layout>
 )
 
-export default Novie
+export default NFBFilms

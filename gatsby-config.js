@@ -1,25 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: "Techlis System Inc.",
-    author: "Luan Nguyen",
-    description: "We build high quality mobile games and apps, with love"
+    title: 'Techlis System Inc.',
+    siteUrl: 'https://www.techlis.com',
+    author: 'Luan Nguyen',
+    description: 'We build high quality mobile games and apps, with love',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/posts`,
-        name: "posts",
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images`,
-      },
-    },
+    'gatsby-plugin-image',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-mdx',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-remark',
+    'gatsby-plugin-sass',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -32,8 +26,34 @@ module.exports = {
         icon: 'src/assets/images/website-icon.png', // This path is relative to the root of the site.
       },
     },
-    'gatsby-transformer-remark',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-offline'
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'G-KK4Q7Q9T95',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: './src/posts/',
+        name: 'posts',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: './src/assets/images/',
+      },
+      __key: 'images',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: './src/pages/',
+      },
+      __key: 'pages',
+    },
   ],
 }

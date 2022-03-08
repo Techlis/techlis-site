@@ -8,7 +8,7 @@ https://gatsby-forty.surge.sh
 ## Installation
 
 Install this starter (assuming Gatsby is installed) by running from your CLI:
-<br/>
+
 `gatsby new gatsby-starter-forty https://github.com/codebushi/gatsby-starter-forty`
 
 Run `gatsby develop` in the terminal to start the dev site.
@@ -19,7 +19,7 @@ The grid on this site was replaced with a custom version, built using CSS Grid. 
 
 Here is an example of using the grid, for a 3 column layout:
 
-```
+```html
 <div className="grid-wrapper">
     <div className="col-4">
         <p>Content Here</p>
@@ -34,6 +34,8 @@ Here is an example of using the grid, for a 3 column layout:
 ```
 
 ## Troubleshoot
-1. Current working node version is v12.22.6, make sure rung nvm switch to correct version before `npm install`
+
+1. Current working node version is v12.22.6, make sure run nvm switch to correct version before `npm install`
+
 - Make sure nvm is installed, cmd `nvm ls` or run `source ~/.nvm/nvm.sh`
 - Use `nvm use 12.22.6`
