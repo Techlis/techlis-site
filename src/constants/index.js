@@ -1,5 +1,3 @@
-import weDesign from '../assets/images/we-design.png'
-
 export const IMAGES = {
   nfb_film_app_thumb: require('../assets/images/thumbs/NFB_thumb.png'),
   open_video_thumb: require('../assets/images/thumbs/OpenVideo.png'),
@@ -7,9 +5,6 @@ export const IMAGES = {
   canada_citizen_thumb: require('../assets/images/thumbs/canada-test.png'),
   turn_off_tv_thumb: require('../assets/images/thumbs/turn_off_tv1.png'),
   catch_them_thumb: require('../assets/images/thumbs/CatchThem2.png'),
-  weDesign,
-  weDevelop: require('../assets/images/we-develop.png'),
-  weDeliver: require('../assets/images/we-deliver.png'),
   family_channels_thumb: require('../assets/images/thumbs/family_channels_thumb.png'),
   catch_them_icon: require('../assets/images/icons/catch-them.png'),
   dmv_driving_icon: require('../assets/images/icons/dmv_driving.png'),

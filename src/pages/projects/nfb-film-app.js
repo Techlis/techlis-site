@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Layout, AppStoreLink } from '../../components'
-import { IMAGES } from '../../constants'
 
 const NFBFilms = props => (
   <Layout>
@@ -19,7 +19,10 @@ const NFBFilms = props => (
           <h1>NFB Film App</h1>
         </header>
         <span className="image main">
-          <img src={IMAGES.nfb_film_app_thumb} alt="" />
+          <StaticImage
+            src={'../../assets/images/thumbs/NFB_thumb.png'}
+            alt=""
+          />
         </span>
         {/* <span className="image right">
           <img src={IMAGES.nfb_film_app_thumb} alt="" />

@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Layout, AppStoreLink } from '../../components'
-import { IMAGES } from '../../constants'
 
 const Clarity = props => (
   <Layout>
@@ -16,7 +16,7 @@ const Clarity = props => (
           <h1>Clarity - The App for Your Love Life</h1>
         </header>
         <span className="image main">
-          <img src={IMAGES.nfb_film_app_thumb} alt="" />
+          <StaticImage src={'../../assets/images/thumbs/clarity1.png'} alt="" />
         </span>
         {/* <span className="image right">
           <img src={IMAGES.nfb_film_app_thumb} alt="" />

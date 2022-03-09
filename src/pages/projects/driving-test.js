@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Layout, AppStoreLink } from '../../components'
-import { IMAGES } from '../../constants'
 
 const DrivingTest = props => (
   <Layout>
@@ -16,7 +16,10 @@ const DrivingTest = props => (
           <h1>DMV Driving Theory Test</h1>
         </header>
         <span className="image right">
-          <img src={IMAGES.dmv_driving_icon} alt="" />
+          <StaticImage
+            src={'../../assets/images/icons/dmv_driving.png'}
+            alt=""
+          />
         </span>
         <p>
           Rewrite using React Native to deploy faster to both Android and iOS.
@@ -76,7 +79,10 @@ const DrivingTest = props => (
           <h1>Canadian Driving Test</h1>
         </header>
         <span className="image right">
-          <img src={IMAGES.canadian_driving_icon} alt="" />
+          <StaticImage
+            src={'../../assets/images/icons/canadian_driving_icon.png'}
+            alt=""
+          />
         </span>
         <p>
           #1 largest knowledge test database for Canadian driver. Practice your

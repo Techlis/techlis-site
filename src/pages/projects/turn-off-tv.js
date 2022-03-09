@@ -1,8 +1,8 @@
 import React from 'react'
 // import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Layout, AppStoreLink } from '../../components'
-import { IMAGES } from '../../constants'
 
 const TurnOffTV = props => (
   <Layout>
@@ -17,7 +17,10 @@ const TurnOffTV = props => (
           <h1>Turn off the TV</h1>
         </header>
         <span className="image right">
-          <img src={IMAGES.turn_off_tv_icon} alt="" />
+          <StaticImage
+            src={'../../assets/images/icons/turn_off_tv_icon.png'}
+            alt=""
+          />
         </span>
         <p>
           The idea is to learn something meaning full than wasting time in front

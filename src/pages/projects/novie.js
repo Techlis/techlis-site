@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Layout, AppStoreLink } from '../../components'
-import { IMAGES } from '../../constants'
 
 const Novie = props => (
   <Layout>
@@ -17,7 +17,10 @@ const Novie = props => (
         </header>
         {/* <span className="image main"><img src={IMAGES.novie_full} alt="" /></span> */}
         <span className="image right">
-          <img src={IMAGES.novie_icon} alt="" />
+          <StaticImage
+            src={'../../assets/images/icons/novie_icon.png'}
+            alt=""
+          />
         </span>
         <p>
           Novie is the best way to manage movies you want to watch/watched and
@@ -56,7 +59,10 @@ const Novie = props => (
           <h1>Reddu: Watch Free Movie Online</h1>
         </header>
         <span className="image right">
-          <img src={IMAGES.reddu_icon} alt="" />
+          <StaticImage
+            src={'../../assets/images/icons/reddu_icon.png'}
+            alt=""
+          />
         </span>
         <p>
           Watch amazing movies for free. No subscription fees, and no credit

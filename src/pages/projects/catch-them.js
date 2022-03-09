@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Layout, AppStoreLink } from '../../components'
-import { IMAGES } from '../../constants'
 
 const CatchThem = props => (
   <Layout>
@@ -16,7 +16,10 @@ const CatchThem = props => (
           <h1>Catch Them! Catch Them All!</h1>
         </header>
         <span className="image main">
-          <img src={IMAGES.catch_them_thumb} alt="" />
+          <StaticImage
+            src={'../../assets/images/thumbs/CatchThem2.png'}
+            alt=""
+          />
         </span>
         <p>
           {/* <span className="image right"><img src={IMAGES.catch_them_icon} alt="" /></span> */}

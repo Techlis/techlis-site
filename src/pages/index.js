@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Layout, Banner, AppStoreLink } from '../components'
-import { IMAGES } from '../constants'
 
 export default class HomeIndex extends React.Component {
   render() {
@@ -33,10 +32,7 @@ export default class HomeIndex extends React.Component {
 
         <div id="main">
           <section id="recent-work" className="tiles">
-            <article
-              // style={{ backgroundImage: `url(${IMAGES.nfb_film_app_thumb})` }}
-              style={{ display: 'grid' }}
-            >
+            <article style={{ display: 'grid' }}>
               <StaticImage
                 style={{
                   gridArea: '1/1',
@@ -49,24 +45,47 @@ export default class HomeIndex extends React.Component {
                 // This is a presentational image, so the alt should be an empty string
                 alt=""
                 src={'../assets/images/thumbs/clarity1.png'}
+                formats={['auto', 'webp', 'avif']}
               />
-              <header className="major">
+              <header
+                className="major"
+                style={{
+                  // By using the same grid area for both, they are stacked on top of each other
+                  gridArea: '1/1',
+                  position: 'relative',
+                  // This centers the other elements inside the hero component
+                  placeItems: 'center',
+                  display: 'grid',
+                }}
+              >
                 <h3>Clarity - The App for Your Love Life</h3>
                 <p>
-                  Our mission is to help you thrive through happier and
-                  healthier relationships.
+                  Our mission is to help you thrive through happier
+                  <br /> and healthier relationships.
                 </p>
               </header>
               <Link to="/projects/clarity/" className="link primary"></Link>
             </article>
-            <article
-              style={{ backgroundImage: `url(${IMAGES.nfb_film_app_thumb})` }}
-            >
-              <header className="major">
+            <article style={{ display: 'grid' }}>
+              <StaticImage
+                style={{ gridArea: '1/1' }}
+                layout="fullWidth"
+                alt=""
+                src={'../assets/images/thumbs/NFB_thumb.png'}
+              />
+              <header
+                className="major"
+                style={{
+                  gridArea: '1/1',
+                  position: 'relative',
+                  placeItems: 'center',
+                  display: 'grid',
+                }}
+              >
                 <h3>National Film Board of Canada - NFB Film App</h3>
                 <p>
                   Great ways to enjoy thousands of NFB Canadian documentaries
-                  and animations for free on your Android & iOS devices.
+                  <br /> and animations for free on your Android & iOS devices.
                 </p>
               </header>
               <Link
@@ -74,22 +93,46 @@ export default class HomeIndex extends React.Component {
                 className="link primary"
               ></Link>
             </article>
-            <article
-              style={{ backgroundImage: `url(${IMAGES.novie_thumb_2})` }}
-            >
-              <header className="major">
+            <article style={{ display: 'grid' }}>
+              <StaticImage
+                style={{ gridArea: '1/1' }}
+                layout="fullWidth"
+                alt=""
+                src={'../assets/images/thumbs/novie_thumb_2_539.jpg'}
+              />
+              <header
+                className="major"
+                style={{
+                  gridArea: '1/1',
+                  position: 'relative',
+                  placeItems: 'center',
+                  display: 'grid',
+                }}
+              >
                 <h3>Novie: The Movie Hub</h3>
                 <p>
                   Getting movie information. Working on a Netflix-like
-                  application using React Native/Expo/Redux.
+                  <br /> application using React Native/Expo/Redux.
                 </p>
               </header>
               <Link to="/projects/novie/" className="link primary"></Link>
             </article>
-            <article
-              style={{ backgroundImage: `url(${IMAGES.dmv_driving_thumb})` }}
-            >
-              <header className="major">
+            <article style={{ display: 'grid' }}>
+              <StaticImage
+                style={{ gridArea: '1/1' }}
+                layout="fullWidth"
+                alt=""
+                src={'../assets/images/thumbs/dmv_driving_thumb.png'}
+              />
+              <header
+                className="major"
+                style={{
+                  gridArea: '1/1',
+                  position: 'relative',
+                  placeItems: 'center',
+                  display: 'grid',
+                }}
+              >
                 <h3>Driving License Knowledge Test</h3>
                 <p>
                   One app fits all to theory driving tests for US, Canada, UK
@@ -100,17 +143,26 @@ export default class HomeIndex extends React.Component {
                 className="link primary"
               ></Link>
             </article>
-            <article
-              style={{ backgroundImage: `url(${IMAGES.canada_citizen_thumb})` }}
-            >
-              <header className="major">
+            <article style={{ display: 'grid' }}>
+              <StaticImage
+                style={{ gridArea: '1/1' }}
+                layout="fullWidth"
+                alt=""
+                src={'../assets/images/thumbs/canada-test.png'}
+              />
+              <header
+                className="major"
+                style={{
+                  gridArea: '1/1',
+                  position: 'relative',
+                  placeItems: 'center',
+                  display: 'grid',
+                }}
+              >
                 <h3>Citizenship Test</h3>
                 <p>
-                  Rewrite a multiple choice test base application using React
-                  Native from my original native Android and native iOS (Swift)
-                  apps. The base code is highly scalable and reusable so that it
-                  can be used and extends to many multiple choice app such as
-                  Canadian/US/UK/Australia Citizenship Tests.
+                  Highly scalable and reusable multiple choice apps for
+                  <br /> Canadian/US/UK/Australia Citizenship Tests.
                 </p>
               </header>
               <Link
@@ -118,10 +170,22 @@ export default class HomeIndex extends React.Component {
                 className="link primary"
               ></Link>
             </article>
-            <article
-              style={{ backgroundImage: `url(${IMAGES.turn_off_tv_thumb})` }}
-            >
-              <header className="major">
+            <article style={{ display: 'grid' }}>
+              <StaticImage
+                style={{ gridArea: '1/1' }}
+                layout="fullWidth"
+                alt=""
+                src={'../assets/images/thumbs/turn_off_tv1.png'}
+              />
+              <header
+                className="major"
+                style={{
+                  gridArea: '1/1',
+                  position: 'relative',
+                  placeItems: 'center',
+                  display: 'grid',
+                }}
+              >
                 <h3>Turn Off the TV</h3>
                 <p>
                   Watch these useful videos instead of seating hours watch TV
@@ -129,12 +193,22 @@ export default class HomeIndex extends React.Component {
               </header>
               <Link to="/projects/turn-off-tv/" className="link primary"></Link>
             </article>
-            <article
-              style={{
-                backgroundImage: `url(${IMAGES.family_channels_thumb})`,
-              }}
-            >
-              <header className="major">
+            <article style={{ display: 'grid' }}>
+              <StaticImage
+                style={{ gridArea: '1/1' }}
+                layout="fullWidth"
+                alt=""
+                src={'../assets/images/thumbs/family_channels_thumb.png'}
+              />
+              <header
+                className="major"
+                style={{
+                  gridArea: '1/1',
+                  position: 'relative',
+                  placeItems: 'center',
+                  display: 'grid',
+                }}
+              >
                 <h3>Family TV Channels</h3>
                 <p>A Safe environment for family to watch Youtube channels</p>
               </header>
@@ -143,10 +217,22 @@ export default class HomeIndex extends React.Component {
                 className="link primary"
               ></Link>
             </article>
-            <article
-              style={{ backgroundImage: `url(${IMAGES.catch_them_thumb})` }}
-            >
-              <header className="major">
+            <article style={{ display: 'grid' }}>
+              <StaticImage
+                style={{ gridArea: '1/1' }}
+                layout="fullWidth"
+                alt=""
+                src={'../assets/images/thumbs/CatchThem2.png'}
+              />
+              <header
+                className="major"
+                style={{
+                  gridArea: '1/1',
+                  position: 'relative',
+                  placeItems: 'center',
+                  display: 'grid',
+                }}
+              >
                 <h3>Catch Them Game</h3>
                 <p>A mini game that was created using Unity</p>
               </header>
