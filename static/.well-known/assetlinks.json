@@ -1,9 +1,0 @@
-[{
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android",
-      "package_name": "com.techlis.allcitizenshiptestrn",
-      "sha256_cert_fingerprints":
-      ["17:8B:12:9D:D8:63:04:CA:69:4B:27:2D:BA:13:C0:99:7B:CF:8E:8E:EE:82:27:58:84:4B:91:11:61:0F:62:00"]
-    }
-  }]

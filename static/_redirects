@@ -1,2 +1,0 @@
-# Redirect default Netlify subdomain to primary domain
-http://techlis.netlify.com/* http://www.techlis.com/:splat 301!
