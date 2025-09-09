@@ -1,41 +1,69 @@
-# Techlis Site
+# React + TypeScript + Vite
 
-## Preview
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-using gatsby-starter-forty template
-https://gatsby-forty.surge.sh
+Currently, two official plugins are available:
 
-## Installation
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
+## Expanding the ESLint configuration
 
-`gatsby new gatsby-starter-forty https://github.com/codebushi/gatsby-starter-forty`
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-Run `gatsby develop` in the terminal to start the dev site.
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## CSS Grid
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-The grid on this site was replaced with a custom version, built using CSS Grid. It's a very simple 12 column grid that is disabled on mobile. To start using the grid, wrap the desired items with `grid-wrapper`. Items inside the `grid-wrapper` use the class `col-` followed by a number, which should add up to 12.
-
-Here is an example of using the grid, for a 3 column layout:
-
-```html
-<div className="grid-wrapper">
-    <div className="col-4">
-        <p>Content Here</p>
-    </div>
-    <div className="col-4">
-        <p>Content Here</p>
-    </div>
-    <div className="col-4">
-        <p>Content Here</p>
-    </div>
-</div>
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-## Troubleshoot
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-1. Current working node version is v12.22.6, make sure run nvm switch to correct version before `npm install`
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-- Make sure nvm is installed, cmd `nvm ls` or run `source ~/.nvm/nvm.sh`
-- Use `nvm use 12.22.6`
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
