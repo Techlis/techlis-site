@@ -6,7 +6,7 @@
 
 1. Connect GitHub repository to Netlify
 2. Build settings:
-   - Build command: `npm run build`
+   - Build command: `pnpm build`
    - Publish directory: `dist`
 3. Environment variables (if needed)
 4. Custom domain setup
@@ -14,7 +14,7 @@
 ### Manual Deployment
 
 ```bash
-npm run build
+pnpm build
 netlify deploy --prod --dir=dist
 ```
 

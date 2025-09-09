@@ -13,7 +13,7 @@
     "lint:fix": "eslint src --ext ts,tsx --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "type-check": "tsc --noEmit",
-    "build:analyze": "npm run build && npx vite-bundle-analyzer dist/assets/*.js"
+    "build:analyze": "pnpm build && pnpx vite-bundle-analyzer dist/assets/*.js"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",

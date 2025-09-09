@@ -3,23 +3,33 @@
 ## Prerequisites
 
 - Node.js 18+
-- npm 9+
+- pnpm 8+
 
 ## Environment Setup
 
 1. Clone repository
-2. Install dependencies: `npm install`
+2. Install dependencies: `pnpm install`
 3. Copy `.env.example` to `.env.local`
-4. Start development: `npm run dev`
+4. Start development: `pnpm dev`
 
 ## Available Scripts
 
-- `npm run dev` - Development server
-- `npm run build` - Production build
-- `npm run test` - Run tests
-- `npm run lint` - Code linting
-- `npm run format` - Format code
-- `npm run type-check` - TypeScript checking
+- `pnpm dev` - Development server
+- `pnpm build` - Production build
+- `pnpm test` - Run tests
+- `pnpm lint` - Code linting
+- `pnpm format` - Format code
+- `pnpm type-check` - TypeScript checking
+
+## Migrating from npm
+
+If you previously used npm, run:
+
+```bash
+pnpm install
+```
+
+This will migrate your project to pnpm and generate a `pnpm-lock.yaml`.
 
 ## Development Workflow
 

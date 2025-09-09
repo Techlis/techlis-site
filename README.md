@@ -19,10 +19,10 @@ The website is now complete with:
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm run dev
+pnpm dev
 
 # Open http://localhost:3000 in your browser
 ```
@@ -31,14 +31,26 @@ npm run dev
 
 ```bash
 # Build for production
-npm run build
+pnpm build
 
 # Preview production build
-npm run preview
+pnpm preview
 
 # Deploy to Netlify (after connecting repository)
 # The site will automatically deploy on push to main branch
 ```
+
+# Techlis now uses [pnpm](https://pnpm.io/) for package management.
+
+## Migrating from npm
+
+If you previously used npm, simply run:
+
+```bash
+pnpm install
+```
+
+This will generate a `pnpm-lock.yaml` and use pnpm for all future package management.
 
 ## 📋 Tech Stack
 
@@ -123,13 +135,13 @@ src/
 ## 📝 Available Scripts
 
 ```bash
-npm run dev          # Development server (http://localhost:3000)
-npm run build        # Production build
-npm run preview      # Preview production build
-npm run test         # Run tests with Vitest
-npm run lint         # ESLint code checking
-npm run format       # Prettier code formatting
-npm run type-check   # TypeScript validation
+pnpm dev          # Development server (http://localhost:3000)
+pnpm build        # Production build
+pnpm preview      # Preview production build
+pnpm test         # Run tests with Vitest
+pnpm lint         # ESLint code checking
+pnpm format       # Prettier code formatting
+pnpm type-check   # TypeScript validation
 ```
 
 ## 🎯 What's Included

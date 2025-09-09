@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [20.x, 22.x]
 
     steps:
       - name: Checkout code
@@ -22,26 +22,28 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: "pnpm"
 
+      - name: Install pnpm
+        run: npm install -g pnpm
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Run type checking
-        run: npm run type-check
+        run: pnpm type-check
 
       - name: Run linting
-        run: npm run lint
+        run: pnpm lint
 
       - name: Run tests
-        run: npm run test
+        run: pnpm test
 
       - name: Build project
-        run: npm run build
+        run: pnpm build
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
-        if: matrix.node-version == '18.x'
+        if: matrix.node-version == '22.x'
         with:
           name: build-files
           path: dist/
@@ -58,14 +60,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
-          cache: "npm"
+          node-version: "22.x"
+          cache: "pnpm"
 
+      - name: Install pnpm
+        run: npm install -g pnpm
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Build project
-        run: npm run build
+        run: pnpm build
 
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v10
@@ -86,14 +90,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
-          cache: "npm"
+          node-version: "22.x"
+          cache: "pnpm"
 
+      - name: Install pnpm
+        run: npm install -g pnpm
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Build project
-        run: npm run build
+        run: pnpm build
 
       - name: Deploy to Netlify
         uses: netlify/actions/cli@master
