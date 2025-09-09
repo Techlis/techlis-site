@@ -1,0 +1,27 @@
+{
+  "headline": "Transform Ideas Into AI-Powered Solutions",
+  "subheadline": "Enterprise software development, AI integration, and cloud solutions that scale with your business",
+  "cta_primary": "Start Your Project",
+  "cta_secondary": "Explore Services",
+  "services": [
+    "AI Development",
+    "Cloud Architecture",
+    "Mobile Applications",
+    "DevOps Automation",
+    "Technical Consulting"
+  ],
+  "stats": [
+    {
+      "value": "50+",
+      "label": "Projects Delivered"
+    },
+    {
+      "value": "98%",
+      "label": "Client Satisfaction"
+    },
+    {
+      "value": "24/7",
+      "label": "Support"
+    }
+  ]
+}

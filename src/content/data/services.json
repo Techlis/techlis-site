@@ -1,0 +1,139 @@
+[
+  {
+    "id": "ai-development",
+    "title": "AI & Machine Learning",
+    "icon": "Brain",
+    "description": "Enterprise-grade AI solutions that transform your business operations with intelligent automation, predictive analytics, and custom machine learning models.",
+    "features": [
+      "Custom AI Model Development",
+      "Natural Language Processing",
+      "Computer Vision Solutions",
+      "Predictive Analytics",
+      "AI Integration & Deployment",
+      "MLOps & Model Management"
+    ],
+    "technologies": [
+      "Python",
+      "TensorFlow",
+      "PyTorch",
+      "OpenAI GPT",
+      "Hugging Face",
+      "AWS SageMaker"
+    ],
+    "pricing": "Starting at $25,000"
+  },
+  {
+    "id": "cloud-architecture",
+    "title": "Cloud & DevOps",
+    "icon": "Cloud",
+    "description": "Scalable, secure cloud infrastructure and DevOps solutions that ensure your applications perform at enterprise scale with 99.9% uptime.",
+    "features": [
+      "Cloud Migration Strategy",
+      "Kubernetes Orchestration",
+      "CI/CD Pipeline Setup",
+      "Infrastructure as Code",
+      "Security & Compliance",
+      "Performance Monitoring"
+    ],
+    "technologies": [
+      "AWS",
+      "Azure",
+      "GCP",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Jenkins"
+    ],
+    "pricing": "Starting at $18,000"
+  },
+  {
+    "id": "web-development",
+    "title": "Web Applications",
+    "icon": "Globe",
+    "description": "High-performance web applications built with modern frameworks, optimized for speed, security, and scalability to handle millions of users.",
+    "features": [
+      "Full-Stack Development",
+      "Progressive Web Apps",
+      "API Development",
+      "Database Architecture",
+      "Performance Optimization",
+      "Security Implementation"
+    ],
+    "technologies": [
+      "React",
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Redis"
+    ],
+    "pricing": "Starting at $15,000"
+  },
+  {
+    "id": "mobile-development",
+    "title": "Mobile Applications",
+    "icon": "Smartphone",
+    "description": "Native and cross-platform mobile applications that deliver exceptional user experiences across iOS and Android platforms.",
+    "features": [
+      "Native iOS & Android",
+      "Cross-Platform Development",
+      "App Store Optimization",
+      "Push Notifications",
+      "Offline Functionality",
+      "Analytics Integration"
+    ],
+    "technologies": [
+      "React Native",
+      "Flutter",
+      "Swift",
+      "Kotlin",
+      "Firebase",
+      "App Store Connect"
+    ],
+    "pricing": "Starting at $22,000"
+  },
+  {
+    "id": "consulting",
+    "title": "Technology Consulting",
+    "icon": "Target",
+    "description": "Strategic technology consulting to help you make informed decisions about your tech stack, architecture, and digital transformation journey.",
+    "features": [
+      "Technology Assessment",
+      "Architecture Review",
+      "Digital Strategy",
+      "Team Augmentation",
+      "Code Audits",
+      "Performance Analysis"
+    ],
+    "technologies": [
+      "Various",
+      "Best Practices",
+      "Industry Standards",
+      "Security Frameworks"
+    ],
+    "pricing": "Starting at $5,000"
+  },
+  {
+    "id": "data-engineering",
+    "title": "Data Engineering",
+    "icon": "Database",
+    "description": "Build robust data pipelines and analytics platforms that turn your raw data into actionable business insights and competitive advantages.",
+    "features": [
+      "Data Pipeline Development",
+      "Real-time Analytics",
+      "Data Warehouse Design",
+      "ETL/ELT Processes",
+      "Business Intelligence",
+      "Data Governance"
+    ],
+    "technologies": [
+      "Apache Spark",
+      "Airflow",
+      "Snowflake",
+      "dbt",
+      "Tableau",
+      "Power BI"
+    ],
+    "pricing": "Starting at $20,000"
+  }
+]
