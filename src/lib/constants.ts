@@ -102,18 +102,18 @@ export const SERVICES = [
 
 // Technologies
 export const TECHNOLOGIES = [
-  { name: 'React', category: 'Frontend', icon: 'react.svg' },
-  { name: 'TypeScript', category: 'Language', icon: 'typescript.svg' },
-  { name: 'Node.js', category: 'Backend', icon: 'nodejs.svg' },
-  { name: 'Python', category: 'Language', icon: 'python.svg' },
-  { name: 'AWS', category: 'Cloud', icon: 'aws.svg' },
-  { name: 'Docker', category: 'DevOps', icon: 'docker.svg' },
-  { name: 'Kubernetes', category: 'DevOps', icon: 'kubernetes.svg' },
-  { name: 'TensorFlow', category: 'AI/ML', icon: 'tensorflow.svg' },
-  { name: 'PyTorch', category: 'AI/ML', icon: 'pytorch.svg' },
-  { name: 'OpenAI', category: 'AI/ML', icon: 'openai.svg' },
-  { name: 'PostgreSQL', category: 'Database', icon: 'postgresql.svg' },
-  { name: 'MongoDB', category: 'Database', icon: 'mongodb.svg' },
+  { name: 'React', category: 'Frontend', icon: 'react.svg', description: 'UI library', proficiency: 95 },
+  { name: 'TypeScript', category: 'Language', icon: 'typescript.svg', description: 'Type-safe JavaScript', proficiency: 90 },
+  { name: 'Node.js', category: 'Backend', icon: 'nodejs.svg', description: 'JavaScript runtime', proficiency: 92 },
+  { name: 'Python', category: 'Language', icon: 'python.svg', description: 'Versatile programming', proficiency: 88 },
+  { name: 'AWS', category: 'Cloud', icon: 'aws.svg', description: 'Cloud services', proficiency: 85 },
+  { name: 'Docker', category: 'DevOps', icon: 'docker.svg', description: 'Containerization', proficiency: 90 },
+  { name: 'Kubernetes', category: 'DevOps', icon: 'kubernetes.svg', description: 'Container orchestration', proficiency: 82 },
+  { name: 'TensorFlow', category: 'AI/ML', icon: 'tensorflow.svg', description: 'Machine learning', proficiency: 87 },
+  { name: 'PyTorch', category: 'AI/ML', icon: 'pytorch.svg', description: 'Deep learning', proficiency: 85 },
+  { name: 'OpenAI', category: 'AI/ML', icon: 'openai.svg', description: 'AI integration', proficiency: 93 },
+  { name: 'PostgreSQL', category: 'Database', icon: 'postgresql.svg', description: 'Relational database', proficiency: 88 },
+  { name: 'MongoDB', category: 'Database', icon: 'mongodb.svg', description: 'NoSQL database', proficiency: 86 },
 ] as const
 
 // Pricing tiers
