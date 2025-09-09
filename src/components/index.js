@@ -8,4 +8,14 @@ import Layout from './Layout'
 import Menu from './Menu'
 import ProjectSection from './ProjectSection'
 
-export { AppStoreLink, Banner, BannerLanding, Contact, Footer, Header, Layout, Menu, ProjectSection }
+export {
+  AppStoreLink,
+  Banner,
+  BannerLanding,
+  Contact,
+  Footer,
+  Header,
+  Layout,
+  Menu,
+  ProjectSection,
+}

@@ -11,11 +11,17 @@ export default class Blogs extends React.Component {
         <Helmet
           title="Techlis Systems Inc."
           meta={[
-            { name: 'description', content: "We build high quality mobile games and apps, with love" },
-            { name: 'keywords', content: 'software, web, mobile, development, consultant, consulting, contractor, techlis' },
+            {
+              name: 'description',
+              content: 'We build high quality mobile games and apps, with love',
+            },
+            {
+              name: 'keywords',
+              content:
+                'software, web, mobile, development, consultant, consulting, contractor, techlis',
+            },
           ]}
-        >
-        </Helmet>
+        ></Helmet>
 
         <div id="blogs">
           <section>

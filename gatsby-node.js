@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
- 
+
 exports.createPages = async ({ actions, graphql }) => {
   const result = await graphql(`
     query {
@@ -25,7 +25,7 @@ exports.createPages = async ({ actions, graphql }) => {
   result.data.allMarkdownRemark.edges.forEach(edge => {
     actions.createPage({
       path: edge.node.frontmatter.path,
-      component: require.resolve("./src/templates/blog-post.js")
+      component: require.resolve('./src/templates/blog-post.js'),
     })
   })
 }

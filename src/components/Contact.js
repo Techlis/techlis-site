@@ -1,13 +1,20 @@
 import React from 'react'
 
-const Contact = (props) => (
+const Contact = props => (
   <section id="contact">
     <div className="inner">
       <section>
-        <h3>Have a project in mind? <br/>Let's create something together.</h3>
+        <h3>
+          Have a project in mind? <br />
+          Let's create something together.
+        </h3>
         <p></p>
         <form action="https://formspree.io/contact@techlis.com" method="POST">
-          <input type="hidden" name="_subject" value="Contact from techlis.com" />
+          <input
+            type="hidden"
+            name="_subject"
+            value="Contact from techlis.com"
+          />
           <input type="hidden" name="_cc" value="jonnyn@live.com" />
           <div className="field half first">
             <label htmlFor="name">Name</label>
@@ -22,8 +29,12 @@ const Contact = (props) => (
             <textarea name="message" id="message" rows="6"></textarea>
           </div>
           <ul className="actions">
-            <li><input type="submit" value="Send Message" className="special" /></li>
-            <li><input type="reset" value="Clear" /></li>
+            <li>
+              <input type="submit" value="Send Message" className="special" />
+            </li>
+            <li>
+              <input type="reset" value="Clear" />
+            </li>
           </ul>
         </form>
       </section>
