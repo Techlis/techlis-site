@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, MessageCircle, Star, Sparkles } from "lucide-react"
 import { Button, Badge } from "@/components/ui"
 import type { JSX } from "react/jsx-runtime"
+import { TRUSTED_COMPANIES } from "@/lib/constants"
 
 export function CTA(): JSX.Element {
   const floatingElements = [
@@ -166,14 +167,14 @@ export function CTA(): JSX.Element {
 
             {/* Company Logos Placeholder */}
             <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
-              {[1, 2, 3, 4, 5].map((i) => (
+              {TRUSTED_COMPANIES.map((i) => (
                 <motion.div
-                  key={i}
+                  key={i.name}
                   whileHover={{ scale: 1.1, opacity: 0.8 }}
                   className="h-12 w-32 bg-white/20 rounded-lg backdrop-blur-sm flex items-center justify-center"
                 >
                   <div className="text-white/60 font-semibold text-sm">
-                    Company {i}
+                    {i.name}
                   </div>
                 </motion.div>
               ))}
