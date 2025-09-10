@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import type { JSX } from "react/jsx-runtime"
 
 export function Technologies(): JSX.Element {
   const technologies = [

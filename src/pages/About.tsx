@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { Button, Badge, AboutSectionSkeleton, useToast } from "@/components/ui"
 import {
   CompanyInfo,
-  FounderProfile,
+  // FounderProfile,
   TeamStructure,
 } from "@/components/sections"
 import { AboutErrorBoundary, SEOHead } from "@/components/common"
@@ -144,7 +144,7 @@ function About(): JSX.Element {
         </section>
 
         {/* Founder Profile */}
-        <section className="section-padding bg-gray-50">
+        {/* <section className="section-padding bg-gray-50">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -155,7 +155,7 @@ function About(): JSX.Element {
               <FounderProfile founder={COMPANY_DATA.founder} />
             </motion.div>
           </div>
-        </section>
+        </section> */}
 
         {/* Team Structure */}
         <section className="section-padding">

@@ -1,5 +1,6 @@
 import type { JSX } from "react"
 import { Link } from "react-router-dom"
+import { easeInOut, motion } from "framer-motion"
 import {
   Brain,
   Cloud,
@@ -21,7 +22,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { SERVICES } from "@/lib/constants"
-import { motion } from "framer-motion"
 
 const iconMap = {
   Brain,
@@ -51,7 +51,7 @@ export function Services(): JSX.Element {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: easeInOut,
       },
     },
   }
@@ -62,7 +62,7 @@ export function Services(): JSX.Element {
       scale: 1.02,
       transition: {
         duration: 0.3,
-        ease: "easeOut",
+        ease: easeInOut,
       },
     },
   }

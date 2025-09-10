@@ -1,6 +1,11 @@
 import { AlertTriangle, RefreshCw } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui"
 import { cn } from "@/lib/utils"
 import type { BlogError, BlogPost } from "@/types"
 

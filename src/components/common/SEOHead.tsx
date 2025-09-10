@@ -1,5 +1,4 @@
-import { useEffect } from "react"
-import type { JSX } from "react"
+import { useEffect, type JSX } from "react"
 import { updateDocumentSEO, type SEOData } from "@/lib/seo"
 
 interface SEOHeadProps {

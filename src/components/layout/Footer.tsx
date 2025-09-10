@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
-import { Brain, Twitter, Linkedin, Github, Mail } from "lucide-react";
-import { SITE_CONFIG, NAVIGATION_ITEMS } from "@/lib/constants";
+import { Link } from "react-router-dom"
+import { Brain, Twitter, Linkedin, Github, Mail } from "lucide-react"
+import { SITE_CONFIG, NAVIGATION_ITEMS } from "@/lib/constants"
+import type { JSX } from "react/jsx-runtime"
 
 export function Footer(): JSX.Element {
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -115,8 +116,8 @@ export function Footer(): JSX.Element {
             <h3 className="font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>hello@techlis.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li>San Francisco, CA</li>
+              {/* <li>+1 (555) 123-4567</li> */}
+              <li>Vancouver, BC</li>
               <li>
                 <Link
                   to="/contact"
@@ -150,5 +151,5 @@ export function Footer(): JSX.Element {
         </div>
       </div>
     </footer>
-  );
+  )
 }

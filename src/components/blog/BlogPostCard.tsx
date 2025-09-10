@@ -1,14 +1,14 @@
 import * as React from "react"
 import { ExternalLink, Calendar, Tag } from "lucide-react"
 import {
+  Badge,
+  Button,
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+} from "@/components/ui"
 import { cn } from "@/lib/utils"
 import { handleKeyboardNavigation } from "@/lib/accessibility"
 import type { BlogPost } from "@/types"
