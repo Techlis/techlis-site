@@ -15,7 +15,7 @@ import { SEOHead } from "@/components/common/SEOHead"
 import { generatePageSEO } from "@/lib/seo"
 import type { JSX } from "react/jsx-runtime"
 
-export function Contact(): JSX.Element {
+function Contact(): JSX.Element {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -293,3 +293,5 @@ export function Contact(): JSX.Element {
     </>
   )
 }
+export default Contact
+export { Contact }

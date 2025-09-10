@@ -7,7 +7,7 @@ import { SEOHead } from "@/components/common/SEOHead"
 import { generatePageSEO, generateWebsiteStructuredData } from "@/lib/seo"
 import type { JSX } from "react"
 
-export function Home(): JSX.Element {
+function Home(): JSX.Element {
   const seoData = {
     ...generatePageSEO("home"),
     structuredData: generateWebsiteStructuredData(),
@@ -24,3 +24,5 @@ export function Home(): JSX.Element {
     </>
   )
 }
+export default Home
+export { Home }

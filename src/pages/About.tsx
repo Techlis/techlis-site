@@ -13,7 +13,7 @@ import { AboutErrorBoundary, SEOHead } from "@/components/common"
 import { generatePageSEO } from "@/lib/seo"
 import { COMPANY_DATA } from "@/lib/constants"
 
-export function About(): JSX.Element {
+function About(): JSX.Element {
   const [isLoading, setIsLoading] = React.useState(true)
   const { success, error: showError } = useToast()
 
@@ -310,3 +310,5 @@ export function About(): JSX.Element {
     </AboutErrorBoundary>
   )
 }
+export default About
+export { About }

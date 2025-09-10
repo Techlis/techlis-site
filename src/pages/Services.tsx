@@ -9,7 +9,7 @@ import { generatePageSEO, generateServicesListStructuredData } from "@/lib/seo"
 import type { Service } from "@/types"
 import servicesData from "@/content/data/services.json"
 
-export function Services(): JSX.Element {
+function Services(): JSX.Element {
   const [services, setServices] = useState<Service[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -223,3 +223,5 @@ export function Services(): JSX.Element {
     </ServicesErrorBoundary>
   )
 }
+export default Services
+export { Services }

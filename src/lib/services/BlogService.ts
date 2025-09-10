@@ -12,6 +12,8 @@ import {
   getEnvironmentConfig,
   logger,
 } from "@/lib/config"
+import { persistentCache, type CacheOptions } from "./CacheService"
+import { performanceMonitor, measureAsyncPerformance } from "@/lib/performance"
 
 export class BlogService {
   private readonly RSS_FEEDS: RSSFeed[] = RSS_FEEDS
@@ -23,15 +25,36 @@ export class BlogService {
    * Fetch latest posts from all RSS feeds
    */
   async fetchLatestPosts(): Promise<BlogPost[]> {
+    return measureAsyncPerformance(
+      this._fetchLatestPosts.bind(this),
+      "BlogService.fetchLatestPosts"
+    )()
+  }
+
+  private async _fetchLatestPosts(): Promise<BlogPost[]> {
     try {
       logger.debug("Starting to fetch latest posts")
 
-      // Check cache first if caching is enabled
+      // Check enhanced cache first
+      const cacheKey = "blog_posts_latest"
+      const cachedPosts = persistentCache.get<BlogPost[]>(cacheKey)
+      if (cachedPosts) {
+        logger.debug("Returning cached posts from enhanced cache")
+        return cachedPosts.filter((post) => !post.isArchived)
+      }
+
+      // Fallback to legacy cache if enhanced cache misses
       if (this.blogConfig.cacheEnabled) {
         const cachedData = this.getCachedData()
         if (this.isCacheValid(cachedData)) {
-          logger.debug("Returning cached posts")
-          return cachedData.posts.filter((post) => !post.isArchived)
+          logger.debug("Returning cached posts from legacy cache")
+          const posts = cachedData.posts.filter((post) => !post.isArchived)
+          // Migrate to enhanced cache
+          persistentCache.set(cacheKey, posts, {
+            ttl: this.blogConfig.cacheDuration,
+            tags: ["blog", "posts"],
+          })
+          return posts
         }
       }
 
@@ -57,7 +80,25 @@ export class BlogService {
         `Fetched ${sortedPosts.length} relevant posts from ${this.RSS_FEEDS.length} feeds`
       )
 
-      // Cache the results if caching is enabled
+      // Cache the results in both enhanced and legacy cache
+      const cacheOptions: CacheOptions = {
+        ttl: this.blogConfig.cacheDuration,
+        tags: ["blog", "posts"],
+      }
+
+      persistentCache.set(cacheKey, sortedPosts, cacheOptions)
+
+      // Also cache by category for faster filtered access
+      const categories = Array.from(new Set(sortedPosts.map((p) => p.category)))
+      categories.forEach((category) => {
+        const categoryPosts = sortedPosts.filter((p) => p.category === category)
+        persistentCache.set(
+          `blog_posts_${category}`,
+          categoryPosts,
+          cacheOptions
+        )
+      })
+
       if (this.blogConfig.cacheEnabled) {
         this.cacheData({
           posts: sortedPosts,
@@ -70,10 +111,16 @@ export class BlogService {
     } catch (error) {
       logger.error("Error fetching latest posts:", error)
 
-      // Return cached data as fallback
+      // Return cached data as fallback (try enhanced cache first)
+      const fallbackPosts = persistentCache.get<BlogPost[]>(cacheKey)
+      if (fallbackPosts && fallbackPosts.length > 0) {
+        logger.info("Returning enhanced cached posts as fallback")
+        return fallbackPosts.filter((post) => !post.isArchived)
+      }
+
       const cachedData = this.getCachedData()
       if (cachedData.posts.length > 0) {
-        logger.info("Returning cached posts as fallback")
+        logger.info("Returning legacy cached posts as fallback")
         return cachedData.posts.filter((post) => !post.isArchived)
       }
 
@@ -88,6 +135,7 @@ export class BlogService {
    * Fetch posts from a single RSS feed with retry logic
    */
   private async fetchFromRSSFeedWithRetry(feed: RSSFeed): Promise<BlogPost[]> {
+    const start = performance.now()
     let lastError: Error | null = null
 
     for (
@@ -99,7 +147,10 @@ export class BlogService {
         logger.debug(
           `Fetching from ${feed.name} (attempt ${attempt}/${this.rss2jsonConfig.retryAttempts})`
         )
-        return await this.fetchFromRSSFeed(feed)
+        const result = await this.fetchFromRSSFeed(feed)
+        const end = performance.now()
+        performanceMonitor.recordApiResponseTime(end - start)
+        return result
       } catch (error) {
         lastError = error as Error
 
@@ -340,11 +391,28 @@ export class BlogService {
   }
 
   /**
-   * Get posts by category
+   * Get posts by category (with enhanced caching)
    */
   async getPostsByCategory(category: string): Promise<BlogPost[]> {
+    // Try category-specific cache first
+    const cacheKey = `blog_posts_${category}`
+    const cachedCategoryPosts = persistentCache.get<BlogPost[]>(cacheKey)
+    if (cachedCategoryPosts) {
+      logger.debug(`Returning cached posts for category: ${category}`)
+      return cachedCategoryPosts.filter((post) => !post.isArchived)
+    }
+
+    // Fallback to fetching all posts and filtering
     const allPosts = await this.fetchLatestPosts()
-    return allPosts.filter((post) => post.category === category)
+    const categoryPosts = allPosts.filter((post) => post.category === category)
+
+    // Cache the category-specific results
+    persistentCache.set(cacheKey, categoryPosts, {
+      ttl: this.blogConfig.cacheDuration,
+      tags: ["blog", "posts", category],
+    })
+
+    return categoryPosts
   }
 
   /**
@@ -373,11 +441,38 @@ export class BlogService {
    * Clear cache (useful for testing or manual refresh)
    */
   clearCache(): void {
+    // Clear enhanced cache
+    persistentCache.invalidateByTags(["blog", "posts"])
+
+    // Clear legacy cache
     try {
       localStorage.removeItem(this.blogConfig.storageKey)
       logger.debug("Blog cache cleared successfully")
     } catch (error) {
       logger.warn("Failed to clear blog cache:", error)
+    }
+  }
+
+  /**
+   * Get cache statistics
+   */
+  getCacheStats() {
+    return persistentCache.getStats()
+  }
+
+  /**
+   * Preload posts for better performance
+   */
+  async preloadPosts(): Promise<void> {
+    try {
+      // Preload in background without blocking
+      setTimeout(() => {
+        this.fetchLatestPosts().catch((error) => {
+          logger.warn("Failed to preload posts:", error)
+        })
+      }, 100)
+    } catch (error) {
+      logger.warn("Failed to initiate post preloading:", error)
     }
   }
 }

@@ -20,7 +20,7 @@ import type { BlogPost } from "@/types"
 
 const POSTS_PER_PAGE = 9
 
-export function Blog(): JSX.Element {
+function Blog(): JSX.Element {
   const [posts, setPosts] = React.useState<BlogPost[]>([])
   const [filteredPosts, setFilteredPosts] = React.useState<BlogPost[]>([])
   const [selectedCategory, setSelectedCategory] = React.useState<string>("all")
@@ -129,10 +129,12 @@ export function Blog(): JSX.Element {
     [blogService, handleError, clearError]
   )
 
-  // Initial load
+  // Initial load with preloading
   React.useEffect(() => {
+    // Preload posts in background
+    blogService.preloadPosts()
     loadPosts()
-  }, [loadPosts])
+  }, [loadPosts, blogService])
 
   // Auto-refresh every 30 minutes
   React.useEffect(() => {
@@ -324,3 +326,5 @@ export function Blog(): JSX.Element {
     </BlogErrorBoundary>
   )
 }
+export default Blog
+export { Blog }
