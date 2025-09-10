@@ -20,23 +20,21 @@ function About(): JSX.Element {
   const seoData = generatePageSEO("about")
 
   React.useEffect(() => {
-    // Simulate loading for company data
-    const loadCompanyData = async () => {
+    // Load company data immediately without unnecessary delay or toast
+    const loadCompanyData = () => {
       try {
         setIsLoading(true)
-        // Small delay to show loading state
-        await new Promise((resolve) => setTimeout(resolve, 500))
-        success("Company information loaded")
+        // Data is already available, no need for async loading
+        setIsLoading(false)
       } catch (err) {
         showError("Failed to load company information")
         console.error("Error loading company data:", err)
-      } finally {
         setIsLoading(false)
       }
     }
 
     loadCompanyData()
-  }, [success, showError])
+  }, [showError])
 
   const handleError = (error: Error, errorInfo: React.ErrorInfo) => {
     console.error("About page error:", error, errorInfo)

@@ -35,7 +35,7 @@ class MockPerformanceObserver {
   constructor(callback: (list: any) => void) {
     this.callback = callback
   }
-  callback: (list: unknown) => void
+  callback: (list: any) => void
   observe = vi.fn()
   disconnect = vi.fn()
 }

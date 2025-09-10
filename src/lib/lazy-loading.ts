@@ -4,7 +4,6 @@
  */
 
 import * as React from "react"
-import { performanceMonitor } from "@/lib/performance"
 import type { JSX } from "react"
 
 /**
@@ -300,50 +299,6 @@ export class ResourcePreloader {
   }
 
   /**
-   * Preload a script
-   */
-  preloadScript(src: string): Promise<void> {
-    if (this.preloadedResources.has(src)) {
-      return Promise.resolve()
-    }
-
-    return new Promise((resolve, reject) => {
-      const script = document.createElement("script")
-      script.onload = () => {
-        this.preloadedResources.add(src)
-        resolve()
-      }
-      script.onerror = reject
-      script.src = src
-      document.head.appendChild(script)
-    })
-  }
-
-  /**
-   * Preload CSS
-   */
-  preloadCSS(href: string): Promise<void> {
-    if (this.preloadedResources.has(href)) {
-      return Promise.resolve()
-    }
-
-    return new Promise((resolve, reject) => {
-      const link = document.createElement("link")
-      link.rel = "preload"
-      link.as = "style"
-      link.onload = () => {
-        this.preloadedResources.add(href)
-        // Convert to actual stylesheet
-        link.rel = "stylesheet"
-        resolve()
-      }
-      link.onerror = reject
-      link.href = href
-      document.head.appendChild(link)
-    })
-  }
-
-  /**
    * Check if resource is preloaded
    */
   isPreloaded(resource: string): boolean {
@@ -366,11 +321,10 @@ export const resourcePreloader = new ResourcePreloader()
 /**
  * Hook for preloading resources on component mount
  */
-export function usePreloadResources(resources: {
-  images?: string[]
-  scripts?: string[]
-  styles?: string[]
-}): { isLoading: boolean; error: Error | null } {
+export function usePreloadResources(resources: { images?: string[] }): {
+  isLoading: boolean
+  error: Error | null
+} {
   const [isLoading, setIsLoading] = React.useState(true)
   const [error, setError] = React.useState<Error | null>(null)
 
@@ -380,29 +334,9 @@ export function usePreloadResources(resources: {
         setIsLoading(true)
         setError(null)
 
-        const promises: Promise<void>[] = []
-
         if (resources.images) {
-          promises.push(resourcePreloader.preloadImages(resources.images))
+          await resourcePreloader.preloadImages(resources.images)
         }
-
-        if (resources.scripts) {
-          promises.push(
-            ...resources.scripts.map((src) =>
-              resourcePreloader.preloadScript(src)
-            )
-          )
-        }
-
-        if (resources.styles) {
-          promises.push(
-            ...resources.styles.map((href) =>
-              resourcePreloader.preloadCSS(href)
-            )
-          )
-        }
-
-        await Promise.all(promises)
       } catch (err) {
         setError(err as Error)
       } finally {

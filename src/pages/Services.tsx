@@ -28,14 +28,11 @@ function Services(): JSX.Element {
   }, [services])
 
   useEffect(() => {
-    // Simulate loading state for better UX
+    // Load services data immediately without unnecessary delay or toast
     const loadServices = async () => {
       try {
         setIsLoading(true)
-        // Small delay to show loading state
-        await new Promise((resolve) => setTimeout(resolve, 300))
         setServices(servicesData as Service[])
-        success("Services loaded successfully")
       } catch (err) {
         setError("Failed to load services. Please try again later.")
         showError("Failed to load services. Please try again later.")
@@ -46,7 +43,7 @@ function Services(): JSX.Element {
     }
 
     loadServices()
-  }, [])
+  }, [showError])
 
   const handleCTAClick = () => {
     // Analytics or other tracking can be added here
