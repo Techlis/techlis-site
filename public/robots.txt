@@ -1,4 +1,23 @@
+# Robots.txt for Techlis - AI Software Development Company
 User-agent: *
 Allow: /
 
+# Disallow admin or private areas (if any exist in the future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.well-known/
+
+# Allow all search engines to crawl the site
+Allow: /services
+Allow: /about
+Allow: /blog
+Allow: /contact
+
+# Crawl delay (optional - helps with server load)
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://techlis.com/sitemap.xml
+
+# Additional information
+# Host: https://techlis.com

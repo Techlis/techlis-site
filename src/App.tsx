@@ -1,25 +1,46 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Layout } from "@/components/layout/Layout"
-import { Home } from "@/pages/Home"
-import { About } from "@/pages/About"
-import { Services } from "@/pages/Services"
-import { Blog } from "@/pages/Blog"
-import { Contact } from "@/pages/Contact"
+import { ToastProvider } from "@/components/ui"
+import {
+  LazyHomeWrapper,
+  LazyAboutWrapper,
+  LazyServicesWrapper,
+  LazyBlogWrapper,
+  LazyContactWrapper,
+} from "@/components/lazy/LazyPages"
+import { usePerformanceDashboard } from "@/components/dev/usePerformanceDashboard"
+import { initPerformanceMonitoring } from "@/lib/performance"
+import { validateEnvironmentConfig } from "@/lib/config"
 import type { JSX } from "react"
 
+// Initialize performance monitoring
+initPerformanceMonitoring()
+
+// Validate environment configuration on app start
+try {
+  validateEnvironmentConfig()
+} catch (error) {
+  console.error("Environment configuration error:", error)
+}
+
 function App(): JSX.Element {
+  const { PerformanceDashboard } = usePerformanceDashboard()
+
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <ToastProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<LazyHomeWrapper />} />
+            <Route path="/about" element={<LazyAboutWrapper />} />
+            <Route path="/services" element={<LazyServicesWrapper />} />
+            <Route path="/blog" element={<LazyBlogWrapper />} />
+            <Route path="/contact" element={<LazyContactWrapper />} />
+          </Routes>
+        </Layout>
+        {PerformanceDashboard}
+      </Router>
+    </ToastProvider>
   )
 }
 

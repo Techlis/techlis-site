@@ -1,13 +1,17 @@
-import { Hero } from "@/components/sections/Hero"
-import { Services } from "@/components/sections/Services"
-import { About } from "@/components/sections/About"
-import { Technologies } from "@/components/sections/Technologies"
-import { CTA } from "@/components/sections/CTA"
+import { About, Hero, Services, Technologies, CTA } from "@/components/sections"
+import { SEOHead } from "@/components/common/SEOHead"
+import { generatePageSEO, generateWebsiteStructuredData } from "@/lib/seo"
 import type { JSX } from "react"
 
-export function Home(): JSX.Element {
+function Home(): JSX.Element {
+  const seoData = {
+    ...generatePageSEO("home"),
+    structuredData: generateWebsiteStructuredData(),
+  }
+
   return (
     <>
+      <SEOHead seoData={seoData} />
       <Hero />
       <Services />
       <About />
@@ -16,3 +20,5 @@ export function Home(): JSX.Element {
     </>
   )
 }
+export default Home
+export { Home }

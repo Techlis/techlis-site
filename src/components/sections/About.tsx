@@ -9,6 +9,7 @@ import {
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
+import type { JSX } from "react"
 
 export function About(): JSX.Element {
   const stats = [
@@ -151,7 +152,7 @@ export function About(): JSX.Element {
             {/* Features Grid */}
             <motion.div variants={itemVariants}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {features.map((feature, index) => (
+                {features.map((feature) => (
                   <motion.div
                     key={feature.text}
                     whileHover={{ x: 4, scale: 1.02 }}
