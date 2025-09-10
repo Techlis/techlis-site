@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
-import { ArrowRight, MessageCircle, Star, Sparkles } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
+import { ArrowRight, MessageCircle, Star, Sparkles } from "lucide-react"
+import { Button, Badge } from "@/components/ui"
+import type { JSX } from "react/jsx-runtime"
 
 export function CTA(): JSX.Element {
   const floatingElements = [
@@ -182,9 +182,9 @@ export function CTA(): JSX.Element {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
               {[
-                { value: "500+", label: "Projects" },
-                { value: "50+", label: "Clients" },
-                { value: "99%", label: "Satisfaction" },
+                { value: "100+", label: "Projects" },
+                { value: "30+", label: "Clients" },
+                { value: "98%", label: "Satisfaction" },
                 { value: "24/7", label: "Support" },
               ].map((stat, index) => (
                 <motion.div

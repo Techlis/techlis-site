@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, type JSX } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { Menu, X, Brain } from "lucide-react"
 import { Button } from "@/components/ui"

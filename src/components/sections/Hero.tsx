@@ -2,7 +2,8 @@ import { Link } from "react-router-dom"
 import { ArrowRight, Play, Sparkles, Zap, Shield, Award } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { motion } from "framer-motion"
+import { easeInOut, motion } from "framer-motion"
+import type { JSX } from "react/jsx-runtime"
 
 export function Hero(): JSX.Element {
   const containerVariants = {
@@ -23,7 +24,7 @@ export function Hero(): JSX.Element {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: easeInOut,
       },
     },
   }
@@ -35,7 +36,7 @@ export function Hero(): JSX.Element {
       transition: {
         duration: 6,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: easeInOut,
       },
     },
   }
@@ -189,8 +190,8 @@ export function Hero(): JSX.Element {
             <motion.div variants={itemVariants}>
               <div className="grid grid-cols-3 gap-8 pt-12 border-t border-gray-200/50">
                 {[
-                  { value: "150+", label: "Projects Delivered" },
-                  { value: "99%", label: "Client Satisfaction" },
+                  { value: "50+", label: "Projects Delivered" },
+                  { value: "98%", label: "Client Satisfaction" },
                   { value: "24/7", label: "Premium Support" },
                 ].map((stat, index) => (
                   <motion.div

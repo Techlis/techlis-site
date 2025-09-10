@@ -171,6 +171,9 @@ export function ServiceCard({
         <Button
           variant="outline"
           className="w-full touch-button group-hover:bg-primary-500 group-hover:text-white group-hover:border-primary-500 transition-all duration-300 text-sm"
+          onClick={() => {
+            window.location.href = `/contact?service=${service.id}`
+          }}
         >
           Learn More
           <ArrowRight className="size-3.5 sm:size-4 group-hover:translate-x-1 transition-transform duration-300" />

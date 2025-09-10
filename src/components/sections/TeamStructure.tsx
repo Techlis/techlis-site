@@ -119,7 +119,7 @@ export function TeamStructure({ teamInfo }: TeamStructureProps) {
             </div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-yellow-600">3</div>
+            <div className="text-3xl font-bold text-yellow-600">2</div>
             <div className="text-sm text-gray-600 font-medium">
               Global Locations
             </div>

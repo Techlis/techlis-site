@@ -41,16 +41,10 @@ export const TECHNOLOGIES = [
 // RSS Feed Configuration for Blog System
 export const RSS_FEEDS: RSSFeed[] = [
   {
-    url: "https://feeds.feedburner.com/oreilly/radar",
-    name: "O'Reilly Radar",
-    category: "software-dev" as const,
-    priority: 5,
-  },
-  {
     url: "https://machinelearningmastery.com/feed/",
     name: "Machine Learning Mastery",
     category: "ai-ml" as const,
-    priority: 4,
+    priority: 5,
   },
   {
     url: "https://aws.amazon.com/blogs/aws/feed/",
@@ -59,21 +53,27 @@ export const RSS_FEEDS: RSSFeed[] = [
     priority: 5,
   },
   {
-    url: "https://blog.google/technology/developers/rss/",
-    name: "Google Developers Blog",
-    category: "web-mobile" as const,
-    priority: 4,
-  },
-  {
     url: "https://dev.to/feed",
     name: "DEV Community",
     category: "software-dev" as const,
-    priority: 3,
+    priority: 4,
   },
   {
     url: "https://www.smashingmagazine.com/feed/",
     name: "Smashing Magazine",
     category: "web-mobile" as const,
+    priority: 4,
+  },
+  {
+    url: "https://feeds.feedburner.com/TechCrunch/",
+    name: "TechCrunch",
+    category: "software-dev" as const,
+    priority: 3,
+  },
+  {
+    url: "https://blog.openai.com/rss/",
+    name: "OpenAI Blog",
+    category: "ai-ml" as const,
     priority: 4,
   },
 ]
@@ -175,7 +175,7 @@ export const COMPANY_DATA: CompanyData = {
   },
   team: {
     onshoreTeam: {
-      size: 8,
+      size: 6,
       description:
         "Our onshore team consists of senior developers, AI specialists, and project managers based in major tech hubs.",
       expertise: [
@@ -200,5 +200,5 @@ export const COMPANY_DATA: CompanyData = {
     },
   },
   established: "2020",
-  locations: ["San Francisco, CA", "Austin, TX", "Ho Chi Minh City, Vietnam"],
+  locations: ["Vancouver (BC, Canada)", "Ho Chi Minh City (Vietnam)"],
 }

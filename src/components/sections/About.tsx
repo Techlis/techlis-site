@@ -8,26 +8,26 @@ import {
   Rocket,
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-import { motion } from "framer-motion"
+import { easeInOut, motion } from "framer-motion"
 import type { JSX } from "react"
 
 export function About(): JSX.Element {
   const stats = [
     {
       icon: Users,
-      value: "50+",
+      value: "20+",
       label: "Expert Developers",
       color: "from-blue-500 to-blue-600",
     },
     {
       icon: Award,
-      value: "200+",
+      value: "100+",
       label: "Projects Completed",
       color: "from-purple-500 to-purple-600",
     },
     {
       icon: CheckCircle,
-      value: "99%",
+      value: "98%",
       label: "Client Satisfaction",
       color: "from-green-500 to-green-600",
     },
@@ -86,7 +86,7 @@ export function About(): JSX.Element {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: easeInOut,
       },
     },
   }

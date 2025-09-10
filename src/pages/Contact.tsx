@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { motion } from "framer-motion"
+import { Mail, MapPin, Send } from "lucide-react"
 import {
   Input,
   Textarea,
@@ -10,18 +11,20 @@ import {
   LoadingButton,
   useToast,
 } from "@/components/ui"
-import { motion } from "framer-motion"
 import { SEOHead } from "@/components/common/SEOHead"
 import { generatePageSEO } from "@/lib/seo"
 import type { JSX } from "react/jsx-runtime"
 
 function Contact(): JSX.Element {
+  // Read service param from URL
+  const searchParams = new URLSearchParams(window.location.search)
+  const initialService = searchParams.get("service") || ""
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
     message: "",
-    service: "",
+    service: initialService,
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { success, error: showError } = useToast()
@@ -123,7 +126,7 @@ function Contact(): JSX.Element {
                       </div>
                     </div>
 
-                    <div className="flex items-start space-x-4">
+                    {/* <div className="flex items-start space-x-4">
                       <div className="p-3 bg-primary-100 rounded-lg">
                         <Phone className="h-6 w-6 text-primary-600" />
                       </div>
@@ -131,7 +134,7 @@ function Contact(): JSX.Element {
                         <h3 className="font-semibold">Phone</h3>
                         <p className="text-gray-600">+1 (555) 123-4567</p>
                       </div>
-                    </div>
+                    </div> */}
 
                     <div className="flex items-start space-x-4">
                       <div className="p-3 bg-primary-100 rounded-lg">
@@ -139,7 +142,7 @@ function Contact(): JSX.Element {
                       </div>
                       <div>
                         <h3 className="font-semibold">Location</h3>
-                        <p className="text-gray-600">San Francisco, CA</p>
+                        <p className="text-gray-600">Vancouver, BC</p>
                       </div>
                     </div>
                   </div>

@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
+import type { ReactNode, JSX } from "react"
+import { Header } from "./Header"
+import { Footer } from "./Footer"
 
 interface LayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export function Layout({ children }: LayoutProps): JSX.Element {
@@ -13,5 +13,5 @@ export function Layout({ children }: LayoutProps): JSX.Element {
       <main className="flex-1">{children}</main>
       <Footer />
     </div>
-  );
+  )
 }

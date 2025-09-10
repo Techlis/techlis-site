@@ -12,6 +12,8 @@ export const LazyAbout = lazyLoadComponent(() => import("@/pages/About"))
 export const LazyServices = lazyLoadComponent(() => import("@/pages/Services"))
 export const LazyBlog = lazyLoadComponent(() => import("@/pages/Blog"))
 export const LazyContact = lazyLoadComponent(() => import("@/pages/Contact"))
+export const LazyPrivacy = lazyLoadComponent(() => import("@/pages/Privacy"))
+export const LazyTerms = lazyLoadComponent(() => import("@/pages/Terms"))
 
 // Loading fallback component
 function PageLoadingFallback(): JSX.Element {
@@ -116,6 +118,28 @@ export function LazyContactWrapper(): JSX.Element {
       errorFallback={PageErrorFallback}
     >
       <LazyContact />
+    </LazyWrapper>
+  )
+}
+
+export function LazyPrivacyWrapper(): JSX.Element {
+  return (
+    <LazyWrapper
+      fallback={<PageLoadingFallback />}
+      errorFallback={PageErrorFallback}
+    >
+      <LazyPrivacy />
+    </LazyWrapper>
+  )
+}
+
+export function LazyTermsWrapper(): JSX.Element {
+  return (
+    <LazyWrapper
+      fallback={<PageLoadingFallback />}
+      errorFallback={PageErrorFallback}
+    >
+      <LazyTerms />
     </LazyWrapper>
   )
 }

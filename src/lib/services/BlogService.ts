@@ -9,7 +9,7 @@ import { RSS_FEEDS, CONTENT_KEYWORDS } from "@/lib/constants"
 import {
   getRSS2JSONConfig,
   getBlogConfig,
-  getEnvironmentConfig,
+  // getEnvironmentConfig,
   logger,
 } from "@/lib/config"
 import { persistentCache, type CacheOptions } from "./CacheService"
@@ -19,7 +19,7 @@ export class BlogService {
   private readonly RSS_FEEDS: RSSFeed[] = RSS_FEEDS
   private readonly rss2jsonConfig = getRSS2JSONConfig()
   private readonly blogConfig = getBlogConfig()
-  private readonly envConfig = getEnvironmentConfig()
+  // private readonly envConfig = getEnvironmentConfig()
 
   /**
    * Fetch latest posts from all RSS feeds
