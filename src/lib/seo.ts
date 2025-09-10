@@ -115,6 +115,42 @@ export const PAGE_SEO_CONFIG: Record<string, PageSEOConfig> = {
     ],
     path: "/contact",
   },
+  privacy: {
+    title: "Privacy Policy - Techlis AI Software Development",
+    description:
+      "Techlis privacy policy - Learn how we protect your personal information and comply with data protection laws including GDPR, CCPA, and PIPEDA.",
+    keywords: [
+      "privacy policy",
+      "data protection",
+      "GDPR compliance",
+      "CCPA compliance",
+      "PIPEDA compliance",
+      "personal information protection",
+      "mobile app privacy",
+      "data security",
+      "legal compliance",
+      "techlis privacy",
+    ],
+    path: "/privacy",
+  },
+  terms: {
+    title: "Terms of Service - Techlis AI Software Development",
+    description:
+      "Techlis terms of service - Complete terms governing use of our websites, mobile applications, and software development services.",
+    keywords: [
+      "terms of service",
+      "terms and conditions",
+      "software development terms",
+      "AI development terms",
+      "mobile app terms",
+      "App Store compliance",
+      "Google Play compliance",
+      "legal terms",
+      "service agreement",
+      "techlis terms",
+    ],
+    path: "/terms",
+  },
 }
 
 // Generate SEO data for a specific page

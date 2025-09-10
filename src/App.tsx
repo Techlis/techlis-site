@@ -7,6 +7,8 @@ import {
   LazyServicesWrapper,
   LazyBlogWrapper,
   LazyContactWrapper,
+  LazyPrivacyWrapper,
+  LazyTermsWrapper,
 } from "@/components/lazy/LazyPages"
 import { usePerformanceDashboard } from "@/components/dev/usePerformanceDashboard"
 import { initPerformanceMonitoring } from "@/lib/performance"
@@ -36,6 +38,8 @@ function App(): JSX.Element {
             <Route path="/services" element={<LazyServicesWrapper />} />
             <Route path="/blog" element={<LazyBlogWrapper />} />
             <Route path="/contact" element={<LazyContactWrapper />} />
+            <Route path="/privacy" element={<LazyPrivacyWrapper />} />
+            <Route path="/terms" element={<LazyTermsWrapper />} />
           </Routes>
         </Layout>
         {PerformanceDashboard}
