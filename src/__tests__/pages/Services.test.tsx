@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from "vitest"
 import { render, screen, waitFor } from "@testing-library/react"
 import { BrowserRouter } from "react-router-dom"
+import { ToastProvider } from "@/components/ui"
 import { Services } from "@/pages/Services"
 
 // Mock the services data
@@ -19,9 +20,11 @@ vi.mock("@/content/data/services.json", () => ({
 }))
 
 const ServicesWithRouter = () => (
-  <BrowserRouter>
-    <Services />
-  </BrowserRouter>
+  <ToastProvider>
+    <BrowserRouter>
+      <Services />
+    </BrowserRouter>
+  </ToastProvider>
 )
 
 describe("Services Page", () => {

@@ -19,13 +19,21 @@ export function ServicesGrid({ services }: ServicesGridProps): JSX.Element {
           // Large screens: maintain 3 columns with better spacing
           "xl:gap-10"
         )}
+        role="grid"
+        aria-label="Services grid"
       >
-        {services.map((service) => (
-          <ServiceCard
+        {services.map((service, index) => (
+          <div
             key={service.id}
-            service={service}
-            className="h-full" // Ensure cards stretch to equal height
-          />
+            role="gridcell"
+            aria-rowindex={Math.floor(index / 3) + 1}
+            aria-colindex={(index % 3) + 1}
+          >
+            <ServiceCard
+              service={service}
+              className="h-full" // Ensure cards stretch to equal height
+            />
+          </div>
         ))}
       </div>
 

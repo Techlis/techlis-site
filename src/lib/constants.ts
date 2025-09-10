@@ -78,7 +78,7 @@ export const RSS_FEEDS: RSSFeed[] = [
   },
 ]
 
-// RSS2JSON API Configuration
+// RSS2JSON API Configuration (use config.ts for environment-specific settings)
 export const RSS2JSON_CONFIG = {
   baseUrl: "https://api.rss2json.com/v1/api.json",
   apiKey: import.meta.env.VITE_RSS2JSON_API_KEY || "",
@@ -86,7 +86,7 @@ export const RSS2JSON_CONFIG = {
   timeout: 5000,
 }
 
-// Blog Content Management Configuration
+// Blog Content Management Configuration (use config.ts for environment-specific settings)
 export const BLOG_CONFIG = {
   CACHE_DURATION: 30 * 60 * 1000, // 30 minutes in milliseconds
   THREE_WEEKS_MS: 21 * 24 * 60 * 60 * 1000, // 3 weeks in milliseconds
