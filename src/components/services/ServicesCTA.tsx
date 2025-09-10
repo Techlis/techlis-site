@@ -4,7 +4,6 @@ import { ArrowRight, MessageCircle, Sparkles, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import type { ServicesCTAProps } from "@/types"
-import { cn } from "@/lib/utils"
 
 export function ServicesCTA({
   title,

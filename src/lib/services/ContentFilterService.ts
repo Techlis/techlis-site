@@ -55,16 +55,18 @@ export class ContentFilterService {
     const trendingThreshold =
       now - this.TRENDING_THRESHOLD_DAYS * 24 * 60 * 60 * 1000
 
+    type TrendingBlogPost = BlogPost & { trendingScore: number }
+
     return posts
       .filter((post) => {
         const postDate = new Date(post.pubDate).getTime()
         return postDate > trendingThreshold
       })
-      .map((post) => ({
+      .map((post): TrendingBlogPost => ({
         ...post,
         trendingScore: this.calculateTrendingScore(post),
       }))
-      .sort((a, b) => (b as any).trendingScore - (a as any).trendingScore)
+      .sort((a, b) => b.trendingScore - a.trendingScore)
       .slice(0, 10) // Top 10 trending posts
   }
 

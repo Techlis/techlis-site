@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import {
-  Button,
   Input,
   Textarea,
   Card,
@@ -274,7 +273,7 @@ export function Contact(): JSX.Element {
 
                       <LoadingButton
                         type="submit"
-                        size="lg"
+                        // size="lg"
                         className="w-full group"
                         isLoading={isSubmitting}
                         loadingText="Sending Message..."
