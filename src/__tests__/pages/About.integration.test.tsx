@@ -1,9 +1,9 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"
 import { render, screen, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
 import { BrowserRouter } from "react-router-dom"
 import { About } from "@/pages/About"
 import type { CompanyData } from "@/types"
+import React from "react"
 
 // Mock company data
 const mockCompanyData: CompanyData = {
@@ -79,25 +79,41 @@ vi.mock("@/components/ui", () => ({
     <div data-testid="about-section-skeleton">Loading about content...</div>
   ),
   useToast: () => mockToast,
-  Button: ({ children, ...props }: any) => (
-    <button {...props}>{children}</button>
+  Button: ({
+    children,
+    ...props
+  }: React.PropsWithChildren<
+    React.ButtonHTMLAttributes<HTMLButtonElement>
+  >) => <button {...props}>{children}</button>,
+  Badge: ({
+    children,
+    ...props
+  }: React.PropsWithChildren<React.HTMLAttributes<HTMLSpanElement>>) => (
+    <span {...props}>{children}</span>
   ),
-  Badge: ({ children, ...props }: any) => <span {...props}>{children}</span>,
 }))
 
 // Mock the error boundary
 vi.mock("@/components/common", () => ({
-  AboutErrorBoundary: ({ children }: any) => (
+  AboutErrorBoundary: ({ children }: React.PropsWithChildren<unknown>) => (
     <div data-testid="about-error-boundary">{children}</div>
   ),
-  SEOHead: ({ seoData }: any) => (
+  SEOHead: ({ seoData }: { seoData: { title: string } }) => (
     <div data-testid="seo-head" data-title={seoData.title} />
   ),
 }))
 
 // Mock the section components
 vi.mock("@/components/sections/CompanyInfo", () => ({
-  CompanyInfo: ({ mission, vision, values }: any) => (
+  CompanyInfo: ({
+    mission,
+    vision,
+    values,
+  }: {
+    mission: string
+    vision: string
+    values: string[]
+  }) => (
     <div data-testid="company-info">
       <div data-testid="mission">{mission}</div>
       <div data-testid="vision">{vision}</div>
@@ -112,8 +128,10 @@ vi.mock("@/components/sections/CompanyInfo", () => ({
   ),
 }))
 
+type Founder = CompanyData["founder"]
+
 vi.mock("@/components/sections/FounderProfile", () => ({
-  FounderProfile: ({ founder }: any) => (
+  FounderProfile: ({ founder }: { founder: Founder }) => (
     <div data-testid="founder-profile">
       <h3 data-testid="founder-name">{founder.name}</h3>
       <p data-testid="founder-title">{founder.title}</p>
@@ -123,7 +141,7 @@ vi.mock("@/components/sections/FounderProfile", () => ({
 }))
 
 vi.mock("@/components/sections/TeamStructure", () => ({
-  TeamStructure: ({ teamInfo }: any) => (
+  TeamStructure: ({ teamInfo }: { teamInfo: CompanyData["team"] }) => (
     <div data-testid="team-structure">
       <div data-testid="onshore-team">
         <span data-testid="onshore-size">{teamInfo.onshoreTeam.size}</span>
@@ -144,12 +162,17 @@ vi.mock("@/components/sections/TeamStructure", () => ({
 // Mock framer-motion
 vi.mock("framer-motion", () => ({
   motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    div: ({
+      children,
+      ...props
+    }: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => (
+      <div {...props}>{children}</div>
+    ),
   },
 }))
 
 // Mock console methods
-const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {})
+vi.spyOn(console, "error").mockImplementation(() => {})
 
 // Wrapper component for routing
 const AboutWrapper = () => (
@@ -331,7 +354,6 @@ describe("About Page Integration", () => {
 
   describe("User Interactions", () => {
     it("handles CTA button clicks", async () => {
-      const user = userEvent.setup()
       render(<AboutWrapper />)
 
       await waitFor(() => {
@@ -419,8 +441,7 @@ describe("About Page Integration", () => {
 
     it("displays error toast when loading fails", async () => {
       // Mock an error during loading
-      const originalUseEffect = React.useEffect
-      vi.spyOn(React, "useEffect").mockImplementationOnce((effect, deps) => {
+      vi.spyOn(React, "useEffect").mockImplementationOnce((effect) => {
         const cleanup = effect()
         // Simulate error
         mockToast.error("Failed to load company information")

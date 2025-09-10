@@ -16,8 +16,6 @@ interface ServicesErrorFallbackProps {
 }
 
 function ServicesErrorFallback({
-  error,
-  errorInfo,
   onRetry,
   onGoHome,
   className,

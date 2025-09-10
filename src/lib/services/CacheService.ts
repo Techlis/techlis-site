@@ -6,7 +6,7 @@
 import { performanceMonitor } from "@/lib/performance"
 import { logger } from "@/lib/config"
 
-export interface CacheEntry<T = any> {
+export interface CacheEntry<T = unknown> {
   data: T
   timestamp: number
   expiresAt: number
@@ -38,8 +38,8 @@ export interface CacheStats {
  * Advanced caching service with LRU eviction and performance monitoring
  */
 export class CacheService {
-  private cache = new Map<string, CacheEntry>()
-  private stats: CacheStats = {
+  protected cache = new Map<string, CacheEntry>()
+  protected stats: CacheStats = {
     hits: 0,
     misses: 0,
     hitRate: 0,
@@ -97,7 +97,7 @@ export class CacheService {
     performanceMonitor.recordCacheHit(0)
 
     logger.debug(`Cache hit for key: ${key}`)
-    return entry.data
+    return entry.data as T
   }
 
   /**
@@ -293,7 +293,7 @@ export class CacheService {
   /**
    * Calculate approximate size of data
    */
-  private calculateSize(data: any): number {
+  private calculateSize(data: unknown): number {
     try {
       return new Blob([JSON.stringify(data)]).size
     } catch {

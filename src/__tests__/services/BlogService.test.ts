@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"
 import { BlogService } from "@/lib/services/BlogService"
 import { BlogError } from "@/types"
-import type { RSS2JSONResponse, BlogPost, RSSFeed } from "@/types"
+import type { RSS2JSONResponse, RSSFeed } from "@/types"
 
 // Mock the config modules
 vi.mock("@/lib/config", () => ({
@@ -91,7 +91,7 @@ const mockRSSResponse: RSS2JSONResponse = {
       description:
         "This post discusses artificial intelligence and machine learning advances",
       content: "Full content here",
-      enclosure: null,
+      enclosure: {},
       categories: ["AI", "Technology"],
     },
     {
@@ -104,7 +104,7 @@ const mockRSSResponse: RSS2JSONResponse = {
       description:
         "This post covers programming and software development practices",
       content: "Full content here",
-      enclosure: null,
+      enclosure: {},
       categories: ["Programming", "Development"],
     },
   ],
@@ -479,7 +479,7 @@ describe("BlogService", () => {
       const posts = await blogService.fetchLatestPosts()
 
       expect(posts[0].description).toHaveLength(203) // 200 + "..."
-      expect(posts[0].description).toEndWith("...")
+      expect(posts[0].description).toMatch(/\.\.\.$/)
     })
 
     it("generates unique post IDs", async () => {

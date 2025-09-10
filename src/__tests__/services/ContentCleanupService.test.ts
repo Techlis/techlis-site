@@ -97,7 +97,7 @@ describe("ContentCleanupService", () => {
     })
 
     it("keeps recent posts active", async () => {
-      const result = await cleanupService.performCleanup()
+      await cleanupService.performCleanup()
 
       const savedData = JSON.parse(localStorageMock.setItem.mock.calls[0][1])
       const recentPost = savedData.posts.find(

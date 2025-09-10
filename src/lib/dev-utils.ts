@@ -68,7 +68,7 @@ export function logEnvironmentInfo(): void {
 export async function testAPIConfiguration(): Promise<{
   success: boolean
   message: string
-  details?: any
+  details?: unknown
 }> {
   if (getEnvironment() !== "development") {
     return {
@@ -184,9 +184,22 @@ export function exportConfiguration(): string {
   return JSON.stringify(config, null, 2)
 }
 
+// Extend the Window interface to include devUtils
+declare global {
+  interface Window {
+    devUtils: {
+      logEnvironmentInfo: typeof logEnvironmentInfo
+      testAPIConfiguration: typeof testAPIConfiguration
+      clearAllCaches: typeof clearAllCaches
+      exportConfiguration: typeof exportConfiguration
+      getConfigurationStatus: typeof getConfigurationStatus
+    }
+  }
+}
+
 // Make utilities available globally in development
 if (getEnvironment() === "development") {
-  ;(window as any).devUtils = {
+  window.devUtils = {
     logEnvironmentInfo,
     testAPIConfiguration,
     clearAllCaches,

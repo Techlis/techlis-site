@@ -1,9 +1,8 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"
-import { render, screen, waitFor, fireEvent } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { BrowserRouter } from "react-router-dom"
 import { Blog } from "@/pages/Blog"
-import { BlogService } from "@/lib/services/BlogService"
 import type { BlogPost } from "@/types"
 
 // Mock blog posts data
@@ -80,7 +79,13 @@ vi.mock("@/lib/seo", () => ({
 
 // Mock the blog components
 vi.mock("@/components/blog", () => ({
-  BlogPostCard: ({ post, onReadMore }: any) => (
+  BlogPostCard: ({
+    post,
+    onReadMore,
+  }: {
+    post: BlogPost
+    onReadMore: (post: BlogPost) => void
+  }) => (
     <div data-testid={`blog-post-${post.id}`} onClick={() => onReadMore(post)}>
       <h3>{post.title}</h3>
       <p>{post.description}</p>
@@ -94,7 +99,12 @@ vi.mock("@/components/blog", () => ({
     selectedCategory,
     onCategoryChange,
     postCounts,
-  }: any) => (
+  }: {
+    categories: string[]
+    selectedCategory: string
+    onCategoryChange: (category: string) => void
+    postCounts: { [key: string]: number }
+  }) => (
     <div data-testid="blog-filters">
       <button
         data-testid="filter-all"
@@ -115,7 +125,15 @@ vi.mock("@/components/blog", () => ({
       ))}
     </div>
   ),
-  BlogPagination: ({ currentPage, totalPages, onPageChange }: any) => (
+  BlogPagination: ({
+    currentPage,
+    totalPages,
+    onPageChange,
+  }: {
+    currentPage: number
+    totalPages: number
+    onPageChange: (page: number) => void
+  }) => (
     <div data-testid="blog-pagination">
       {Array.from({ length: totalPages }, (_, i) => (
         <button
@@ -129,7 +147,10 @@ vi.mock("@/components/blog", () => ({
       ))}
     </div>
   ),
-  BlogErrorBoundary: ({ children, onRetry }: any) => (
+  BlogErrorBoundary: ({
+    children,
+    onRetry,
+  }: React.PropsWithChildren<{ onRetry: () => void }>) => (
     <div data-testid="blog-error-boundary">
       {children}
       <button data-testid="error-retry" onClick={onRetry}>
@@ -149,7 +170,13 @@ vi.mock("@/components/blog", () => ({
   BlogLoadingSpinner: ({ message }: { message: string }) => (
     <div data-testid="blog-loading-spinner">{message}</div>
   ),
-  BlogRefreshButton: ({ onRefresh, isLoading }: any) => (
+  BlogRefreshButton: ({
+    onRefresh,
+    isLoading,
+  }: {
+    onRefresh: () => void
+    isLoading: boolean
+  }) => (
     <button
       data-testid="refresh-button"
       onClick={onRefresh}
@@ -167,7 +194,14 @@ vi.mock("@/components/blog", () => ({
 
 // Mock UI components
 vi.mock("@/components/ui/button", () => ({
-  Button: ({ children, onClick, ...props }: any) => (
+  Button: ({
+    children,
+    onClick,
+    ...props
+  }: React.PropsWithChildren<{
+    onClick?: React.MouseEventHandler<HTMLButtonElement>
+    [key: string]: unknown
+  }>) => (
     <button onClick={onClick} {...props}>
       {children}
     </button>
@@ -175,17 +209,27 @@ vi.mock("@/components/ui/button", () => ({
 }))
 
 vi.mock("@/components/ui/card", () => ({
-  Card: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-  CardContent: ({ children, ...props }: any) => (
+  Card: ({ children, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
     <div {...props}>{children}</div>
   ),
+  CardContent: ({
+    children,
+    ...props
+  }: React.HTMLAttributes<HTMLDivElement>) => <div {...props}>{children}</div>,
 }))
 
 // Mock SEOHead
 vi.mock("@/components/common/SEOHead", () => ({
-  SEOHead: ({ seoData }: any) => (
-    <div data-testid="seo-head" data-title={seoData.title} />
-  ),
+  SEOHead: ({
+    seoData,
+  }: {
+    seoData: {
+      title: string
+      description?: string
+      keywords?: string[]
+      structuredData?: object
+    }
+  }) => <div data-testid="seo-head" data-title={seoData.title} />,
 }))
 
 // Mock window.open

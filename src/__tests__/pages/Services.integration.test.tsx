@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"
-import { render, screen, waitFor, fireEvent } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { BrowserRouter } from "react-router-dom"
 import { Services } from "@/pages/Services"
@@ -88,12 +88,19 @@ vi.mock("@/components/ui", () => ({
 
 // Mock the error boundary
 vi.mock("@/components/common", () => ({
-  ServicesErrorBoundary: ({ children, fallbackServices }: any) => (
+  ServicesErrorBoundary: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="services-error-boundary">{children}</div>
   ),
-  SEOHead: ({ seoData }: any) => (
-    <div data-testid="seo-head" data-title={seoData.title} />
-  ),
+  SEOHead: ({
+    seoData,
+  }: {
+    seoData: {
+      title: string
+      description?: string
+      keywords?: string[]
+      structuredData?: object
+    }
+  }) => <div data-testid="seo-head" data-title={seoData.title} />,
 }))
 
 // Mock the services components
@@ -109,7 +116,17 @@ vi.mock("@/components/services", () => ({
       ))}
     </div>
   ),
-  ServicesCTA: ({ title, description, buttonText, onButtonClick }: any) => (
+  ServicesCTA: ({
+    title,
+    description,
+    buttonText,
+    onButtonClick,
+  }: {
+    title: string
+    description: string
+    buttonText: string
+    onButtonClick: () => void
+  }) => (
     <div data-testid="services-cta">
       <h3>{title}</h3>
       <p>{description}</p>
@@ -122,7 +139,6 @@ vi.mock("@/components/services", () => ({
 
 // Mock console methods
 const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {})
-const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {})
 
 // Wrapper component for routing
 const ServicesWrapper = () => (

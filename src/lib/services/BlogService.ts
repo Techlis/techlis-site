@@ -112,6 +112,7 @@ export class BlogService {
       logger.error("Error fetching latest posts:", error)
 
       // Return cached data as fallback (try enhanced cache first)
+      const cacheKey = "blog_posts_latest"
       const fallbackPosts = persistentCache.get<BlogPost[]>(cacheKey)
       if (fallbackPosts && fallbackPosts.length > 0) {
         logger.info("Returning enhanced cached posts as fallback")

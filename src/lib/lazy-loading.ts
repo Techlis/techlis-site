@@ -9,31 +9,31 @@ import type { JSX } from "react"
 /**
  * Lazy load a React component with loading and error states
  */
-export function lazyLoadComponent<T extends React.ComponentType<any>>(
-  importFn: () => Promise<{ default: T }>,
-  fallback?: React.ComponentType
+export function lazyLoadComponent<TProps, T extends React.ComponentType<TProps>>(
+  importFn: () => Promise<{ default: T }>
 ): React.LazyExoticComponent<T> {
-  const LazyComponent = React.lazy(async () => {
-    const start = performance.now()
+  const LazyComponent: React.LazyExoticComponent<T> = React.lazy(async () => {
+    const start = performance.now();
     try {
-      const module = await importFn()
-      const end = performance.now()
-      console.debug(`⚡ Lazy loaded component in ${(end - start).toFixed(2)}ms`)
-      return module
+      const module = await importFn();
+      const end = performance.now();
+      console.debug(`⚡ Lazy loaded component in ${(end - start).toFixed(2)}ms`);
+      return module;
     } catch (error) {
-      const end = performance.now()
+      const end = performance.now();
       console.error(
         `❌ Failed to lazy load component in ${(end - start).toFixed(2)}ms:`,
         error
-      )
-      throw error
+      );
+      throw error;
     }
-  })
+  });
 
   // Add display name for debugging
-  LazyComponent.displayName = `LazyComponent(${importFn.toString().slice(0, 50)}...)`
+  (LazyComponent as React.LazyExoticComponent<T> & { displayName?: string }).displayName =
+    `LazyComponent(${importFn.toString().slice(0, 50)}...)`;
 
-  return LazyComponent
+  return LazyComponent;
 }
 
 /**
@@ -98,7 +98,7 @@ export function LazyWrapper({
   return React.createElement(
     React.Suspense,
     { fallback: fallback || defaultFallback, key: retryCount },
-    React.createElement(ErrorBoundary, { onError: handleError }, children)
+    React.createElement(ErrorBoundary, { onError: handleError, children })
   )
 }
 
@@ -141,7 +141,7 @@ export function useIntersectionObserver(
   options: IntersectionObserverInit = {}
 ): [React.RefObject<HTMLElement>, boolean] {
   const [isIntersecting, setIsIntersecting] = React.useState(false)
-  const ref = React.useRef<HTMLElement>(null)
+  const ref = React.useRef<HTMLElement>(null) as React.RefObject<HTMLElement>
 
   React.useEffect(() => {
     const element = ref.current

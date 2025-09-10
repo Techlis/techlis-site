@@ -42,7 +42,7 @@ vi.mock("@/lib/performance", () => ({
   performanceMonitor: {
     recordApiResponseTime: vi.fn(),
   },
-  measureAsyncPerformance: (fn: Function) => fn,
+  measureAsyncPerformance: (fn: () => Promise<void>) => fn,
 }))
 
 // Mock services data

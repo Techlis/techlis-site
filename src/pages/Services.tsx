@@ -1,19 +1,18 @@
-import type { JSX } from "react"
 import React, { useState, useEffect } from "react"
 import { Sparkles, Target, Zap } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
-import { ServiceGridSkeleton, useToast } from "@/components/ui"
+import { Badge, ServiceGridSkeleton, useToast } from "@/components/ui"
 import { ServicesGrid, ServicesCTA } from "@/components/services"
 import { ServicesErrorBoundary, SEOHead } from "@/components/common"
 import { generatePageSEO, generateServicesListStructuredData } from "@/lib/seo"
 import type { Service } from "@/types"
+import type { JSX } from "react"
 import servicesData from "@/content/data/services.json"
 
 function Services(): JSX.Element {
   const [services, setServices] = useState<Service[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const { success, error: showError } = useToast()
+  const { error: showError } = useToast()
 
   // Generate SEO data with services structured data
   const seoData = React.useMemo(() => {

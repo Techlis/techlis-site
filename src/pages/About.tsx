@@ -1,21 +1,21 @@
 import * as React from "react"
-import type { JSX } from "react"
 import { Link } from "react-router-dom"
 import { ArrowRight, MessageCircle } from "lucide-react"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { AboutSectionSkeleton, useToast } from "@/components/ui"
-import { CompanyInfo } from "@/components/sections/CompanyInfo"
-import { FounderProfile } from "@/components/sections/FounderProfile"
-import { TeamStructure } from "@/components/sections/TeamStructure"
+import { Button, Badge, AboutSectionSkeleton, useToast } from "@/components/ui"
+import {
+  CompanyInfo,
+  FounderProfile,
+  TeamStructure,
+} from "@/components/sections"
 import { AboutErrorBoundary, SEOHead } from "@/components/common"
 import { generatePageSEO } from "@/lib/seo"
 import { COMPANY_DATA } from "@/lib/constants"
+import type { JSX } from "react"
 
 function About(): JSX.Element {
   const [isLoading, setIsLoading] = React.useState(true)
-  const { success, error: showError } = useToast()
+  const { error: showError } = useToast()
 
   const seoData = generatePageSEO("about")
 

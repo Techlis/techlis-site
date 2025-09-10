@@ -485,6 +485,8 @@ export function generateLocalBusinessStructuredData() {
     name: COMPANY_DATA.name,
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
+    logo: `${SITE_CONFIG.url}/logo.png`,
+    image: SITE_CONFIG.ogImage,
     telephone: "+1-555-123-4567",
     email: "hello@techlis.com",
     foundingDate: COMPANY_DATA.established,
@@ -492,6 +494,7 @@ export function generateLocalBusinessStructuredData() {
       "@type": "Person",
       name: COMPANY_DATA.founder.name,
       jobTitle: COMPANY_DATA.founder.title,
+      description: COMPANY_DATA.founder.bio,
     },
     address: COMPANY_DATA.locations.map((location) => {
       const [city, region] = location.split(", ")
@@ -502,6 +505,12 @@ export function generateLocalBusinessStructuredData() {
         addressCountry: location.includes("Vietnam") ? "VN" : "US",
       }
     }),
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+1-555-123-4567",
+      contactType: "customer service",
+      email: "hello@techlis.com",
+    },
     geo: [
       {
         "@type": "GeoCoordinates",
@@ -522,6 +531,11 @@ export function generateLocalBusinessStructuredData() {
       name: "United States",
     },
     areaServed: ["United States", "Global"],
+    sameAs: [
+      SITE_CONFIG.links.twitter,
+      SITE_CONFIG.links.linkedin,
+      SITE_CONFIG.links.github,
+    ],
     knowsAbout: [
       "Artificial Intelligence",
       "Machine Learning",
@@ -633,11 +647,23 @@ function updateStructuredData(data: object): void {
 }
 
 // Generate comprehensive structured data for a page
+type StructuredData =
+  | ReturnType<typeof generateOrganizationStructuredData>
+  | ReturnType<typeof generateWebsiteStructuredData>
+  | ReturnType<typeof generateLocalBusinessStructuredData>
+  | ReturnType<typeof generateServiceStructuredData>
+  | ReturnType<typeof generateBlogPostStructuredData>
+  | ReturnType<typeof generateBlogStructuredData>
+  | ReturnType<typeof generateServicesListStructuredData>
+  | ReturnType<typeof generateFAQStructuredData>
+  | ReturnType<typeof generateBreadcrumbStructuredData>
+  | object
+
 export function generatePageStructuredData(
   pageKey: keyof typeof PAGE_SEO_CONFIG,
-  additionalData?: object
+  additionalData?: StructuredData
 ): object {
-  const baseData = [
+  const baseData: StructuredData[] = [
     generateOrganizationStructuredData(),
     generateWebsiteStructuredData(),
   ]

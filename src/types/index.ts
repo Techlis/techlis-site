@@ -127,20 +127,25 @@ export interface RSS2JSONResponse {
     thumbnail: string
     description: string
     content: string
-    enclosure: any
+    enclosure: object
     categories: string[]
   }>
 }
 
 // Error Handling Types
 export class BlogError extends Error {
+  public code: "FETCH_ERROR" | "PARSE_ERROR" | "RATE_LIMIT" | "NETWORK_ERROR";
+  public source?: string;
+
   constructor(
     message: string,
-    public code: "FETCH_ERROR" | "PARSE_ERROR" | "RATE_LIMIT" | "NETWORK_ERROR",
-    public source?: string
+    code: "FETCH_ERROR" | "PARSE_ERROR" | "RATE_LIMIT" | "NETWORK_ERROR",
+    source?: string
   ) {
     super(message)
     this.name = "BlogError"
+    this.code = code
+    this.source = source
   }
 }
 

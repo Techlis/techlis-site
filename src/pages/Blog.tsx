@@ -1,5 +1,4 @@
 import * as React from "react"
-import type { JSX } from "react"
 import { BlogService } from "@/lib/services/BlogService"
 import {
   BlogPostCard,
@@ -11,11 +10,11 @@ import {
   BlogRefreshButton,
   useBlogErrorHandler,
 } from "@/components/blog"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button, Card, CardContent } from "@/components/ui"
 import { RefreshCw, Rss, TrendingUp } from "lucide-react"
 import { SEOHead } from "@/components/common/SEOHead"
 import { generatePageSEO, generateBlogStructuredData } from "@/lib/seo"
+import type { JSX } from "react"
 import type { BlogPost } from "@/types"
 
 const POSTS_PER_PAGE = 9

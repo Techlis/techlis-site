@@ -4,8 +4,8 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import { performanceMonitor, PerformanceMonitor } from "@/lib/performance"
-import { CacheService, persistentCache } from "@/lib/services/CacheService"
+import { PerformanceMonitor } from "@/lib/performance"
+import { CacheService } from "@/lib/services/CacheService"
 import { BlogService } from "@/lib/services/BlogService"
 
 // Mock localStorage
@@ -32,10 +32,10 @@ Object.defineProperty(window, "performance", {
 
 // Mock PerformanceObserver
 class MockPerformanceObserver {
-  constructor(callback: (list: any) => void) {
+  constructor(callback: (list: PerformanceObserverEntryList) => void) {
     this.callback = callback
   }
-  callback: (list: any) => void
+  callback: (list: PerformanceObserverEntryList) => void
   observe = vi.fn()
   disconnect = vi.fn()
 }

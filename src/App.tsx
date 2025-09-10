@@ -8,7 +8,7 @@ import {
   LazyBlogWrapper,
   LazyContactWrapper,
 } from "@/components/lazy/LazyPages"
-import { usePerformanceDashboard } from "@/components/dev/PerformanceDashboard"
+import { usePerformanceDashboard } from "@/components/dev/usePerformanceDashboard"
 import { initPerformanceMonitoring } from "@/lib/performance"
 import { validateEnvironmentConfig } from "@/lib/config"
 import type { JSX } from "react"

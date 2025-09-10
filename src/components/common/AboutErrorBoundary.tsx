@@ -16,8 +16,6 @@ interface AboutErrorFallbackProps {
 }
 
 function AboutErrorFallback({
-  error,
-  errorInfo,
   onRetry,
   onGoHome,
   className,

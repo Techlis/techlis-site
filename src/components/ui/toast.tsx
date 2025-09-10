@@ -29,6 +29,13 @@ export function ToastComponent({ toast, onClose }: ToastProps) {
     return () => clearTimeout(timer)
   }, [])
 
+  const handleClose = React.useCallback(() => {
+    setIsLeaving(true)
+    setTimeout(() => {
+      onClose(toast.id)
+    }, 300) // Match animation duration
+  }, [onClose, toast.id])
+
   React.useEffect(() => {
     if (toast.duration && toast.duration > 0) {
       const timer = setTimeout(() => {
@@ -36,14 +43,7 @@ export function ToastComponent({ toast, onClose }: ToastProps) {
       }, toast.duration)
       return () => clearTimeout(timer)
     }
-  }, [toast.duration])
-
-  const handleClose = () => {
-    setIsLeaving(true)
-    setTimeout(() => {
-      onClose(toast.id)
-    }, 300) // Match animation duration
-  }
+  }, [toast.duration, handleClose])
 
   const icons = {
     success: CheckCircle,
@@ -169,6 +169,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useToast() {
   const context = React.useContext(ToastContext)
   if (context === undefined) {

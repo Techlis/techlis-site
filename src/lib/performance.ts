@@ -70,16 +70,17 @@ export class PerformanceMonitor {
 
     // Cumulative Layout Shift (CLS)
     this.observePerformanceEntry("layout-shift", (entry) => {
-      if (!(entry as any).hadRecentInput) {
+      const layoutShiftEntry = entry as PerformanceEntry & { value: number; hadRecentInput: boolean }
+      if (!layoutShiftEntry.hadRecentInput) {
         this.metrics.cumulativeLayoutShift =
-          (this.metrics.cumulativeLayoutShift || 0) + (entry as any).value
+          (this.metrics.cumulativeLayoutShift || 0) + layoutShiftEntry.value
       }
     })
 
     // First Input Delay (FID)
     this.observePerformanceEntry("first-input", (entry) => {
       this.metrics.firstInputDelay =
-        (entry as any).processingStart - entry.startTime
+        (entry as PerformanceEventTiming).processingStart - entry.startTime
     })
   }
 
@@ -352,11 +353,11 @@ export function initPerformanceMonitoring(): void {
 /**
  * Performance measurement decorator for functions
  */
-export function measurePerformance<T extends (...args: any[]) => any>(
+export function measurePerformance<T extends (...args: unknown[]) => unknown>(
   fn: T,
   name: string
 ): T {
-  return ((...args: any[]) => {
+  return ((...args: Parameters<T>) => {
     const start = performance.now()
     const result = fn(...args)
 
@@ -377,9 +378,9 @@ export function measurePerformance<T extends (...args: any[]) => any>(
  * Async performance measurement decorator
  */
 export function measureAsyncPerformance<
-  T extends (...args: any[]) => Promise<any>,
+  T extends (...args: unknown[]) => Promise<unknown>,
 >(fn: T, name: string): T {
-  return (async (...args: any[]) => {
+  return (async (...args: unknown[]) => {
     const start = performance.now()
     try {
       const result = await fn(...args)

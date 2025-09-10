@@ -1,8 +1,8 @@
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
-import "./styles/globals.css"
-import App from "./App.tsx"
 import { initializeApp } from "@/lib/init"
+import App from "./App.tsx"
+import "./styles/globals.css"
 
 // Initialize application with environment validation
 try {

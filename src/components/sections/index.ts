@@ -1,0 +1,8 @@
+export { About } from "./About"
+export { CompanyInfo } from "./CompanyInfo"
+export { CTA } from "./CTA"
+export { FounderProfile } from "./FounderProfile"
+export { Hero } from "./Hero"
+export { Services } from "./Services"
+export { TeamStructure } from "./TeamStructure"
+export { Technologies } from "./Technologies"
