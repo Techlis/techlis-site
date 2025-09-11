@@ -30,3 +30,6 @@ dist-ssr
 .env*.preview
 .env*.production
 
+
+# Local Netlify folder
+.netlify

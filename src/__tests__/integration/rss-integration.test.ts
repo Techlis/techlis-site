@@ -142,7 +142,7 @@ const mockOReillySResponse: RSS2JSONResponse = {
       description:
         "How artificial intelligence is transforming software development practices and programming workflows",
       content: "Full content about AI in software development...",
-      enclosure: null,
+      enclosure: {},
       categories: ["AI", "Software Development", "Programming"],
     },
     {
@@ -155,7 +155,7 @@ const mockOReillySResponse: RSS2JSONResponse = {
       description:
         "A comprehensive comparison of React, Vue, and Angular for modern web development projects",
       content: "Full content about JavaScript frameworks...",
-      enclosure: null,
+      enclosure: {},
       categories: ["JavaScript", "Web Development", "Frameworks"],
     },
   ],
@@ -183,7 +183,7 @@ const mockMLMasteryResponse: RSS2JSONResponse = {
       description:
         "Learn how to apply deep learning techniques to natural language processing tasks using neural networks",
       content: "Full content about deep learning and NLP...",
-      enclosure: null,
+      enclosure: {},
       categories: ["Deep Learning", "NLP", "Neural Networks"],
     },
     {
@@ -195,7 +195,7 @@ const mockMLMasteryResponse: RSS2JSONResponse = {
       thumbnail: "",
       description: "How to cook the perfect pasta dish with tomato sauce",
       content: "Full content about cooking...",
-      enclosure: null,
+      enclosure: {},
       categories: ["Cooking", "Recipes"],
     },
   ],
@@ -222,7 +222,7 @@ const mockAWSResponse: RSS2JSONResponse = {
       description:
         "Announcing new Kubernetes features and improvements for Amazon EKS clusters and container orchestration",
       content: "Full content about Kubernetes on AWS...",
-      enclosure: null,
+      enclosure: {},
       categories: ["Kubernetes", "EKS", "Containers"],
     },
   ],
@@ -644,6 +644,7 @@ describe("RSS Feed Integration", () => {
         expect(mockFetch).toHaveBeenCalled()
         expect(posts.length).toBeGreaterThanOrEqual(0)
       } catch (error) {
+				console.log("TCL: error", error)
         // Even if it fails, fetch should have been called
         expect(mockFetch).toHaveBeenCalled()
       }
@@ -676,9 +677,9 @@ describe("RSS Feed Integration", () => {
 
       try {
         await blogService.fetchLatestPosts()
-      } catch (error) {
+      } catch {
         // Should throw error but we can test fallback separately
-        expect(error).toBeDefined()
+        // No need to use the error variable
       }
 
       // Test cached posts retrieval

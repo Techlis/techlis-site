@@ -1,6 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"
 import { BlogService } from "@/lib/services/BlogService"
-import { BlogError } from "@/types"
 import type { RSS2JSONResponse, RSSFeed } from "@/types"
 
 // Mock the config modules
