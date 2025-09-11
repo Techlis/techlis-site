@@ -210,14 +210,12 @@ describe("Responsive Design Integration", () => {
     expect(hiddenElements.length).toBeGreaterThan(0)
   })
 
-  it.skip("has proper mobile padding classes", async () => {
+  it("has proper mobile padding classes", async () => {
     render(<App />)
 
-    await waitFor(() => {
-      // Check for mobile padding classes
-      const mobilePaddingElements = document.querySelectorAll(
-        "[class*='mobile-padding']"
-      )
+    await waitFor(async () => {
+      const mobilePaddingElements =
+        await screen.findAllByTestId("mobile-padding")
       expect(mobilePaddingElements.length).toBeGreaterThan(0)
     })
   })

@@ -449,7 +449,7 @@ describe("RSS Feed Integration", () => {
       localStorageMock.removeItem.mockImplementation(() => {})
     })
 
-    it.skip("cleans HTML tags from descriptions", async () => {
+    it("cleans HTML tags from descriptions", async () => {
       const htmlResponse = {
         ...mockOReillySResponse,
         items: [
@@ -487,7 +487,7 @@ describe("RSS Feed Integration", () => {
       expect(htmlPost?.description).toBe("This has HTML tags & entities with programming content")
     })
 
-    it.skip("truncates long descriptions", async () => {
+    it("truncates long descriptions", async () => {
       const longDescription = "A".repeat(300) + " programming content for software development with advanced techniques and best practices for modern applications"
       console.log("Long description length:", longDescription.length)
       const longDescResponse = {
@@ -536,7 +536,7 @@ describe("RSS Feed Integration", () => {
       expect(longDescPost?.description).toMatch(/\.\.\.$/)
     }, 10000) // 10 second timeout
 
-    it.skip("generates unique IDs for posts", async () => {
+    it("generates unique IDs for posts", async () => {
       // Mock all three RSS feeds
       mockFetch.mockReset()
       mockFetch
@@ -681,7 +681,7 @@ describe("RSS Feed Integration", () => {
       localStorageMock.removeItem.mockImplementation(() => {})
     })
 
-    it.skip("handles partial feed failures gracefully", async () => {
+    it("handles partial feed failures gracefully", async () => {
       // First feed fails, second succeeds, third fails
       mockFetch
         .mockImplementationOnce(() => Promise.reject(new Error("Network error")))
@@ -699,7 +699,7 @@ describe("RSS Feed Integration", () => {
       )
     })
 
-    it.skip("retries failed feeds with exponential backoff", async () => {
+    it("retries failed feeds with exponential backoff", async () => {
       // Mock first two attempts to fail, third to succeed
       mockFetch
         .mockRejectedValueOnce(new Error("Network error"))

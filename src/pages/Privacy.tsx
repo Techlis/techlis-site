@@ -16,7 +16,7 @@ function Privacy(): JSX.Element {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-purple-50">
-          <div className="container mobile-padding">
+          <div data-testid="mobile-padding" className="container mobile-padding">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ function Privacy(): JSX.Element {
 
         {/* Policy Content */}
         <section className="section-padding">
-          <div className="container mobile-padding">
+          <div data-testid="mobile-padding" className="container mobile-padding">
             <div className="max-w-3xl mx-auto space-y-12">
               {/* Last Updated */}
               <motion.div
