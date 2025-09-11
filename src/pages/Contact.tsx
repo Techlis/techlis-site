@@ -31,45 +31,43 @@ function Contact(): JSX.Element {
 
   const seoData = generatePageSEO("contact")
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
     const myForm = e.target as HTMLFormElement
     const netlifyFormData = new FormData(myForm)
 
-    try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(
-          Array.from(netlifyFormData.entries()) as [string, string][]
-        ).toString(),
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      // body: new URLSearchParams(
+      //   Array.from(netlifyFormData.entries()) as [string, string][]
+      // ).toString(),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      body: new URLSearchParams(netlifyFormData as any).toString(),
+    })
+      .then(() => {
+        success(
+          "Message sent successfully! We'll get back to you within 24 hours.",
+          { duration: 6000 }
+        )
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          message: "",
+          service: "",
+        })
       })
-
-      success(
-        "Message sent successfully! We'll get back to you within 24 hours.",
-        {
-          duration: 6000,
-        }
-      )
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        message: "",
-        service: "",
+      .catch((error) => {
+        showError(
+          "Failed to send message. Please try again or contact us directly."
+        )
+        console.error("Form submission error:", error)
       })
-    } catch (err) {
-      showError(
-        "Failed to send message. Please try again or contact us directly."
-      )
-      console.error("Form submission error:", err)
-    } finally {
-      setIsSubmitting(false)
-    }
+    setIsSubmitting(false)
   }
 
   const handleChange = (
@@ -192,6 +190,7 @@ function Contact(): JSX.Element {
                           </label>
                           <Input
                             id="name"
+                            type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
