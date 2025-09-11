@@ -35,12 +35,17 @@ function Contact(): JSX.Element {
     e.preventDefault()
     setIsSubmitting(true)
 
-    try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+    const myForm = e.target as HTMLFormElement
+    const netlifyFormData = new FormData(myForm)
 
-      // Handle form submission here
-      console.log("Form submitted:", formData)
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(
+          Array.from(netlifyFormData.entries()) as [string, string][]
+        ).toString(),
+      })
 
       success(
         "Message sent successfully! We'll get back to you within 24 hours.",
@@ -169,7 +174,14 @@ function Contact(): JSX.Element {
                     <CardTitle>Send us a message</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form
+                      name="contact"
+                      method="POST"
+                      data-netlify="true"
+                      onSubmit={handleSubmit}
+                      className="space-y-6"
+                    >
+                      <input type="hidden" name="form-name" value="contact" />
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <label

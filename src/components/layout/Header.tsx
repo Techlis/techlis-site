@@ -67,7 +67,7 @@ export function Header(): JSX.Element {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden border-t bg-white dark:bg-gray-900">
-          <nav className="container mobile-padding py-4 space-y-3">
+          <nav data-testid="mobile-padding" className="container mobile-padding py-4 space-y-3">
             {NAVIGATION_ITEMS.map((item) => (
               <Link
                 key={item.name}

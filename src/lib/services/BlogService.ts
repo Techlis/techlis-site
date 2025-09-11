@@ -377,7 +377,7 @@ export class BlogService {
    */
   private cleanDescription(description: string): string {
     // Remove HTML tags
-    const cleaned = description.replace(/<[^>]*>/g, "")
+    const cleaned = description.replace(/(<([^>]+)>)/gi, "");
 
     // Decode HTML entities
     const decoded = cleaned
@@ -386,6 +386,7 @@ export class BlogService {
       .replace(/&gt;/g, ">")
       .replace(/&quot;/g, '"')
       .replace(/&#39;/g, "'")
+      .replace(/&nbsp;/g, " ")
 
     // Truncate to reasonable length
     return decoded.length > 200 ? decoded.slice(0, 200) + "..." : decoded

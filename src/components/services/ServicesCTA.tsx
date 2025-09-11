@@ -1,8 +1,10 @@
 import type { JSX } from "react"
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
 import { ArrowRight, MessageCircle, Sparkles, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { TRUSTED_COMPANIES } from "@/lib/constants"
 import type { ServicesCTAProps } from "@/types"
 
 export function ServicesCTA({
@@ -101,12 +103,16 @@ export function ServicesCTA({
               Trusted by innovative companies worldwide
             </p>
             <div className="flex justify-center items-center gap-8 opacity-60">
-              {/* Placeholder for company logos */}
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="w-24 h-8 bg-white/20 rounded backdrop-blur-sm"
-                />
+              {TRUSTED_COMPANIES.map((i) => (
+                <motion.div
+                  key={i.name}
+                  whileHover={{ scale: 1.1, opacity: 0.8 }}
+                  className="h-12 w-32 bg-white/20 rounded-lg backdrop-blur-sm flex items-center justify-center"
+                >
+                  <div className="text-white/60 font-semibold text-sm">
+                    {i.name}
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>

@@ -202,3 +202,26 @@ export const COMPANY_DATA: CompanyData = {
   established: "2020",
   locations: ["Vancouver (BC, Canada)", "Ho Chi Minh City (Vietnam)"],
 }
+
+export const TRUSTED_COMPANIES = [
+  {
+    name: "MaisieBeauty",
+    logo: "/images/companies/maisiebeauty.png",
+  },
+  {
+    name: "Clarity",
+    logo: "/images/companies/clarity.png",
+  },
+  {
+    name: "Tipbox",
+    logo: "/images/companies/tipbox.png",
+  },
+  {
+    name: "NFB",
+    logo: "/images/companies/nfb.png",
+  },
+  {
+    name: "PocPix",
+    logo: "/images/companies/pocpix.png",
+  }
+]

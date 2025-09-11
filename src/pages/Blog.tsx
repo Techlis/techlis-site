@@ -133,7 +133,7 @@ function Blog(): JSX.Element {
     // Preload posts in background
     blogService.preloadPosts()
     loadPosts()
-  }, [loadPosts, blogService])
+  }, [])
 
   // Auto-refresh every 30 minutes
   React.useEffect(() => {
@@ -173,7 +173,7 @@ function Blog(): JSX.Element {
 
   if (isLoading) {
     return (
-      <div className="container section-padding mobile-padding">
+      <div data-testid="mobile-padding" className="container section-padding mobile-padding">
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 px-2">
             Tech Insights & Articles
@@ -192,7 +192,7 @@ function Blog(): JSX.Element {
   return (
     <BlogErrorBoundary onRetry={handleRetry} fallbackContent={posts}>
       <SEOHead seoData={seoData} />
-      <div className="container section-padding mobile-padding">
+      <div data-testid="mobile-padding" className="container section-padding mobile-padding">
         {/* Header */}
         <header className="text-center mb-8 sm:mb-12">
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">

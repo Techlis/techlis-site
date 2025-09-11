@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, MessageCircle, Star, Sparkles } from "lucide-react"
 import { Button, Badge } from "@/components/ui"
 import type { JSX } from "react/jsx-runtime"
+import { TRUSTED_COMPANIES } from "@/lib/constants"
 
 export function CTA(): JSX.Element {
   const floatingElements = [
@@ -166,14 +167,14 @@ export function CTA(): JSX.Element {
 
             {/* Company Logos Placeholder */}
             <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
-              {[1, 2, 3, 4, 5].map((i) => (
+              {TRUSTED_COMPANIES.map((i) => (
                 <motion.div
-                  key={i}
+                  key={i.name}
                   whileHover={{ scale: 1.1, opacity: 0.8 }}
                   className="h-12 w-32 bg-white/20 rounded-lg backdrop-blur-sm flex items-center justify-center"
                 >
                   <div className="text-white/60 font-semibold text-sm">
-                    Company {i}
+                    {i.name}
                   </div>
                 </motion.div>
               ))}
@@ -215,8 +216,18 @@ export function CTA(): JSX.Element {
           preserveAspectRatio="none"
           className="relative block w-full h-16"
         >
+          {/* Guard against undefined path values */}
           <motion.path
-            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            d={(() => {
+              const paths = [
+                "M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z",
+                "M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111.27,216.58,72.05,268.21,32.83,335.65,32.83,386.28,72.05,436.91,111.27,504.35,111.27,555,72.05,605.67,32.83,673.11,32.83,723.74,72.05,774.37,111.27,841.81,111.27,892.44,72.05,943.07,32.83,1010.51,32.83,1061.14,72.05,1111.77,111.27,1179.21,111.27,1200,72.05V0Z",
+                "M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z",
+              ]
+              return paths.every((p) => typeof p === "string" && p.length > 0)
+                ? paths[0]
+                : "M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            })()}
             fill="white"
             animate={{
               d: [

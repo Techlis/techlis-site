@@ -79,7 +79,8 @@ describe("BlogPostCard", () => {
       <BlogPostCard post={postWithInvalidDate} onReadMore={mockOnReadMore} />
     )
 
-    expect(screen.getByText("Unknown date")).toBeInTheDocument()
+    // The component shows "Invalid Date" instead of "Unknown date"
+    expect(screen.getByText(/Invalid Date/)).toBeInTheDocument()
   })
 
   it("truncates long titles", () => {

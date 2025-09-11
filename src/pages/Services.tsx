@@ -102,7 +102,7 @@ function Services(): JSX.Element {
             <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
           </div>
 
-          <div className="relative container mx-auto mobile-padding section-padding">
+          <div data-testid="mobile-padding" className="relative container mx-auto mobile-padding section-padding">
             <div className="max-w-4xl mx-auto text-center">
               {/* Badge */}
               <div className="flex justify-center mb-4 sm:mb-6">
@@ -169,7 +169,7 @@ function Services(): JSX.Element {
           className="section-padding"
           aria-labelledby="services-grid-title"
         >
-          <div className="container mx-auto mobile-padding">
+          <div data-testid="mobile-padding" className="container mx-auto mobile-padding">
             {/* Section Header */}
             <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
               <div className="flex justify-center mb-3 sm:mb-4">

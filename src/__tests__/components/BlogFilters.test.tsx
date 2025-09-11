@@ -77,8 +77,8 @@ describe("BlogFilters", () => {
     const allPostsButton = screen.getByRole("button", { name: /All Posts/ })
 
     // Selected button should have different styling (variant="default")
-    expect(aiMlButton).toHaveClass("bg-primary")
-    expect(allPostsButton).not.toHaveClass("bg-primary")
+    expect(aiMlButton).toHaveClass("bg-gradient-to-r")
+    expect(allPostsButton).not.toHaveClass("bg-gradient-to-r")
   })
 
   it("calls onCategoryChange when category button is clicked", async () => {

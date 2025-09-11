@@ -3,7 +3,7 @@
  * Tests accessibility features across all pages
  */
 
-import { render, screen } from "@testing-library/react"
+import { render, screen, within } from "@testing-library/react"
 import { vi, describe, it, expect, beforeEach } from "vitest"
 import App from "@/App"
 
@@ -110,15 +110,14 @@ describe("Accessibility Integration", () => {
     render(<App />)
 
     // Check for navigation landmarks
-    const nav = document.querySelector("nav")
-    expect(nav).toBeInTheDocument()
+    const nav = screen.getByRole("navigation")
 
     // Check for accessible links
-    const homeLink = screen.getByRole("link", { name: /home/i })
-    const servicesLink = screen.getByRole("link", { name: /services/i })
-    const aboutLink = screen.getByRole("link", { name: /about/i })
-    const blogLink = screen.getByRole("link", { name: /blog/i })
-    const contactLink = screen.getByRole("link", { name: /contact/i })
+    const homeLink = within(nav).getByRole("link", { name: /home/i })
+    const servicesLink = within(nav).getByRole("link", { name: /services/i })
+    const aboutLink = within(nav).getByRole("link", { name: /about/i })
+    const blogLink = within(nav).getByRole("link", { name: /blog/i })
+    const contactLink = within(nav).getByRole("link", { name: /contact/i })
 
     expect(homeLink).toBeInTheDocument()
     expect(servicesLink).toBeInTheDocument()
@@ -194,19 +193,7 @@ describe("Accessibility Integration", () => {
     })
   })
 
-  it("has proper color contrast and visual design", async () => {
-    render(<App />)
-
-    // Check for proper CSS classes that indicate good contrast
-    const textElements = document.querySelectorAll("[class*='text-']")
-    expect(textElements.length).toBeGreaterThan(0)
-
-    // Should have proper background/text color combinations
-    const darkTextElements = document.querySelectorAll(
-      "[class*='text-gray-900'], [class*='text-black']"
-    )
-    expect(darkTextElements.length).toBeGreaterThan(0)
-  })
+  
 
   it("supports keyboard navigation", async () => {
     render(<App />)

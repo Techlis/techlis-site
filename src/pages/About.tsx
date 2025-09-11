@@ -72,7 +72,7 @@ function About(): JSX.Element {
           className="section-padding bg-gradient-to-br from-blue-50 via-white to-purple-50"
           aria-labelledby="about-hero-title"
         >
-          <div className="container mobile-padding">
+          <div data-testid="mobile-padding" className="container mobile-padding">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -108,7 +108,7 @@ function About(): JSX.Element {
 
         {/* Company Background */}
         <section className="section-padding">
-          <div className="container mobile-padding">
+          <div data-testid="mobile-padding" className="container mobile-padding">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

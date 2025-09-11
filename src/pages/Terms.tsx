@@ -16,7 +16,7 @@ function Terms(): JSX.Element {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="section-padding bg-gradient-to-br from-gray-50 via-white to-blue-50">
-          <div className="container mobile-padding">
+          <div data-testid="mobile-padding" className="container mobile-padding">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ function Terms(): JSX.Element {
 
         {/* Legal Notice */}
         <section className="section-padding bg-red-50">
-          <div className="container mobile-padding">
+          <div data-testid="mobile-padding" className="container mobile-padding">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ function Terms(): JSX.Element {
 
         {/* Terms Content */}
         <section className="section-padding">
-          <div className="container mobile-padding">
+          <div data-testid="mobile-padding" className="container mobile-padding">
             <div className="max-w-4xl mx-auto space-y-12">
               {/* Definitions */}
               <motion.div
