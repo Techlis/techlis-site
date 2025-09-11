@@ -133,7 +133,7 @@ function Blog(): JSX.Element {
     // Preload posts in background
     blogService.preloadPosts()
     loadPosts()
-  }, [loadPosts, blogService])
+  }, [])
 
   // Auto-refresh every 30 minutes
   React.useEffect(() => {

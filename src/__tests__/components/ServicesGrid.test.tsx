@@ -139,10 +139,8 @@ describe("ServicesGrid", () => {
   it("renders empty state with proper styling", () => {
     render(<ServicesGrid services={[]} />)
 
-    const emptyStateContainer = screen
-      .getByText("No Services Available")
-      .closest("div")
-    expect(emptyStateContainer).toHaveClass("text-center", "py-16")
+    const emptyStateContainer = screen.getByText("No Services Available").parentElement
+    expect(emptyStateContainer?.parentElement).toHaveClass("text-center", "py-16")
 
     // Check for icon container
     const iconContainer = screen

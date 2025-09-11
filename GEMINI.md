@@ -35,11 +35,11 @@ The project follows a set of development conventions to ensure code quality and 
 
 - **TypeScript**: The project is written in TypeScript, and all new code should be as well.
 - **ESLint**: The project uses ESLint to enforce a consistent coding style. The configuration can be found in `.eslintrc.json`. Key rules include:
-    - `react/react-in-jsx-scope`: "off" (not required with the new JSX transform)
-    - `@typescript-eslint/no-unused-vars`: "error"
-    - `@typescript-eslint/explicit-function-return-type`: "warn"
-    - `prefer-const`: "error"
-    - `no-var`: "error"
+  - `react/react-in-jsx-scope`: "off" (not required with the new JSX transform)
+  - `@typescript-eslint/no-unused-vars`: "error"
+  - `@typescript-eslint/explicit-function-return-type`: "warn"
+  - `prefer-const`: "error"
+  - `no-var`: "error"
 - **Prettier**: The project uses Prettier to automatically format code. The configuration can be found in `.prettierrc`.
 - **File Naming**: Components and pages should be named using PascalCase (e.g., `MyComponent.tsx`).
 

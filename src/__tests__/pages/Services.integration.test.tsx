@@ -52,9 +52,11 @@ const mockServicesData: Service[] = [
 ]
 
 // Mock the services data import
-vi.mock("@/content/data/services.json", () => ({
-  default: mockServicesData,
-}))
+vi.mock("@/content/data/services.json", () => {
+  return {
+    default: mockServicesData,
+  }
+})
 
 // Mock the SEO functions
 vi.mock("@/lib/seo", () => ({

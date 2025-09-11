@@ -54,9 +54,13 @@ const mockCompanyData: CompanyData = {
 }
 
 // Mock the constants
-vi.mock("@/lib/constants", () => ({
-  COMPANY_DATA: mockCompanyData,
-}))
+vi.mock("@/lib/constants", async () => {
+  const originalModule = await vi.importActual("@/lib/constants")
+  return {
+    ...originalModule,
+    COMPANY_DATA: mockCompanyData,
+  }
+})
 
 // Mock the SEO functions
 vi.mock("@/lib/seo", () => ({

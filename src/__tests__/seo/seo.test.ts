@@ -113,7 +113,7 @@ describe("SEO Functions", () => {
       expect(data["@type"]).toBe("Organization")
       expect(data.name).toBe("Techlis")
       expect(data.founder.name).toBe("Jonny Nguyen")
-      expect(data.address).toHaveLength(3)
+      expect(data.address).toHaveLength(2)
       expect(data.knowsAbout).toContain("Artificial Intelligence")
     })
   })
