@@ -176,6 +176,7 @@ function Contact(): JSX.Element {
                       name="contact"
                       method="POST"
                       data-netlify="true"
+                      netlify-honeypot="bot-field"
                       onSubmit={handleSubmit}
                       className="space-y-6"
                     >
@@ -284,6 +285,13 @@ function Contact(): JSX.Element {
                           required
                         />
                       </div>
+
+                      <p style={{ display: "none" }}>
+                        <label>
+                          Don’t fill this out if you’re human:{" "}
+                          <input name="bot-field" />
+                        </label>
+                      </p>
 
                       <LoadingButton
                         type="submit"
