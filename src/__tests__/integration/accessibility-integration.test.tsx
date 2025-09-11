@@ -110,9 +110,6 @@ describe("Accessibility Integration", () => {
     render(<App />)
 
     // Check for navigation landmarks
-    const nav = document.querySelector("nav")
-    expect(nav).toBeInTheDocument()
-
     const nav = screen.getByRole("navigation")
 
     // Check for accessible links

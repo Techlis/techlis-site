@@ -1,4 +1,3 @@
-import * as React from "react"
 import { cn } from "@/lib/utils"
 
 interface SkeletonProps {
@@ -115,7 +114,10 @@ export function ServiceGridSkeleton({
   className,
 }: ServiceGridSkeletonProps) {
   return (
-    <div className={cn("grid gap-6 md:grid-cols-2 lg:grid-cols-3", className)}>
+    <div
+      data-testid="service-grid-skeleton"
+      className={cn("grid gap-6 md:grid-cols-2 lg:grid-cols-3", className)}
+    >
       {Array.from({ length: count }).map((_, index) => (
         <ServiceCardSkeleton key={index} />
       ))}
