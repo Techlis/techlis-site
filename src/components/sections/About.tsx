@@ -39,35 +39,6 @@ export function About(): JSX.Element {
     },
   ]
 
-  const features = [
-    {
-      icon: Target,
-      text: "Enterprise-grade AI solutions",
-      color: "text-blue-600",
-    },
-    {
-      icon: Shield,
-      text: "Scalable cloud architecture",
-      color: "text-purple-600",
-    },
-    {
-      icon: Rocket,
-      text: "Modern development practices",
-      color: "text-green-600",
-    },
-    {
-      icon: Award,
-      text: "Comprehensive testing & QA",
-      color: "text-amber-600",
-    },
-    {
-      icon: Users,
-      text: "Ongoing maintenance & support",
-      color: "text-red-600",
-    },
-    { icon: Zap, text: "Agile project management", color: "text-indigo-600" },
-  ]
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -136,23 +107,54 @@ export function About(): JSX.Element {
                 variant="secondary"
                 className="bg-primary-50 text-primary-700 border-primary-200 mb-6"
               >
-                About Techlis
+                The Founder Partner Model
               </Badge>
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                Why Choose <span className="gradient-text">Techlis</span>
+                Why Founders{" "}
+                <span className="gradient-text">Partner With Me</span>
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
-                We're not just developers – we're your technology partners. With
-                years of experience in AI, cloud computing, and enterprise
-                software, we deliver solutions that drive real business results
-                and accelerate growth.
+                I act as a technical co-founder for hire. You get the expertise
+                of a senior engineering team without the overhead of managing
+                one. I focus on speed, quality, and shipping real value.
               </p>
             </motion.div>
 
             {/* Features Grid */}
             <motion.div variants={itemVariants}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {features.map((feature) => (
+                {[
+                  {
+                    icon: Target,
+                    text: "Product-First Mindset",
+                    color: "text-blue-600",
+                  },
+                  {
+                    icon: Shield,
+                    text: "Scale-Ready V1s",
+                    color: "text-purple-600",
+                  },
+                  {
+                    icon: Rocket,
+                    text: "Rapid Iteration Cycles",
+                    color: "text-green-600",
+                  },
+                  {
+                    icon: Award,
+                    text: "High-Fidelity Engineering",
+                    color: "text-amber-600",
+                  },
+                  {
+                    icon: Users,
+                    text: "Long-term Partnership",
+                    color: "text-red-600",
+                  },
+                  {
+                    icon: Zap,
+                    text: "Direct Communication",
+                    color: "text-indigo-600",
+                  },
+                ].map((feature) => (
                   <motion.div
                     key={feature.text}
                     whileHover={{ x: 4, scale: 1.02 }}
@@ -176,12 +178,12 @@ export function About(): JSX.Element {
             <motion.div variants={itemVariants}>
               <div className="bg-gradient-to-r from-primary-50 to-purple-50 rounded-2xl p-6 border border-primary-100">
                 <h3 className="text-lg font-semibold mb-3 text-gray-900">
-                  Our Mission
+                  My Mission
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  To empower businesses with cutting-edge AI and cloud
-                  technologies, transforming complex challenges into competitive
-                  advantages through innovative software solutions.
+                  To empower visionary founders by bridging the gap between
+                  complex engineering and simple, usable product design. I build
+                  technology that serves the business, not the other way around.
                 </p>
               </div>
             </motion.div>

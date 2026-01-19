@@ -5,7 +5,8 @@ export interface Service {
   description: string
   features: string[]
   technologies: string[]
-  pricing: string
+  targetAudience: string
+  engagementModel: string
 }
 
 export interface BlogPost {

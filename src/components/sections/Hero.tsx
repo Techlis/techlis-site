@@ -107,16 +107,16 @@ export function Hero(): JSX.Element {
                 className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-primary-200/50 text-primary-700 px-4 py-2 text-sm font-medium shadow-lg"
               >
                 <Sparkles className="h-4 w-4" />
-                <span>AI-Powered Enterprise Solutions</span>
+                <span>Specialized Product Engineering</span>
               </Badge>
             </motion.div>
 
             {/* Headline */}
             <motion.div variants={itemVariants} className="space-y-6">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight text-shadow">
-                Transform Ideas Into{" "}
+                The Engineering Partner for{" "}
                 <span className="gradient-text relative">
-                  AI-Powered
+                  Visionary Founders
                   <motion.div
                     animate={{
                       scaleX: [0, 1],
@@ -128,13 +128,12 @@ export function Hero(): JSX.Element {
                     }}
                     className="absolute bottom-0 left-0 h-2 bg-gradient-to-r from-primary-400 to-purple-400 rounded-full origin-left"
                   />
-                </span>{" "}
-                Solutions
+                </span>
               </h1>
               <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed max-w-2xl">
-                Enterprise software development, AI integration, and cloud
-                solutions that scale with your business. From concept to
-                deployment, we build the future.
+                I partner with founders to design, build, and ship high-quality
+                web and mobile products. No middle management, just direct
+                collaboration and shipping.
               </p>
             </motion.div>
 
@@ -142,9 +141,9 @@ export function Hero(): JSX.Element {
             <motion.div variants={itemVariants}>
               <div className="flex flex-wrap gap-4 mb-8">
                 {[
-                  { icon: Shield, text: "Enterprise Security" },
-                  { icon: Zap, text: "Lightning Fast" },
-                  { icon: Award, text: "Award Winning" },
+                  { icon: Zap, text: "Ship Faster" },
+                  { icon: Shield, text: "Scale-Ready" },
+                  { icon: Award, text: "Product Focused" },
                 ].map((item, index) => (
                   <div
                     key={index}
@@ -178,10 +177,14 @@ export function Hero(): JSX.Element {
                   className="group bg-white/80 backdrop-blur-sm border-2 hover:bg-white"
                   asChild
                 >
-                  <Link to="/services">
+                  <a
+                    href="https://jonnyn.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Play className="mr-2 h-5 w-5" />
-                    Explore Services
-                  </Link>
+                    View My Work
+                  </a>
                 </Button>
               </div>
             </motion.div>
@@ -190,9 +193,9 @@ export function Hero(): JSX.Element {
             <motion.div variants={itemVariants}>
               <div className="grid grid-cols-3 gap-8 pt-12 border-t border-gray-200/50">
                 {[
-                  { value: "50+", label: "Projects Delivered" },
-                  { value: "98%", label: "Client Satisfaction" },
-                  { value: "24/7", label: "Premium Support" },
+                  { value: "50+", label: "Products Shipped" },
+                  { value: "100%", label: "Founder Led" },
+                  { value: "5yr+", label: "Engineering Exp" },
                 ].map((stat, index) => (
                   <motion.div
                     key={index}
