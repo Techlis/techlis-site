@@ -5,8 +5,6 @@ import { ScrollToTop } from "@/components/common/ScrollToTop"
 import { ScrollProgress } from "@/components/common/ScrollProgress"
 import {
   LazyHomeWrapper,
-  LazyAboutWrapper,
-  LazyServicesWrapper,
   LazyBlogWrapper,
   LazyContactWrapper,
   LazyPrivacyWrapper,
@@ -38,8 +36,6 @@ function App(): JSX.Element {
         <Layout>
           <Routes>
             <Route path="/" element={<LazyHomeWrapper />} />
-            <Route path="/about" element={<LazyAboutWrapper />} />
-            <Route path="/services" element={<LazyServicesWrapper />} />
             <Route path="/blog" element={<LazyBlogWrapper />} />
             <Route path="/contact" element={<LazyContactWrapper />} />
             <Route path="/privacy" element={<LazyPrivacyWrapper />} />

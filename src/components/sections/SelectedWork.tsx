@@ -2,6 +2,7 @@ import { RevealOnScroll } from "@/components/common/RevealOnScroll"
 import { ExternalLink, CheckCircle2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
 
 const works = [
   {
@@ -52,7 +53,7 @@ const works = [
 
 export function SelectedWork() {
   return (
-    <section className="py-24 bg-white/30 backdrop-blur-[2px] relative overflow-hidden">
+    <section className="py-24 bg-white/30 backdrop-blur-[2px] relative">
       <div className="container px-4 md:px-6">
         {/* Section Header */}
         <RevealOnScroll className="max-w-3xl mb-16" width="100%">
@@ -71,21 +72,31 @@ export function SelectedWork() {
           </p>
         </RevealOnScroll>
 
-        {/* Case Studies */}
-        <div className="space-y-20">
+        {/* Case Studies - Vertical Stacking */}
+        <div className="relative">
           {works.map((work, index) => (
-            <RevealOnScroll key={index} delay={index * 0.1}>
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 border-t border-gray-100 pt-12 group">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.5 }}
+              className="sticky top-24 md:top-32 py-4"
+              style={{
+                zIndex: index + 1,
+              }}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 bg-white/90 backdrop-blur-md border border-gray-200 rounded-3xl p-8 lg:p-12 shadow-xl transition-all duration-500 hover:shadow-2xl">
                 {/* Left: Identity */}
-                <div className="lg:col-span-4 space-y-6">
+                <div className="lg:col-span-5 space-y-8">
                   <div>
-                    <div className="text-sm font-semibold tracking-wider text-primary-600 uppercase mb-2">
+                    <div className="text-sm font-semibold tracking-wider text-primary-600 uppercase mb-3 px-3 py-1 bg-primary-50 inline-block rounded-full">
                       {work.category}
                     </div>
-                    <h3 className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-300">
+                    <h3 className="text-4xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
                       {work.title}
                     </h3>
-                    <p className="text-lg text-gray-600 font-medium">
+                    <p className="text-xl text-gray-600 font-medium leading-relaxed">
                       {work.summary}
                     </p>
                   </div>
@@ -94,48 +105,55 @@ export function SelectedWork() {
                     {work.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-gray-50 text-gray-600 text-xs rounded-full border border-gray-200 font-mono transition-colors group-hover:border-primary-200 group-hover:bg-primary-50"
+                        className="px-4 py-2 bg-gray-50 text-gray-600 text-sm rounded-lg border border-gray-200 font-mono transition-colors hover:border-primary-200 hover:bg-primary-50 hover:text-primary-700"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <Button variant="outline" className="group/btn" asChild>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="group/btn pl-6 pr-8 h-12 text-base"
+                    asChild
+                  >
                     <a
                       href={work.link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       View Project{" "}
-                      <ExternalLink className="ml-2 h-3 w-3 opacity-50 group-hover/btn:opacity-100 transition-opacity" />
+                      <ExternalLink className="ml-2 h-4 w-4 opacity-50 group-hover/btn:opacity-100 transition-opacity" />
                     </a>
                   </Button>
                 </div>
 
                 {/* Right: Narrative */}
-                <div className="lg:col-span-8 bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-100/50 transition-all duration-500 group-hover:shadow-xl group-hover:border-primary-100/50 group-hover:bg-white group-hover:-translate-y-1">
-                  <h4 className="font-semibold text-gray-900 mb-4">
-                    The Collaboration
+                <div className="lg:col-span-7 bg-white/50 rounded-2xl p-8 lg:p-10 border border-gray-100">
+                  <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    The Challenge & Solution
                   </h4>
-                  <p className="text-gray-600 leading-relaxed mb-8">
+                  <p className="text-gray-600 leading-relaxed mb-10 text-lg">
                     {work.narrative}
                   </p>
 
-                  <h4 className="font-semibold text-gray-900 mb-4">
-                    Key Outcomes
+                  <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    Impact
                   </h4>
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
                     {work.bullets.map((bullet, i) => (
                       <div key={i} className="flex items-start space-x-3">
-                        <CheckCircle2 className="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700 text-sm">{bullet}</span>
+                        <CheckCircle2 className="w-5 h-5 text-primary-500 mt-1 flex-shrink-0" />
+                        <span className="text-gray-700 font-medium">
+                          {bullet}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
-            </RevealOnScroll>
+            </motion.div>
           ))}
         </div>
 

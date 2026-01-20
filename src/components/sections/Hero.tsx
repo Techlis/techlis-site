@@ -7,19 +7,19 @@ import { RevealOnScroll } from "@/components/common/RevealOnScroll"
 
 export function Hero(): JSX.Element {
   const { scrollY } = useScroll()
-  const y1 = useTransform(scrollY, [0, 500], [0, 150]) // Move down slower (lag behind scroll)
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]) // Move up faster
+  const y1 = useTransform(scrollY, [0, 1000], [0, 400]) // Move down much slower
+  const y2 = useTransform(scrollY, [0, 1000], [0, -400]) // Move up much faster
 
   return (
     <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
       {/* Parallax Background Elements */}
       <motion.div
         style={{ y: y1 }}
-        className="absolute top-20 right-[10%] w-72 h-72 bg-primary-100 rounded-full blur-[80px] opacity-40 pointer-events-none"
+        className="absolute top-20 right-[10%] w-[500px] h-[500px] bg-gradient-to-br from-primary-200/40 to-purple-200/40 rounded-full blur-[100px] pointer-events-none"
       />
       <motion.div
         style={{ y: y2 }}
-        className="absolute bottom-10 left-[10%] w-80 h-80 bg-blue-100 rounded-full blur-[80px] opacity-40 pointer-events-none"
+        className="absolute bottom-[-100px] left-[5%] w-[600px] h-[600px] bg-gradient-to-tr from-blue-200/40 to-sky-200/40 rounded-full blur-[100px] pointer-events-none"
       />
 
       <div className="container px-4 md:px-6 relative z-10">

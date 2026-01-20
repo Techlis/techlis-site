@@ -28,18 +28,31 @@ export function Header(): JSX.Element {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {NAVIGATION_ITEMS.map((item) => (
-            <Link
+            <a
               key={item.name}
-              to={item.href}
+              href={item.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-primary-600",
                 isActive(item.href)
                   ? "text-primary-600"
                   : "text-gray-600 dark:text-gray-300"
               )}
+              onClick={(e) => {
+                // If it's a hash link
+                if (item.href.includes("#")) {
+                  // If we are already on the home page
+                  if (location.pathname === "/") {
+                    e.preventDefault()
+                    const hash = item.href.split("#")[1]
+                    const element = document.getElementById(hash)
+                    element?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  // If we are NOT on home page, default behavior (navigate to /#hash) works
+                }
+              }}
             >
               {item.name}
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -67,21 +80,34 @@ export function Header(): JSX.Element {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden border-t bg-white dark:bg-gray-900">
-          <nav data-testid="mobile-padding" className="container mobile-padding py-4 space-y-3">
+          <nav
+            data-testid="mobile-padding"
+            className="container mobile-padding py-4 space-y-3"
+          >
             {NAVIGATION_ITEMS.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.href}
+                href={item.href}
                 className={cn(
-                  "block text-base font-medium transition-colors py-2 touch-target",
+                  "text-sm font-medium transition-colors hover:text-primary-600",
                   isActive(item.href)
                     ? "text-primary-600"
                     : "text-gray-600 dark:text-gray-300"
                 )}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  if (item.href.includes("#")) {
+                    if (location.pathname === "/") {
+                      e.preventDefault()
+                      const hash = item.href.split("#")[1]
+                      const element = document.getElementById(hash)
+                      element?.scrollIntoView({ behavior: "smooth" })
+                    }
+                  }
+                  setIsMenuOpen(false)
+                }}
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
             <div className="pt-3">
               <Button asChild className="w-full touch-button">

@@ -16,8 +16,8 @@ export const SITE_CONFIG = {
 
 export const NAVIGATION_ITEMS = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
+  { name: "Services", href: "/#services" },
+  { name: "About", href: "/#about" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ]
