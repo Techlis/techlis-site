@@ -8,8 +8,6 @@ import type { JSX } from "react"
 
 // Lazy load page components
 export const LazyHome = lazyLoadComponent(() => import("@/pages/Home"))
-export const LazyAbout = lazyLoadComponent(() => import("@/pages/About"))
-export const LazyServices = lazyLoadComponent(() => import("@/pages/Services"))
 export const LazyBlog = lazyLoadComponent(() => import("@/pages/Blog"))
 export const LazyContact = lazyLoadComponent(() => import("@/pages/Contact"))
 export const LazyPrivacy = lazyLoadComponent(() => import("@/pages/Privacy"))
@@ -74,28 +72,6 @@ export function LazyHomeWrapper(): JSX.Element {
       errorFallback={PageErrorFallback}
     >
       <LazyHome />
-    </LazyWrapper>
-  )
-}
-
-export function LazyAboutWrapper(): JSX.Element {
-  return (
-    <LazyWrapper
-      fallback={<PageLoadingFallback />}
-      errorFallback={PageErrorFallback}
-    >
-      <LazyAbout />
-    </LazyWrapper>
-  )
-}
-
-export function LazyServicesWrapper(): JSX.Element {
-  return (
-    <LazyWrapper
-      fallback={<PageLoadingFallback />}
-      errorFallback={PageErrorFallback}
-    >
-      <LazyServices />
     </LazyWrapper>
   )
 }

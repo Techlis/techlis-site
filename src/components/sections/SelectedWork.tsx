@@ -86,7 +86,7 @@ export function SelectedWork() {
                 zIndex: index + 1,
               }}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 bg-white/90 backdrop-blur-md border border-gray-200 rounded-3xl p-8 lg:p-12 shadow-xl transition-all duration-500 hover:shadow-2xl">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 bg-white/90 backdrop-blur-md border border-gray-200 rounded-3xl p-8 lg:p-12 shadow-xl transition-all duration-500 hover:shadow-2xl min-h-[550px]">
                 {/* Left: Identity */}
                 <div className="lg:col-span-5 space-y-8">
                   <div>
