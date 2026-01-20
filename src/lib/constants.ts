@@ -210,7 +210,7 @@ export const COMPANY_DATA: CompanyData = {
 
 export const TRUSTED_COMPANIES = [
   {
-    name: "MaisieBeauty",
+    name: "Maisie Beauty",
     logo: "/images/companies/maisiebeauty.png",
   },
   {
@@ -226,7 +226,7 @@ export const TRUSTED_COMPANIES = [
     logo: "/images/companies/nfb.png",
   },
   {
-    name: "PocPix",
-    logo: "/images/companies/pocpix.png",
+    name: "Lyft Shipping",
+    logo: "/images/companies/lyftshipping.png",
   }
 ]

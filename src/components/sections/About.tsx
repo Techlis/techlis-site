@@ -111,12 +111,13 @@ export function About(): JSX.Element {
               </Badge>
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
                 Why Founders{" "}
-                <span className="gradient-text">Partner With Me</span>
+                <span className="gradient-text">Partner With Techlis</span>
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
-                I act as a technical co-founder for hire. You get the expertise
-                of a senior engineering team without the overhead of managing
-                one. I focus on speed, quality, and shipping real value.
+                We act as your technical co-founder for hire. You get the
+                expertise of a senior engineering team without the overhead of
+                managing one. We focus on speed, quality, and shipping real
+                value.
               </p>
             </motion.div>
 
@@ -178,12 +179,13 @@ export function About(): JSX.Element {
             <motion.div variants={itemVariants}>
               <div className="bg-gradient-to-r from-primary-50 to-purple-50 rounded-2xl p-6 border border-primary-100">
                 <h3 className="text-lg font-semibold mb-3 text-gray-900">
-                  My Mission
+                  Our Mission
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   To empower visionary founders by bridging the gap between
-                  complex engineering and simple, usable product design. I build
-                  technology that serves the business, not the other way around.
+                  complex engineering and simple, usable product design. We
+                  build technology that serves the business, not the other way
+                  around.
                 </p>
               </div>
             </motion.div>

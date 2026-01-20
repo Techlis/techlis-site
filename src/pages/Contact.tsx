@@ -49,7 +49,7 @@ function Contact(): JSX.Element {
     })
       .then(() => {
         success(
-          "Message sent successfully! We'll get back to you within 24 hours.",
+          "Message sent successfully! I'll get back to you within 24 hours.",
           { duration: 6000 }
         )
         // Reset form
@@ -63,7 +63,7 @@ function Contact(): JSX.Element {
       })
       .catch((error) => {
         showError(
-          "Failed to send message. Please try again or contact us directly."
+          "Failed to send message. Please try again or contact me directly."
         )
         console.error("Form submission error:", error)
       })
@@ -96,8 +96,8 @@ function Contact(): JSX.Element {
             >
               <h1 className="text-4xl sm:text-5xl font-bold">Get In Touch</h1>
               <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                Ready to transform your business with AI? Let's discuss your
-                project and explore how we can help.
+                Ready to transform your idea into a product? Let's discuss your
+                project and explore how we can collaborate.
               </p>
             </motion.div>
           </div>
@@ -155,7 +155,7 @@ function Contact(): JSX.Element {
                   <h3 className="font-semibold mb-2">Quick Response</h3>
                   <p className="text-gray-600 text-sm">
                     We typically respond to all inquiries within 24 hours. For
-                    urgent matters, please call us directly.
+                    urgent matters, feel free to email us directly.
                   </p>
                 </div>
               </motion.div>
@@ -169,7 +169,7 @@ function Contact(): JSX.Element {
               >
                 <Card>
                   <CardHeader>
-                    <CardTitle>Send us a message</CardTitle>
+                    <CardTitle>Send a message</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <form
@@ -251,19 +251,16 @@ function Contact(): JSX.Element {
                             className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
                           >
                             <option value="">Select a service</option>
-                            <option value="ai-development">
-                              AI Development
+                            <option value="fractional-partner">
+                              Fractional Product Partner
                             </option>
-                            <option value="cloud-architecture">
-                              Cloud Architecture
+                            <option value="mobile-engineering">
+                              Mobile Engineering
                             </option>
-                            <option value="mobile-development">
-                              Mobile Development
+                            <option value="full-stack-web">
+                              Full-Stack Web (SaaS)
                             </option>
-                            <option value="web-development">
-                              Web Development
-                            </option>
-                            <option value="consulting">Consulting</option>
+                            <option value="other">Other</option>
                           </select>
                         </div>
                       </div>
@@ -280,7 +277,7 @@ function Contact(): JSX.Element {
                           name="message"
                           value={formData.message}
                           onChange={handleChange}
-                          placeholder="Tell us about your project..."
+                          placeholder="Tell me about your project..."
                           rows={6}
                           required
                         />
