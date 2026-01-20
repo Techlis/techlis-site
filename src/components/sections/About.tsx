@@ -63,7 +63,7 @@ export function About(): JSX.Element {
   }
 
   return (
-    <section className="section-padding bg-gradient-to-b from-white via-gray-50/30 to-white relative overflow-hidden">
+    <section className="section-padding bg-white/30 backdrop-blur-[2px] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <motion.div

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { RevealOnScroll } from "@/components/common/RevealOnScroll"
 import { ExternalLink, CheckCircle2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -52,10 +52,10 @@ const works = [
 
 export function SelectedWork() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-white/30 backdrop-blur-[2px] relative overflow-hidden">
       <div className="container px-4 md:px-6">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <RevealOnScroll className="max-w-3xl mb-16" width="100%">
           <Badge
             variant="secondary"
             className="mb-4 text-primary-700 bg-primary-50 border-primary-200"
@@ -69,26 +69,20 @@ export function SelectedWork() {
             Real products shipped with real founders. Here are a few examples
             where Techlis acted as the lead engineering partner.
           </p>
-        </div>
+        </RevealOnScroll>
 
         {/* Case Studies */}
         <div className="space-y-20">
           {works.map((work, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 border-t border-gray-100 pt-12">
+            <RevealOnScroll key={index} delay={index * 0.1}>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 border-t border-gray-100 pt-12 group">
                 {/* Left: Identity */}
                 <div className="lg:col-span-4 space-y-6">
                   <div>
                     <div className="text-sm font-semibold tracking-wider text-primary-600 uppercase mb-2">
                       {work.category}
                     </div>
-                    <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-300">
                       {work.title}
                     </h3>
                     <p className="text-lg text-gray-600 font-medium">
@@ -100,27 +94,27 @@ export function SelectedWork() {
                     {work.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-gray-50 text-gray-600 text-xs rounded-full border border-gray-200 font-mono"
+                        className="px-3 py-1 bg-gray-50 text-gray-600 text-xs rounded-full border border-gray-200 font-mono transition-colors group-hover:border-primary-200 group-hover:bg-primary-50"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <Button variant="outline" className="group" asChild>
+                  <Button variant="outline" className="group/btn" asChild>
                     <a
                       href={work.link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       View Project{" "}
-                      <ExternalLink className="ml-2 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                      <ExternalLink className="ml-2 h-3 w-3 opacity-50 group-hover/btn:opacity-100 transition-opacity" />
                     </a>
                   </Button>
                 </div>
 
                 {/* Right: Narrative */}
-                <div className="lg:col-span-8 bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-100/50">
+                <div className="lg:col-span-8 bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-100/50 transition-all duration-500 group-hover:shadow-xl group-hover:border-primary-100/50 group-hover:bg-white group-hover:-translate-y-1">
                   <h4 className="font-semibold text-gray-900 mb-4">
                     The Collaboration
                   </h4>
@@ -141,16 +135,14 @@ export function SelectedWork() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </RevealOnScroll>
           ))}
         </div>
 
         {/* "More Work" Blurb */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <RevealOnScroll
           className="mt-24 text-center border-t border-gray-100 pt-16"
+          width="100%"
         >
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             These are just product engineering highlights. For a deeper dive
@@ -160,7 +152,7 @@ export function SelectedWork() {
           <Button
             size="xl"
             variant="outline"
-            className="h-14 px-8 text-lg bg-white hover:bg-gray-50"
+            className="h-14 px-8 text-lg bg-white hover:bg-gray-50 hover:scale-105 transition-transform"
             asChild
           >
             <a
@@ -171,7 +163,7 @@ export function SelectedWork() {
               Explore Full Portfolio on jonnyn.com
             </a>
           </Button>
-        </motion.div>
+        </RevealOnScroll>
       </div>
     </section>
   )

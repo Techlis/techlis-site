@@ -1,5 +1,5 @@
-import { motion } from "framer-motion"
 import { MessageSquare, Code2, Rocket } from "lucide-react"
+import { RevealOnScroll } from "@/components/common/RevealOnScroll"
 
 const steps = [
   {
@@ -27,15 +27,9 @@ const steps = [
 
 export function Process() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-white/30 backdrop-blur-[2px] relative overflow-hidden">
       <div className="container px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16 space-y-4"
-        >
+        <RevealOnScroll className="text-center mb-16 space-y-4" width="100%">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             How We <span className="text-primary-600">Work Together</span>
           </h2>
@@ -43,19 +37,16 @@ export function Process() {
             A simple, transparent process designed for speed and quality. No
             black boxes, just clear communication and shipping.
           </p>
-        </motion.div>
+        </RevealOnScroll>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {/* Connector Line (Desktop) */}
           <div className="hidden md:block absolute top-[60px] left-0 w-full h-[2px] bg-gradient-to-r from-gray-100 via-primary-100 to-gray-100" />
 
           {steps.map((step, index) => (
-            <motion.div
+            <RevealOnScroll
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              delay={index * 0.2}
               className="relative relative-z-10 bg-white group rounded-2xl p-6 hover:bg-gray-50 transition-colors duration-300 border border-transparent hover:border-gray-100"
             >
               <div className="mb-6 relative">
@@ -71,7 +62,7 @@ export function Process() {
               <p className="text-gray-600 leading-relaxed">
                 {step.description}
               </p>
-            </motion.div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>

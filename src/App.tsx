@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Layout } from "@/components/layout/Layout"
 import { ToastProvider } from "@/components/ui"
 import { ScrollToTop } from "@/components/common/ScrollToTop"
+import { ScrollProgress } from "@/components/common/ScrollProgress"
 import {
   LazyHomeWrapper,
   LazyAboutWrapper,
@@ -32,6 +33,7 @@ function App(): JSX.Element {
   return (
     <ToastProvider>
       <Router>
+        <ScrollProgress />
         <ScrollToTop />
         <Layout>
           <Routes>

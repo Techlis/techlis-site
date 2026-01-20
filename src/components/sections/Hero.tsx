@@ -1,31 +1,40 @@
 import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import type { JSX } from "react"
+import { RevealOnScroll } from "@/components/common/RevealOnScroll"
 
 export function Hero(): JSX.Element {
+  const { scrollY } = useScroll()
+  const y1 = useTransform(scrollY, [0, 500], [0, 150]) // Move down slower (lag behind scroll)
+  const y2 = useTransform(scrollY, [0, 500], [0, -150]) // Move up faster
+
   return (
-    <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden bg-white">
-      {/* Subtle Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40 pointer-events-none" />
+    <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
+      {/* Parallax Background Elements */}
+      <motion.div
+        style={{ y: y1 }}
+        className="absolute top-20 right-[10%] w-72 h-72 bg-primary-100 rounded-full blur-[80px] opacity-40 pointer-events-none"
+      />
+      <motion.div
+        style={{ y: y2 }}
+        className="absolute bottom-10 left-[10%] w-80 h-80 bg-blue-100 rounded-full blur-[80px] opacity-40 pointer-events-none"
+      />
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <div className="inline-flex items-center space-x-2 bg-primary-50 border border-primary-100/50 rounded-full px-4 py-1.5">
-              <span className="flex h-2 w-2 rounded-full bg-primary-600 animate-pulse"></span>
-              <span className="text-sm font-medium text-primary-700 tracking-wide">
-                Specialized Product Engineering Studio
-              </span>
+          <RevealOnScroll width="100%">
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center space-x-2 bg-primary-50 border border-primary-100/50 rounded-full px-4 py-1.5">
+                <span className="flex h-2 w-2 rounded-full bg-primary-600 animate-pulse"></span>
+                <span className="text-sm font-medium text-primary-700 tracking-wide">
+                  Specialized Product Engineering Studio
+                </span>
+              </div>
             </div>
-          </motion.div>
+          </RevealOnScroll>
 
           {/* Headline */}
           <motion.h1
@@ -70,7 +79,7 @@ export function Hero(): JSX.Element {
             <Button
               size="xl"
               variant="outline"
-              className="h-14 px-8 text-lg border-gray-200 bg-white hover:bg-gray-50 text-gray-700"
+              className="h-14 px-8 text-lg border-gray-200 bg-white hover:bg-gray-50 text-gray-700 hover:scale-105 transition-transform"
               asChild
             >
               <a
@@ -97,8 +106,11 @@ export function Hero(): JSX.Element {
               { label: "Client Revenue", value: "$50M+" },
               { label: "Code Quality", value: "A+" },
             ].map((stat, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary-900 font-mono mb-1">
+              <div
+                key={i}
+                className="flex flex-col items-center group cursor-default"
+              >
+                <div className="text-2xl md:text-3xl font-bold text-primary-900 font-mono mb-1 group-hover:text-primary-600 transition-colors">
                   {stat.value}
                 </div>
                 <div className="text-sm font-medium text-gray-400 uppercase tracking-wider">

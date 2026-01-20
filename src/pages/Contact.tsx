@@ -84,7 +84,7 @@ function Contact(): JSX.Element {
   return (
     <>
       <SEOHead seoData={seoData} />
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-transparent">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary-600 to-purple-700 text-white py-20">
           <div className="container">
@@ -182,7 +182,11 @@ function Contact(): JSX.Element {
                     >
                       <input type="hidden" name="form-name" value="contact" />
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.1 }}
+                        >
                           <label
                             htmlFor="name"
                             className="block text-sm font-medium mb-2"
@@ -197,10 +201,15 @@ function Contact(): JSX.Element {
                             onChange={handleChange}
                             placeholder="John Doe"
                             required
+                            className="transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                           />
-                        </div>
+                        </motion.div>
 
-                        <div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2 }}
+                        >
                           <label
                             htmlFor="email"
                             className="block text-sm font-medium mb-2"
@@ -215,12 +224,17 @@ function Contact(): JSX.Element {
                             onChange={handleChange}
                             placeholder="john@company.com"
                             required
+                            className="transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                           />
-                        </div>
+                        </motion.div>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.3 }}
+                        >
                           <label
                             htmlFor="company"
                             className="block text-sm font-medium mb-2"
@@ -233,10 +247,15 @@ function Contact(): JSX.Element {
                             value={formData.company}
                             onChange={handleChange}
                             placeholder="Your Company"
+                            className="transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                           />
-                        </div>
+                        </motion.div>
 
-                        <div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.4 }}
+                        >
                           <label
                             htmlFor="service"
                             className="block text-sm font-medium mb-2"
@@ -248,7 +267,7 @@ function Contact(): JSX.Element {
                             name="service"
                             value={formData.service}
                             onChange={handleChange}
-                            className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                            className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                           >
                             <option value="">Select a service</option>
                             <option value="fractional-partner">
@@ -262,10 +281,14 @@ function Contact(): JSX.Element {
                             </option>
                             <option value="other">Other</option>
                           </select>
-                        </div>
+                        </motion.div>
                       </div>
 
-                      <div>
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                      >
                         <label
                           htmlFor="message"
                           className="block text-sm font-medium mb-2"
@@ -280,8 +303,9 @@ function Contact(): JSX.Element {
                           placeholder="Tell me about your project..."
                           rows={6}
                           required
+                          className="transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                         />
-                      </div>
+                      </motion.div>
 
                       <p style={{ display: "none" }}>
                         <label>

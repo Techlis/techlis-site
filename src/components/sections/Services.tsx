@@ -68,7 +68,7 @@ export function Services(): JSX.Element {
   }
 
   return (
-    <section className="section-padding bg-gradient-to-b from-white via-gray-50/50 to-white relative overflow-hidden">
+    <section className="section-padding bg-white/30 backdrop-blur-[2px] relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div
