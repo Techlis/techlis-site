@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
-import { Badge, Button } from "@/components/ui"
+import { Badge } from "@/components/ui"
 import { SEOHead } from "@/components/common"
-import { Link } from "react-router-dom"
+import { CTA } from "@/components/sections/CTA"
 import { generatePageSEO } from "@/lib/seo"
 import { COMPANY_DATA } from "@/lib/constants"
 import { FileText, AlertTriangle, Clock, Mail } from "lucide-react"
@@ -940,64 +940,23 @@ function Terms(): JSX.Element {
         </section>
 
         {/* CTA Section */}
-        <section className="section-padding bg-gradient-to-br from-gray-800 via-blue-900 to-purple-900">
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center space-y-8 max-w-4xl mx-auto"
-            >
-              <Badge
-                variant="secondary"
-                className="bg-white/20 text-white border-white/30"
-              >
-                Ready to Get Started?
-              </Badge>
-
-              <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight">
-                Let's Work
-                <span className="bg-gradient-to-r from-yellow-300 to-amber-300 bg-clip-text text-transparent">
-                  {" "}
-                  Together
-                </span>
-              </h2>
-
-              <p className="text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
-                Ready to transform your business with AI and cutting-edge
-                technology solutions? Contact us to discuss your project
-                requirements.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Button
-                  size="xl"
-                  variant="luxury"
-                  className="group shadow-2xl shadow-amber-500/25 hover:shadow-amber-500/40"
-                  asChild
-                >
-                  <Link to="/contact">
-                    Get Started Today
-                    <Mail className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-
-                <Button
-                  size="xl"
-                  variant="outline"
-                  className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
-                  asChild
-                >
-                  <a href="mailto:hello@techlis.com">
-                    Contact Legal Team
-                    <Mail className="ml-2 h-5 w-5" />
-                  </a>
-                </Button>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        <CTA
+          badge="Ready to Get Started?"
+          titlePrefix="Let's Work "
+          titleGradient="Together"
+          description="Ready to transform your business with AI and cutting-edge technology solutions? Contact us to discuss your project requirements."
+          primaryAction={{
+            text: "Get Started Today",
+            href: "/contact",
+            icon: Mail,
+          }}
+          secondaryAction={{
+            text: "Contact Legal Team",
+            href: "mailto:hello@techlis.com",
+            icon: Mail,
+          }}
+          showTrustSection={false}
+        />
       </div>
     </>
   )

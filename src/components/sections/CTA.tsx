@@ -1,11 +1,49 @@
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
-import { ArrowRight, MessageCircle, Star, Sparkles } from "lucide-react"
+import {
+  ArrowRight,
+  MessageCircle,
+  Star,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react"
 import { Button, Badge } from "@/components/ui"
 import type { JSX } from "react/jsx-runtime"
 import { TRUSTED_COMPANIES } from "@/lib/constants"
 
-export function CTA(): JSX.Element {
+interface CTAAction {
+  text: string
+  href: string
+  icon?: LucideIcon
+}
+
+interface CTAProps {
+  badge?: string
+  titlePrefix?: string
+  titleGradient?: string
+  description?: string
+  primaryAction?: CTAAction
+  secondaryAction?: CTAAction
+  showTrustSection?: boolean
+}
+
+export function CTA({
+  badge = "Ready to Ship?",
+  titlePrefix = "Ready to Build Your ",
+  titleGradient = "Product?",
+  description = "Stop planning and start building. Let's discuss your V1 or your next big feature and get it into users' hands.",
+  primaryAction = {
+    text: "Start Your Project",
+    href: "/contact",
+    icon: ArrowRight,
+  },
+  secondaryAction = {
+    text: "Book a Call",
+    href: "/contact",
+    icon: MessageCircle,
+  },
+  showTrustSection = true,
+}: CTAProps): JSX.Element {
   const floatingElements = [
     { icon: Star, delay: 0, position: "top-10 left-10" },
     { icon: Sparkles, delay: 1, position: "top-20 right-20" },
@@ -78,7 +116,7 @@ export function CTA(): JSX.Element {
               variant="secondary"
               className="bg-white/20 text-white border-white/30 backdrop-blur-sm"
             >
-              Ready to Ship?
+              {badge}
             </Badge>
           </motion.div>
 
@@ -91,10 +129,10 @@ export function CTA(): JSX.Element {
             className="space-y-6"
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Ready to Build Your{" "}
+              {titlePrefix}
               <span className="relative">
                 <span className="bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
-                  Product?
+                  {titleGradient}
                 </span>
                 <motion.div
                   animate={{
@@ -110,8 +148,7 @@ export function CTA(): JSX.Element {
               </span>
             </h2>
             <p className="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
-              Stop planning and start building. Let's discuss your V1 or your
-              next big feature and get it into users' hands.
+              {description}
             </p>
           </motion.div>
 
@@ -130,10 +167,21 @@ export function CTA(): JSX.Element {
                 className="group shadow-2xl shadow-amber-500/25 hover:shadow-amber-500/40"
                 asChild
               >
-                <Link to="/contact">
-                  Start Your Project
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
+                {primaryAction.href.startsWith("mailto:") ? (
+                  <a href={primaryAction.href}>
+                    {primaryAction.text}
+                    {primaryAction.icon && (
+                      <primaryAction.icon className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    )}
+                  </a>
+                ) : (
+                  <Link to={primaryAction.href}>
+                    {primaryAction.text}
+                    {primaryAction.icon && (
+                      <primaryAction.icon className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    )}
+                  </Link>
+                )}
               </Button>
             </motion.div>
 
@@ -144,67 +192,80 @@ export function CTA(): JSX.Element {
                 className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm group"
                 asChild
               >
-                <Link to="/contact">
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Book a Call
-                </Link>
+                {secondaryAction.href.startsWith("mailto:") ? (
+                  <a href={secondaryAction.href}>
+                    {secondaryAction.icon && (
+                      <secondaryAction.icon className="mr-2 h-5 w-5" />
+                    )}
+                    {secondaryAction.text}
+                  </a>
+                ) : (
+                  <Link to={secondaryAction.href}>
+                    {secondaryAction.icon && (
+                      <secondaryAction.icon className="mr-2 h-5 w-5" />
+                    )}
+                    {secondaryAction.text}
+                  </Link>
+                )}
               </Button>
             </motion.div>
           </motion.div>
 
           {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            viewport={{ once: true }}
-            className="pt-12 border-t border-white/20"
-          >
-            <p className="text-blue-100 mb-8 text-lg">
-              Building with founders at
-            </p>
+          {showTrustSection && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              viewport={{ once: true }}
+              className="pt-12 border-t border-white/20"
+            >
+              <p className="text-blue-100 mb-8 text-lg">
+                Building with founders at
+              </p>
 
-            {/* Company Logos Placeholder */}
-            <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
-              {TRUSTED_COMPANIES.map((i) => (
-                <motion.div
-                  key={i.name}
-                  whileHover={{ scale: 1.1, opacity: 0.8 }}
-                  className="h-12 w-32 bg-white/20 rounded-lg backdrop-blur-sm flex items-center justify-center"
-                >
-                  <div className="text-white/60 font-semibold text-sm">
-                    {i.name}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+              {/* Company Logos Placeholder */}
+              <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
+                {TRUSTED_COMPANIES.map((i) => (
+                  <motion.div
+                    key={i.name}
+                    whileHover={{ scale: 1.1, opacity: 0.8 }}
+                    className="h-12 w-32 bg-white/20 rounded-lg backdrop-blur-sm flex items-center justify-center"
+                  >
+                    <div className="text-white/60 font-semibold text-sm">
+                      {i.name}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
-              {[
-                { value: "100+", label: "Projects" },
-                { value: "30+", label: "Clients" },
-                { value: "98%", label: "Satisfaction" },
-                { value: "24/7", label: "Support" },
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <div className="text-3xl font-bold text-white mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-blue-200 text-sm font-medium">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+              {/* Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+                {[
+                  { value: "100+", label: "Projects" },
+                  { value: "30+", label: "Clients" },
+                  { value: "98%", label: "Satisfaction" },
+                  { value: "24/7", label: "Support" },
+                ].map((stat, index) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-center"
+                  >
+                    <div className="text-3xl font-bold text-white mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="text-blue-200 text-sm font-medium">
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </motion.div>
       </div>
 

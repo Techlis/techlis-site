@@ -1,9 +1,10 @@
 import { motion } from "framer-motion"
-import { Badge, Button } from "@/components/ui"
+import { Badge } from "@/components/ui"
 import { SEOHead } from "@/components/common"
-import { Link } from "react-router-dom"
+
 import { generatePageSEO } from "@/lib/seo"
 import { COMPANY_DATA } from "@/lib/constants"
+import { CTA } from "@/components/sections/CTA"
 import { Shield, Mail, Calendar } from "lucide-react"
 import type { JSX } from "react"
 
@@ -716,63 +717,23 @@ function Privacy(): JSX.Element {
         </section>
 
         {/* CTA Section */}
-        <section className="section-padding bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800">
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center space-y-8 max-w-4xl mx-auto"
-            >
-              <Badge
-                variant="secondary"
-                className="bg-white/20 text-white border-white/30"
-              >
-                Have Questions?
-              </Badge>
-
-              <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight">
-                We're Here to
-                <span className="bg-gradient-to-r from-yellow-300 to-amber-300 bg-clip-text text-transparent">
-                  {" "}
-                  Help
-                </span>
-              </h2>
-
-              <p className="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
-                If you have any questions about our privacy practices or need
-                assistance, don't hesitate to reach out to our privacy team.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Button
-                  size="xl"
-                  variant="luxury"
-                  className="group shadow-2xl shadow-amber-500/25 hover:shadow-amber-500/40"
-                  asChild
-                >
-                  <Link to="/contact">
-                    Contact Privacy Team
-                    <Mail className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-
-                <Button
-                  size="xl"
-                  variant="outline"
-                  className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
-                  asChild
-                >
-                  <a href="mailto:hello@techlis.com">
-                    <Mail className="mr-2 h-5 w-5" />
-                    Email Directly
-                  </a>
-                </Button>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        <CTA
+          badge="Have Questions?"
+          titlePrefix="We're Here to "
+          titleGradient="Help"
+          description="If you have any questions about our privacy practices or need assistance, don't hesitate to reach out to our privacy team."
+          primaryAction={{
+            text: "Contact Privacy Team",
+            href: "/contact",
+            icon: Mail,
+          }}
+          secondaryAction={{
+            text: "Email Directly",
+            href: "mailto:hello@techlis.com",
+            icon: Mail,
+          }}
+          showTrustSection={false}
+        />
       </div>
     </>
   )
