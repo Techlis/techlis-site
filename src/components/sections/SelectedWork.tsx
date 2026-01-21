@@ -53,7 +53,7 @@ const works = [
 
 export function SelectedWork() {
   return (
-    <section className="py-24 bg-white/30 backdrop-blur-[2px] relative">
+    <section className="py-24 bg-white/30 dark:bg-transparent backdrop-blur-[2px] relative">
       <div className="container px-4 md:px-6">
         {/* Section Header */}
         <RevealOnScroll className="max-w-3xl mb-16" width="100%">
@@ -66,7 +66,7 @@ export function SelectedWork() {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
             Proof of <span className="text-primary-600">Work</span>
           </h2>
-          <p className="text-xl text-gray-500 leading-relaxed">
+          <p className="text-xl text-gray-500 dark:text-slate-400 leading-relaxed">
             Real products shipped with real founders. Here are a few examples
             where Techlis acted as the lead engineering partner.
           </p>
@@ -86,17 +86,17 @@ export function SelectedWork() {
                 zIndex: index + 1,
               }}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 bg-white/90 pt-12 group transition-all duration-500">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 bg-white/90 dark:bg-slate-800/90 pt-12 group transition-all duration-500 rounded-3xl p-4">
                 {/* Left: Identity */}
                 <div className="lg:col-span-4 space-y-6">
                   <div>
                     <div className="text-sm font-semibold tracking-wider text-primary-600 uppercase mb-2">
                       {work.category}
                     </div>
-                    <h3 className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-300">
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-slate-100 mb-2 group-hover:text-primary-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                       {work.title}
                     </h3>
-                    <p className="text-lg text-gray-600 font-medium">
+                    <p className="text-lg text-gray-600 dark:text-slate-400 font-medium">
                       {work.summary}
                     </p>
                   </div>
@@ -105,14 +105,18 @@ export function SelectedWork() {
                     {work.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-gray-50 text-gray-600 text-xs rounded-full border border-gray-200 font-mono transition-colors group-hover:border-primary-200 group-hover:bg-primary-50"
+                        className="px-3 py-1 bg-gray-50 dark:bg-slate-700 text-gray-600 dark:text-slate-300 text-xs rounded-full border border-gray-200 dark:border-slate-600 font-mono transition-colors group-hover:border-primary-200 dark:group-hover:border-blue-500/50 group-hover:bg-primary-50 dark:group-hover:bg-slate-600"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <Button variant="outline" className="group/btn" asChild>
+                  <Button
+                    variant="outline"
+                    className="group/btn dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-transform"
+                    asChild
+                  >
                     <a
                       href={work.link}
                       target="_blank"
@@ -125,22 +129,24 @@ export function SelectedWork() {
                 </div>
 
                 {/* Right: Narrative */}
-                <div className="lg:col-span-8 bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-100/50 transition-all duration-500 group-hover:shadow-xl group-hover:border-primary-100/50 group-hover:bg-white group-hover:-translate-y-1">
-                  <h4 className="font-semibold text-gray-900 mb-4">
+                <div className="lg:col-span-8 bg-gray-50 dark:bg-slate-700/50 rounded-2xl p-8 lg:p-10 border border-gray-100/50 dark:border-slate-600/50 transition-all duration-500 group-hover:shadow-xl group-hover:border-primary-100/50 dark:group-hover:border-blue-500/30 group-hover:bg-white dark:group-hover:bg-slate-700 group-hover:-translate-y-1">
+                  <h4 className="font-semibold text-gray-900 dark:text-slate-100 mb-4">
                     The Collaboration
                   </h4>
-                  <p className="text-gray-600 leading-relaxed mb-8">
+                  <p className="text-gray-600 dark:text-slate-400 leading-relaxed mb-8">
                     {work.narrative}
                   </p>
 
-                  <h4 className="font-semibold text-gray-900 mb-4">
+                  <h4 className="font-semibold text-gray-900 dark:text-slate-100 mb-4">
                     Key Outcomes
                   </h4>
                   <div className="grid sm:grid-cols-2 gap-4">
                     {work.bullets.map((bullet, i) => (
                       <div key={i} className="flex items-start space-x-3">
                         <CheckCircle2 className="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700 text-sm">{bullet}</span>
+                        <span className="text-gray-700 dark:text-slate-300 text-sm">
+                          {bullet}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -152,10 +158,10 @@ export function SelectedWork() {
 
         {/* "More Work" Blurb */}
         <RevealOnScroll
-          className="mt-24 text-center border-t border-gray-100 pt-16"
+          className="mt-24 text-center border-t border-gray-100 dark:border-slate-700 pt-16"
           width="100%"
         >
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
             These are just product engineering highlights. For a deeper dive
             into the founder's technical background, creative experiments, and
             full history:
@@ -163,7 +169,7 @@ export function SelectedWork() {
           <Button
             size="xl"
             variant="outline"
-            className="h-14 px-8 text-lg bg-white hover:bg-gray-50 hover:scale-105 transition-transform"
+            className="h-14 px-8 text-lg bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-transform"
             asChild
           >
             <a

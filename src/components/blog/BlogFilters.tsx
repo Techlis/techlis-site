@@ -52,8 +52,10 @@ export function BlogFilters({
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Filter className="w-5 h-5 text-gray-600" />
-          <h3 className="text-lg font-semibold text-gray-900">Filter Posts</h3>
+          <Filter className="w-5 h-5 text-gray-600 dark:text-slate-200" />
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-slate-200">
+            Filter Posts
+          </h3>
         </div>
 
         {selectedCategory !== "all" && (
@@ -84,7 +86,7 @@ export function BlogFilters({
               size="sm"
               onClick={() => handleCategoryClick(category)}
               className={cn(
-                "transition-all duration-200 hover:scale-105",
+                "transition-all duration-200 hover:scale-105 dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-transform",
                 isSelected && "shadow-lg"
               )}
             >
@@ -104,8 +106,10 @@ export function BlogFilters({
 
       {/* Active Filter Display */}
       {selectedCategory !== "all" && (
-        <div className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg border">
-          <span className="text-sm text-gray-600">Showing posts in:</span>
+        <div className="flex items-center gap-2 p-3 bg-gray-50 dark:bg-slate-800 rounded-lg border">
+          <span className="text-sm text-gray-600 dark:text-slate-400">
+            Showing posts in:
+          </span>
           <Badge
             variant={
               categoryColors[selectedCategory as keyof typeof categoryColors]

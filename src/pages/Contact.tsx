@@ -115,17 +115,21 @@ function Contact(): JSX.Element {
                 className="space-y-8"
               >
                 <div>
-                  <h2 className="text-2xl font-bold mb-6">
+                  <h2 className="text-2xl font-bold mb-6 dark:text-slate-100">
                     Contact Information
                   </h2>
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-primary-100 rounded-lg">
-                        <Mail className="h-6 w-6 text-primary-600" />
+                      <div className="p-3 bg-primary-100 dark:bg-slate-700 rounded-lg">
+                        <Mail className="h-6 w-6 text-primary-600 dark:text-blue-400" />
                       </div>
                       <div>
-                        <h3 className="font-semibold">Email</h3>
-                        <p className="text-gray-600">hello@techlis.com</p>
+                        <h3 className="font-semibold dark:text-slate-100">
+                          Email
+                        </h3>
+                        <p className="text-gray-600 dark:text-slate-400">
+                          hello@techlis.com
+                        </p>
                       </div>
                     </div>
 
@@ -140,20 +144,26 @@ function Contact(): JSX.Element {
                     </div> */}
 
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-primary-100 rounded-lg">
-                        <MapPin className="h-6 w-6 text-primary-600" />
+                      <div className="p-3 bg-primary-100 dark:bg-slate-700 rounded-lg">
+                        <MapPin className="h-6 w-6 text-primary-600 dark:text-blue-400" />
                       </div>
                       <div>
-                        <h3 className="font-semibold">Location</h3>
-                        <p className="text-gray-600">Vancouver, BC</p>
+                        <h3 className="font-semibold dark:text-slate-100">
+                          Location
+                        </h3>
+                        <p className="text-gray-600 dark:text-slate-400">
+                          Vancouver, BC
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-primary-50 to-purple-50 p-6 rounded-xl">
-                  <h3 className="font-semibold mb-2">Quick Response</h3>
-                  <p className="text-gray-600 text-sm">
+                <div className="bg-gradient-to-br from-primary-50 to-purple-50 dark:from-slate-800 dark:to-slate-800 p-6 rounded-xl border border-primary-100 dark:border-slate-700">
+                  <h3 className="font-semibold mb-2 dark:text-slate-100">
+                    Quick Response
+                  </h3>
+                  <p className="text-gray-600 dark:text-slate-400 text-sm">
                     We typically respond to all inquiries within 24 hours. For
                     urgent matters, feel free to email us directly.
                   </p>
@@ -189,7 +199,7 @@ function Contact(): JSX.Element {
                         >
                           <label
                             htmlFor="name"
-                            className="block text-sm font-medium mb-2"
+                            className="block text-sm font-medium mb-2 dark:text-slate-200"
                           >
                             Full Name *
                           </label>
@@ -212,7 +222,7 @@ function Contact(): JSX.Element {
                         >
                           <label
                             htmlFor="email"
-                            className="block text-sm font-medium mb-2"
+                            className="block text-sm font-medium mb-2 dark:text-slate-200"
                           >
                             Email Address *
                           </label>
@@ -237,7 +247,7 @@ function Contact(): JSX.Element {
                         >
                           <label
                             htmlFor="company"
-                            className="block text-sm font-medium mb-2"
+                            className="block text-sm font-medium mb-2 dark:text-slate-200"
                           >
                             Company
                           </label>
@@ -258,7 +268,7 @@ function Contact(): JSX.Element {
                         >
                           <label
                             htmlFor="service"
-                            className="block text-sm font-medium mb-2"
+                            className="block text-sm font-medium mb-2 dark:text-slate-200"
                           >
                             Service Interest
                           </label>
@@ -267,7 +277,7 @@ function Contact(): JSX.Element {
                             name="service"
                             value={formData.service}
                             onChange={handleChange}
-                            className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 transition-all duration-300 focus:border-primary-400 focus:shadow-md"
+                            className="flex h-11 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm dark:text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                           >
                             <option value="">Select a service</option>
                             <option value="fractional-partner">
@@ -291,7 +301,7 @@ function Contact(): JSX.Element {
                       >
                         <label
                           htmlFor="message"
-                          className="block text-sm font-medium mb-2"
+                          className="block text-sm font-medium mb-2 dark:text-slate-200"
                         >
                           Message *
                         </label>

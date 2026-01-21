@@ -2,6 +2,7 @@ import { useState, type JSX } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { Menu, X, Brain } from "lucide-react"
 import { Button } from "@/components/ui"
+import { ThemeToggle } from "@/components/ThemeToggle"
 import { NAVIGATION_ITEMS } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 
@@ -15,7 +16,7 @@ export function Header(): JSX.Element {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md dark:bg-gray-900/80">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-slate-700 bg-white/80 backdrop-blur-md dark:bg-slate-900/80">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
@@ -32,9 +33,9 @@ export function Header(): JSX.Element {
               key={item.name}
               href={item.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary-600",
+                "text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400",
                 isActive(item.href)
-                  ? "text-primary-600"
+                  ? "text-primary-600 dark:text-primary-400"
                   : "text-gray-600 dark:text-gray-300"
               )}
               onClick={(e) => {
@@ -56,8 +57,9 @@ export function Header(): JSX.Element {
           ))}
         </nav>
 
-        {/* CTA Button */}
+        {/* CTA Button & Theme Toggle */}
         <div className="hidden md:flex items-center space-x-4">
+          <ThemeToggle />
           <Button asChild>
             <Link to="/contact">Get Started</Link>
           </Button>
@@ -65,7 +67,7 @@ export function Header(): JSX.Element {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden touch-target p-2 -mr-2"
+          className="md:hidden touch-target p-2 -mr-2 text-gray-700 dark:text-gray-300"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -79,7 +81,7 @@ export function Header(): JSX.Element {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden border-t bg-white dark:bg-gray-900">
+        <div className="md:hidden border-t border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900">
           <nav
             data-testid="mobile-padding"
             className="container mobile-padding py-4 space-y-3"
@@ -89,9 +91,9 @@ export function Header(): JSX.Element {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary-600",
+                  "block text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400",
                   isActive(item.href)
-                    ? "text-primary-600"
+                    ? "text-primary-600 dark:text-primary-400"
                     : "text-gray-600 dark:text-gray-300"
                 )}
                 onClick={(e) => {
@@ -109,8 +111,9 @@ export function Header(): JSX.Element {
                 {item.name}
               </a>
             ))}
-            <div className="pt-3">
-              <Button asChild className="w-full touch-button">
+            <div className="pt-3 flex items-center justify-between gap-4">
+              <ThemeToggle />
+              <Button asChild className="flex-1 touch-button">
                 <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
                   Get Started
                 </Link>

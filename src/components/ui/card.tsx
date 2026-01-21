@@ -8,7 +8,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-xl border border-gray-200 bg-white text-gray-950 shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-gray-200/50",
+      "rounded-xl border border-gray-200 bg-white text-gray-950 shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-gray-200/50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-100 dark:hover:shadow-slate-900/50",
       className
     )}
     {...props}
@@ -47,7 +47,11 @@ const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn("text-sm text-gray-600", className)} {...props} />
+  <p
+    ref={ref}
+    className={cn("text-sm text-gray-600 dark:text-slate-400", className)}
+    {...props}
+  />
 ))
 CardDescription.displayName = "CardDescription"
 

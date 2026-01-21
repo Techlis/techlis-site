@@ -64,7 +64,7 @@ export function BlogRefreshButton({
       onClick={onRefresh}
       disabled={isLoading}
       className={cn(
-        "inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+        "inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
         className
       )}
     >

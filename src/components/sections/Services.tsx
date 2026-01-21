@@ -68,7 +68,7 @@ export function Services(): JSX.Element {
   }
 
   return (
-    <section className="section-padding bg-white/30 backdrop-blur-[2px] relative overflow-hidden">
+    <section className="section-padding bg-white/30 dark:bg-transparent backdrop-blur-[2px] relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div
@@ -97,7 +97,7 @@ export function Services(): JSX.Element {
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
             How I Can <span className="gradient-text">Help</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed">
             I focus on the high-impact areas where I can deliver the most value
             to your product. No fluff, just shipping code that works.
           </p>
@@ -157,24 +157,24 @@ export function Services(): JSX.Element {
                     </CardHeader>
 
                     <CardContent className="space-y-6 flex-grow flex flex-col">
-                      <div className="text-base text-gray-600 leading-relaxed min-h-[50px]">
+                      <div className="text-base text-gray-600 dark:text-slate-400 leading-relaxed min-h-[50px]">
                         {service.description}
                       </div>
 
                       {/* Target Audience */}
-                      <div className="bg-primary-50/50 p-3 rounded-lg border border-primary-100/50">
-                        <h4 className="flex items-center text-sm font-semibold text-primary-900 mb-1">
+                      <div className="bg-primary-50/50 dark:bg-slate-700/50 p-3 rounded-lg border border-primary-100/50 dark:border-slate-600/50">
+                        <h4 className="flex items-center text-sm font-semibold text-primary-900 dark:text-slate-100 mb-1">
                           <Target className="w-4 h-4 mr-2" />
                           Perfect For:
                         </h4>
-                        <p className="text-sm text-primary-800">
+                        <p className="text-sm text-primary-800 dark:text-slate-300">
                           {service.targetAudience}
                         </p>
                       </div>
 
                       {/* Features */}
                       <div className="flex-grow">
-                        <h4 className="font-semibold mb-3 text-gray-900 text-sm uppercase tracking-wider">
+                        <h4 className="font-semibold mb-3 text-gray-900 dark:text-slate-100 text-sm uppercase tracking-wider">
                           What's Included
                         </h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -185,7 +185,7 @@ export function Services(): JSX.Element {
                               className="flex items-start space-x-2"
                             >
                               <CheckCircle className="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5" />
-                              <span className="text-sm text-gray-700 leading-tight">
+                              <span className="text-sm text-gray-700 dark:text-slate-300 leading-tight">
                                 {feature}
                               </span>
                             </motion.div>
@@ -202,7 +202,7 @@ export function Services(): JSX.Element {
                           {service.technologies.slice(0, 4).map((tech) => (
                             <span
                               key={tech}
-                              className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs border border-gray-200"
+                              className="px-2 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-slate-300 rounded text-xs border border-gray-200 dark:border-slate-600"
                             >
                               {tech}
                             </span>
@@ -219,7 +219,7 @@ export function Services(): JSX.Element {
                       <div className="pt-2 mt-auto">
                         <Button
                           variant={isPopular ? "default" : "outline"}
-                          className="w-full group shadow-lg"
+                          className="w-full group shadow-lg dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-transform"
                           asChild
                         >
                           <Link to={`/contact?service=${service.id}`}>
@@ -247,9 +247,11 @@ export function Services(): JSX.Element {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-primary-50 to-purple-50 rounded-3xl p-8 border border-primary-100">
-            <h3 className="text-2xl font-bold mb-4">Need something else?</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <div className="bg-gradient-to-r from-primary-50 to-purple-50 dark:from-slate-800 dark:to-slate-800 rounded-3xl p-8 border border-primary-100 dark:border-slate-700">
+            <h3 className="text-2xl font-bold mb-4 dark:text-slate-100">
+              Need something else?
+            </h3>
+            <p className="text-gray-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
               If you have a specific technical challenge not listed here, let's
               chat. If I'm not the right fit, I'll tell you who is.
             </p>
@@ -260,7 +262,12 @@ export function Services(): JSX.Element {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button
+                variant="outline"
+                size="lg"
+                className="dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-transform"
+                asChild
+              >
                 <a
                   href="https://jonnyn.com"
                   target="_blank"

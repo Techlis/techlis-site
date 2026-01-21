@@ -27,9 +27,9 @@ export function Hero(): JSX.Element {
           {/* Badge */}
           <RevealOnScroll width="100%">
             <div className="flex justify-center mb-8">
-              <div className="inline-flex items-center space-x-2 bg-primary-50 border border-primary-100/50 rounded-full px-4 py-1.5">
-                <span className="flex h-2 w-2 rounded-full bg-primary-600 animate-pulse"></span>
-                <span className="text-sm font-medium text-primary-700 tracking-wide">
+              <div className="inline-flex items-center space-x-2 bg-primary-50 dark:bg-slate-800 border border-primary-100/50 dark:border-slate-700 rounded-full px-4 py-1.5">
+                <span className="flex h-2 w-2 rounded-full bg-primary-600 dark:bg-blue-400 animate-pulse"></span>
+                <span className="text-sm font-medium text-primary-700 dark:text-slate-200 tracking-wide">
                   Specialized Product Engineering Studio
                 </span>
               </div>
@@ -41,10 +41,12 @@ export function Hero(): JSX.Element {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight text-primary-900 mb-8 leading-[1.1]"
+            className="text-5xl md:text-7xl font-bold tracking-tight text-primary-900 dark:text-slate-100 mb-8 leading-[1.1]"
           >
             The Engineering Partner for <br className="hidden md:block" />
-            <span className="text-primary-600">Visionary Founders.</span>
+            <span className="text-primary-600 dark:text-blue-400">
+              Visionary Founders.
+            </span>
           </motion.h1>
 
           {/* Subtext */}
@@ -52,7 +54,7 @@ export function Hero(): JSX.Element {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-500 mb-10 max-w-2xl leading-relaxed"
+            className="text-xl md:text-2xl text-gray-500 dark:text-slate-400 mb-10 max-w-2xl leading-relaxed"
           >
             Techlis partners with founders to design, build, and ship
             high-quality web and mobile products. No middle management, just
@@ -79,7 +81,7 @@ export function Hero(): JSX.Element {
             <Button
               size="xl"
               variant="outline"
-              className="h-14 px-8 text-lg border-gray-200 bg-white hover:bg-gray-50 text-gray-700 hover:scale-105 transition-transform"
+              className="h-14 px-8 text-lg border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-700 dark:text-slate-200 hover:scale-105 transition-transform"
               asChild
             >
               <a
@@ -98,7 +100,7 @@ export function Hero(): JSX.Element {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="mt-20 pt-10 border-t border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 w-full"
+            className="mt-20 pt-10 border-t border-gray-100 dark:border-slate-700 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 w-full"
           >
             {[
               { label: "Products Shipped", value: "50+" },
@@ -110,10 +112,10 @@ export function Hero(): JSX.Element {
                 key={i}
                 className="flex flex-col items-center group cursor-default"
               >
-                <div className="text-2xl md:text-3xl font-bold text-primary-900 font-mono mb-1 group-hover:text-primary-600 transition-colors">
+                <div className="text-2xl md:text-3xl font-bold text-primary-900 dark:text-slate-100 font-mono mb-1 group-hover:text-primary-600 dark:group-hover:text-blue-400 transition-colors">
                   {stat.value}
                 </div>
-                <div className="text-sm font-medium text-gray-400 uppercase tracking-wider">
+                <div className="text-sm font-medium text-gray-400 dark:text-slate-500 uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>

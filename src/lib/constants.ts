@@ -14,6 +14,12 @@ export const SITE_CONFIG = {
   },
 }
 
+// Theme Configuration
+// Change defaultTheme to "dark" or "light" to override system preference
+export const THEME_CONFIG = {
+  defaultTheme: "system" as const, // "dark" | "light" | "system"
+}
+
 export const NAVIGATION_ITEMS = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/#services" },
