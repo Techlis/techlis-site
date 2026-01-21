@@ -86,18 +86,55 @@ function Contact(): JSX.Element {
       <SEOHead seoData={seoData} />
       <div className="min-h-screen bg-transparent">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary-600 to-purple-700 text-white py-20">
-          <div className="container">
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-20 overflow-hidden">
+          {/* Background Grid Pattern */}
+          <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+
+          {/* Animated Gradient Blob */}
+          <motion.div
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-0 left-1/2 -translate-x-1/2 -z-10 w-[600px] h-[400px] bg-primary-500/20 dark:bg-primary-400/10 blur-[100px] rounded-full sm:w-[800px] sm:h-[500px]"
+          />
+
+          <div className="container px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center space-y-4"
+              className="text-center max-w-3xl mx-auto space-y-8"
             >
-              <h1 className="text-4xl sm:text-5xl font-bold">Get In Touch</h1>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                Ready to transform your idea into a product? Let's discuss your
-                project and explore how we can collaborate.
+              {/* Status Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-background border border-border text-sm text-muted-foreground shadow-sm"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                Currently accepting new projects
+              </motion.div>
+
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
+                Let's Build Something <br className="hidden md:block" />
+                <span className="text-primary-600 dark:text-primary-400">
+                  Exceptional
+                </span>
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                Whether you have a clear roadmap or just a spark of an idea, I'm
+                here to help you build software that matters.
               </p>
             </motion.div>
           </div>
@@ -120,7 +157,7 @@ function Contact(): JSX.Element {
                   </h2>
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-primary-100 dark:bg-slate-700 rounded-lg">
+                      <div className="p-3 bg-secondary rounded-lg">
                         <Mail className="h-6 w-6 text-primary-600 dark:text-blue-400" />
                       </div>
                       <div>
@@ -144,7 +181,7 @@ function Contact(): JSX.Element {
                     </div> */}
 
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-primary-100 dark:bg-slate-700 rounded-lg">
+                      <div className="p-3 bg-secondary rounded-lg">
                         <MapPin className="h-6 w-6 text-primary-600 dark:text-blue-400" />
                       </div>
                       <div>
@@ -159,7 +196,7 @@ function Contact(): JSX.Element {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-primary-50 to-purple-50 dark:from-slate-800 dark:to-slate-800 p-6 rounded-xl border border-primary-100 dark:border-slate-700">
+                <div className="bg-card p-6 rounded-xl border border-border">
                   <h3 className="font-semibold mb-2 dark:text-slate-100">
                     Quick Response
                   </h3>
@@ -280,14 +317,15 @@ function Contact(): JSX.Element {
                             className="flex h-11 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm dark:text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                           >
                             <option value="">Select a service</option>
-                            <option value="fractional-partner">
-                              Fractional Product Partner
+                            <option value="founder-partner">
+                              Founder Product Partner
                             </option>
-                            <option value="mobile-engineering">
-                              Mobile Engineering
+                            <option value="mobile-launch">
+                              Mobile MVP Launch
                             </option>
-                            <option value="full-stack-web">
-                              Full-Stack Web (SaaS)
+                            <option value="saas-build">SaaS Platform V1</option>
+                            <option value="ai-addon">
+                              AI Feature Integration
                             </option>
                             <option value="other">Other</option>
                           </select>

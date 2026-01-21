@@ -15,8 +15,14 @@ function Privacy(): JSX.Element {
       <SEOHead seoData={seoData} />
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-purple-50">
-          <div data-testid="mobile-padding" className="container mobile-padding">
+        <section className="section-padding overflow-hidden relative">
+          {/* Background decoration */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-background to-purple-50/50 dark:from-blue-950/20 dark:via-background dark:to-purple-950/20 -z-10" />
+
+          <div
+            data-testid="mobile-padding"
+            className="container mobile-padding relative z-10"
+          >
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -25,19 +31,16 @@ function Privacy(): JSX.Element {
             >
               <Badge
                 variant="secondary"
-                className="bg-blue-100 text-blue-700 px-3 py-1.5 text-xs sm:text-sm"
+                className="px-3 py-1.5 text-xs sm:text-sm border-blue-100 dark:border-blue-900/50"
               >
-                <Shield className="w-4 h-4 mr-2 inline" />
+                <Shield className="w-4 h-4 mr-2 inline text-blue-600 dark:text-blue-400" />
                 Privacy Policy
               </Badge>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight px-2">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight px-2">
                 Your Privacy is Our
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  {" "}
-                  Priority
-                </span>
+                <span className="gradient-text"> Priority</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto px-2">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto px-2">
                 Techlis is committed to protecting your privacy and ensuring the
                 security of your personal data. This Privacy Policy explains how
                 we collect, use, and safeguard your information.
@@ -48,17 +51,20 @@ function Privacy(): JSX.Element {
 
         {/* Policy Content */}
         <section className="section-padding">
-          <div data-testid="mobile-padding" className="container mobile-padding">
+          <div
+            data-testid="mobile-padding"
+            className="container mobile-padding"
+          >
             <div className="max-w-3xl mx-auto space-y-12">
               {/* Last Updated */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-gray-50 rounded-lg p-6 text-center"
+                className="bg-secondary/50 backdrop-blur-sm border border-border/50 rounded-lg p-6 text-center"
               >
-                <Calendar className="w-6 h-6 text-gray-500 mx-auto mb-3" />
-                <p className="text-sm text-gray-600">
+                <Calendar className="w-6 h-6 text-muted-foreground mx-auto mb-3" />
+                <p className="text-sm text-muted-foreground">
                   <strong>Last Updated:</strong> September 10, 2025
                 </p>
               </motion.div>
@@ -69,10 +75,10 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Introduction
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     Welcome to Techlis ({COMPANY_DATA.name}). We are committed
                     to protecting your personal information and your right to
@@ -97,18 +103,18 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Information We Collect
                 </h2>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   Personal Information
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   We collect personal information that you voluntarily provide
                   to us when you:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
                   <li>Register on our website or mobile applications</li>
                   <li>Contact us through forms, email, or chat</li>
                   <li>Request a consultation or quote for our services</li>
@@ -119,10 +125,10 @@ function Privacy(): JSX.Element {
                   <li>Engage our consulting or development services</li>
                 </ul>
 
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   The personal information we collect may include:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
                   <li>
                     <strong>Identity Data:</strong> First name, last name,
                     username or similar identifier, title, date of birth
@@ -154,14 +160,14 @@ function Privacy(): JSX.Element {
                   </li>
                 </ul>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   Mobile App Data
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   When you use our mobile applications on iOS or Android, we may
                   collect:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
                   <li>
                     Device information (model, operating system version, unique
                     device identifiers)
@@ -179,17 +185,17 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   How We Use Your Information
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   We use your personal information for the following purposes:
                 </p>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   Service Delivery
                 </h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
                   <li>
                     To deliver and fulfill our services, including AI
                     development, cloud architecture, web/mobile development, and
@@ -205,20 +211,20 @@ function Privacy(): JSX.Element {
                   <li>To deliver personalized content and recommendations</li>
                 </ul>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   Mobile App Functionality
                 </h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
                   <li>To provide app functionality and features</li>
                   <li>To send push notifications (with your consent)</li>
                   <li>To improve app performance and user experience</li>
                   <li>To process in-app purchases and subscriptions</li>
                 </ul>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   Business Operations
                 </h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
                   <li>To improve our website, applications, and services</li>
                   <li>To conduct analytics and research</li>
                   <li>
@@ -229,10 +235,10 @@ function Privacy(): JSX.Element {
                   <li>To comply with legal obligations</li>
                 </ul>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   Marketing
                 </h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
                   <li>
                     To send you marketing communications (with your consent)
                   </li>
@@ -252,14 +258,14 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Lawful Basis for Processing
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   We process your personal information under the following legal
                   bases:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
                   <li>
                     <strong>Contract:</strong> Processing is necessary for the
                     performance of a contract with you or to take steps at your
@@ -290,14 +296,14 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Data Sharing and Third Parties
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   We do not sell your personal information. We may share your
                   information with:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
                   <li>
                     <strong>Service Providers:</strong> Third-party vendors who
                     provide services on our behalf (payment processing, cloud
@@ -322,14 +328,14 @@ function Privacy(): JSX.Element {
                   </li>
                 </ul>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   App Store Data
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   When you download our mobile applications, some data may be
                   processed by:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
                   <li>Apple Inc. (for iOS apps and in-app purchases)</li>
                   <li>Google LLC (for Android apps and in-app purchases)</li>
                   <li>Analytics providers (with your consent)</li>
@@ -342,16 +348,16 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   International Data Transfers
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   We operate globally with offices in Vancouver, BC (Canada) and
                   Ho Chi Minh City (Vietnam). Your personal information may be
                   transferred to and processed in countries outside of your
                   jurisdiction, including Canada and Vietnam.
                 </p>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   We ensure appropriate safeguards are in place for
                   international transfers, including standard contractual
                   clauses approved by the European Commission and other
@@ -365,14 +371,14 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Data Security
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   We implement appropriate technical and organizational security
                   measures to protect your personal information:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
                   <li>Encryption of data in transit and at rest</li>
                   <li>Regular security audits and penetration testing</li>
                   <li>Access controls and authentication mechanisms</li>
@@ -382,10 +388,10 @@ function Privacy(): JSX.Element {
                   <li>Vendor security assessments</li>
                 </ul>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   Mobile App Security
                 </h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
                   <li>App Store security review processes</li>
                   <li>Secure communication with our servers (HTTPS/TLS)</li>
                   <li>Local data encryption on mobile devices</li>
@@ -400,14 +406,14 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Data Retention
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   We retain your personal information only for as long as
                   necessary to fulfill the purposes outlined in this policy:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
                   <li>
                     <strong>Client Data:</strong> Retained for the duration of
                     our business relationship plus 7 years for legal and
@@ -435,13 +441,13 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.0 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Your Rights
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   Depending on your location, you may have the following rights:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
                   <li>
                     <strong>Right to Access:</strong> Request a copy of your
                     personal data
@@ -476,7 +482,7 @@ function Privacy(): JSX.Element {
                   </li>
                 </ul>
 
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   To exercise these rights, contact us at{" "}
                   <a
                     href="mailto:hello@techlis.com"
@@ -493,10 +499,10 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Children's Privacy
                 </h2>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   Our website, applications, and services are not intended for
                   children under 13 years of age. We do not knowingly collect
                   personal information from children under 13. If we discover
@@ -511,13 +517,13 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Cookies and Tracking Technologies
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   We use cookies, web beacons, and similar technologies to:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
                   <li>
                     Remember your preferences and personalize your experience
                   </li>
@@ -525,7 +531,7 @@ function Privacy(): JSX.Element {
                   <li>Deliver targeted advertising</li>
                   <li>Improve our website and services</li>
                 </ul>
-                <p className="text-gray-600 mt-4">
+                <p className="text-muted-foreground mt-4">
                   You can control cookie settings through your browser
                   preferences. Mobile app users can manage tracking preferences
                   in their device settings or app permissions.
@@ -538,22 +544,22 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.3 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Third-Party Services
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   Our website and applications may contain links to third-party
                   websites, plug-ins, and applications. We also use third-party
                   services for:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-4">
                   <li>Analytics and performance monitoring</li>
                   <li>Payment processing and billing</li>
                   <li>Customer support and communication</li>
                   <li>Marketing and advertising</li>
                   <li>Hosting and infrastructure</li>
                 </ul>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   Clicking on those links or enabling those connections may
                   allow third parties to collect or share data about you. We do
                   not control these third-party websites and are not responsible
@@ -569,15 +575,15 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.4 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Changes to This Privacy Policy
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   We may update this Privacy Policy from time to time in
                   response to changing legal, technical, or business
                   developments. When we update our policy, we will:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-4">
                   <li>
                     Post the updated policy on this page with a new "Last
                     Updated" date
@@ -588,7 +594,7 @@ function Privacy(): JSX.Element {
                   </li>
                   <li>Request your consent if required by applicable law</li>
                 </ul>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   We encourage you to review this Privacy Policy periodically to
                   stay informed about how we are protecting your information.
                 </p>
@@ -599,18 +605,18 @@ function Privacy(): JSX.Element {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.5 }}
-                className="bg-blue-50 rounded-lg p-8"
+                className="bg-secondary/30 backdrop-blur-sm border border-border/50 rounded-lg p-8"
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                  <Mail className="w-6 h-6 mr-3 text-blue-600" />
+                <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center">
+                  <Mail className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400" />
                   Contact Us
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   If you have any questions about this Privacy Policy or our
                   privacy practices, please contact us:
                 </p>
 
-                <div className="space-y-4 text-gray-600">
+                <div className="space-y-4 text-muted-foreground">
                   <p>
                     <strong>Data Protection Officer:</strong>
                     <br />
@@ -619,7 +625,7 @@ function Privacy(): JSX.Element {
                     Mail:{" "}
                     <a
                       href="mailto:hello@techlis.com"
-                      className="text-primary-600 hover:underline"
+                      className="text-primary hover:underline font-medium"
                     >
                       hello@techlis.com
                     </a>
@@ -644,8 +650,8 @@ function Privacy(): JSX.Element {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-blue-200">
-                  <p className="text-sm text-gray-500">
+                <div className="mt-6 pt-6 border-t border-border">
+                  <p className="text-sm text-muted-foreground/80">
                     If you have any concerns about our use of your personal
                     information, you have the right to make a complaint to your
                     local data protection authority. We would, however,
@@ -661,18 +667,18 @@ function Privacy(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.6 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Jurisdiction-Specific Rights
                 </h2>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   California Residents (CCPA)
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   California residents have additional rights under the
                   California Consumer Privacy Act (CCPA):
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
                   <li>
                     Right to know what personal information is collected, used,
                     shared, or sold
@@ -686,19 +692,19 @@ function Privacy(): JSX.Element {
                   </li>
                 </ul>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   EU Residents (GDPR)
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   EU residents have rights under the General Data Protection
                   Regulation (GDPR) as outlined above. We process personal data
                   lawfully, fairly, and transparently.
                 </p>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   Canadian Residents (PIPEDA)
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   Canadian residents are protected under the Personal
                   Information Protection and Electronic Documents Act (PIPEDA).
                   We obtain consent for collection, use, and disclosure of

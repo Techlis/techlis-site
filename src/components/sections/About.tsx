@@ -114,9 +114,9 @@ export function About(): JSX.Element {
                 <span className="gradient-text">Partner With Techlis</span>
               </h2>
               <p className="text-xl text-gray-600 dark:text-slate-400 leading-relaxed">
-                We act as your technical co-founder for hire. You get the
-                expertise of a senior engineering team without the overhead of
-                managing one. We focus on speed, quality, and shipping real
+                On-demand technical co-founder support with senior engineering
+                execution. Skip the overhead of building and managing an
+                in-house team. Move fast, build right, and ship measurable
                 value.
               </p>
             </motion.div>

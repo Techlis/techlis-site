@@ -78,34 +78,34 @@ export function Footer(): JSX.Element {
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
                 <Link
-                  to="/services#ai-development"
+                  to="/contact?service=founder-partner"
                   className="hover:text-white transition-colors"
                 >
-                  AI Development
+                  Founder Product Partner
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#cloud-architecture"
+                  to="/contact?service=mobile-launch"
                   className="hover:text-white transition-colors"
                 >
-                  Cloud Architecture
+                  Mobile MVP Launch
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#mobile-development"
+                  to="/contact?service=saas-build"
                   className="hover:text-white transition-colors"
                 >
-                  Mobile Applications
+                  SaaS Platform V1
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#web-development"
+                  to="/contact?service=ai-addon"
                   className="hover:text-white transition-colors"
                 >
-                  Web Development
+                  AI Feature Integration
                 </Link>
               </li>
             </ul>
