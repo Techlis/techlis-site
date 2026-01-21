@@ -49,7 +49,7 @@ function Contact(): JSX.Element {
     })
       .then(() => {
         success(
-          "Message sent successfully! We'll get back to you within 24 hours.",
+          "Message sent successfully! I'll get back to you within 24 hours.",
           { duration: 6000 }
         )
         // Reset form
@@ -63,7 +63,7 @@ function Contact(): JSX.Element {
       })
       .catch((error) => {
         showError(
-          "Failed to send message. Please try again or contact us directly."
+          "Failed to send message. Please try again or contact me directly."
         )
         console.error("Form submission error:", error)
       })
@@ -84,20 +84,57 @@ function Contact(): JSX.Element {
   return (
     <>
       <SEOHead seoData={seoData} />
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-transparent">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary-600 to-purple-700 text-white py-20">
-          <div className="container">
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-20 overflow-hidden">
+          {/* Background Grid Pattern */}
+          <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+
+          {/* Animated Gradient Blob */}
+          <motion.div
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-0 left-1/2 -translate-x-1/2 -z-10 w-[600px] h-[400px] bg-primary-500/20 dark:bg-primary-400/10 blur-[100px] rounded-full sm:w-[800px] sm:h-[500px]"
+          />
+
+          <div className="container px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center space-y-4"
+              className="text-center max-w-3xl mx-auto space-y-8"
             >
-              <h1 className="text-4xl sm:text-5xl font-bold">Get In Touch</h1>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                Ready to transform your business with AI? Let's discuss your
-                project and explore how we can help.
+              {/* Status Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-background border border-border text-sm text-muted-foreground shadow-sm"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                Currently accepting new projects
+              </motion.div>
+
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
+                Let's Build Something <br className="hidden md:block" />
+                <span className="text-primary-600 dark:text-primary-400">
+                  Exceptional
+                </span>
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                Whether you have a clear roadmap or just a spark of an idea, I'm
+                here to help you build software that matters.
               </p>
             </motion.div>
           </div>
@@ -115,17 +152,21 @@ function Contact(): JSX.Element {
                 className="space-y-8"
               >
                 <div>
-                  <h2 className="text-2xl font-bold mb-6">
+                  <h2 className="text-2xl font-bold mb-6 dark:text-slate-100">
                     Contact Information
                   </h2>
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-primary-100 rounded-lg">
-                        <Mail className="h-6 w-6 text-primary-600" />
+                      <div className="p-3 bg-secondary rounded-lg">
+                        <Mail className="h-6 w-6 text-primary-600 dark:text-blue-400" />
                       </div>
                       <div>
-                        <h3 className="font-semibold">Email</h3>
-                        <p className="text-gray-600">hello@techlis.com</p>
+                        <h3 className="font-semibold dark:text-slate-100">
+                          Email
+                        </h3>
+                        <p className="text-gray-600 dark:text-slate-400">
+                          hello@techlis.com
+                        </p>
                       </div>
                     </div>
 
@@ -140,22 +181,28 @@ function Contact(): JSX.Element {
                     </div> */}
 
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-primary-100 rounded-lg">
-                        <MapPin className="h-6 w-6 text-primary-600" />
+                      <div className="p-3 bg-secondary rounded-lg">
+                        <MapPin className="h-6 w-6 text-primary-600 dark:text-blue-400" />
                       </div>
                       <div>
-                        <h3 className="font-semibold">Location</h3>
-                        <p className="text-gray-600">Vancouver, BC</p>
+                        <h3 className="font-semibold dark:text-slate-100">
+                          Location
+                        </h3>
+                        <p className="text-gray-600 dark:text-slate-400">
+                          Vancouver, BC
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-primary-50 to-purple-50 p-6 rounded-xl">
-                  <h3 className="font-semibold mb-2">Quick Response</h3>
-                  <p className="text-gray-600 text-sm">
+                <div className="bg-card p-6 rounded-xl border border-border">
+                  <h3 className="font-semibold mb-2 dark:text-slate-100">
+                    Quick Response
+                  </h3>
+                  <p className="text-gray-600 dark:text-slate-400 text-sm">
                     We typically respond to all inquiries within 24 hours. For
-                    urgent matters, please call us directly.
+                    urgent matters, feel free to email us directly.
                   </p>
                 </div>
               </motion.div>
@@ -169,7 +216,7 @@ function Contact(): JSX.Element {
               >
                 <Card>
                   <CardHeader>
-                    <CardTitle>Send us a message</CardTitle>
+                    <CardTitle>Send a message</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <form
@@ -182,10 +229,14 @@ function Contact(): JSX.Element {
                     >
                       <input type="hidden" name="form-name" value="contact" />
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.1 }}
+                        >
                           <label
                             htmlFor="name"
-                            className="block text-sm font-medium mb-2"
+                            className="block text-sm font-medium mb-2 dark:text-slate-200"
                           >
                             Full Name *
                           </label>
@@ -197,13 +248,18 @@ function Contact(): JSX.Element {
                             onChange={handleChange}
                             placeholder="John Doe"
                             required
+                            className="transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                           />
-                        </div>
+                        </motion.div>
 
-                        <div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2 }}
+                        >
                           <label
                             htmlFor="email"
-                            className="block text-sm font-medium mb-2"
+                            className="block text-sm font-medium mb-2 dark:text-slate-200"
                           >
                             Email Address *
                           </label>
@@ -215,15 +271,20 @@ function Contact(): JSX.Element {
                             onChange={handleChange}
                             placeholder="john@company.com"
                             required
+                            className="transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                           />
-                        </div>
+                        </motion.div>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.3 }}
+                        >
                           <label
                             htmlFor="company"
-                            className="block text-sm font-medium mb-2"
+                            className="block text-sm font-medium mb-2 dark:text-slate-200"
                           >
                             Company
                           </label>
@@ -233,13 +294,18 @@ function Contact(): JSX.Element {
                             value={formData.company}
                             onChange={handleChange}
                             placeholder="Your Company"
+                            className="transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                           />
-                        </div>
+                        </motion.div>
 
-                        <div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.4 }}
+                        >
                           <label
                             htmlFor="service"
-                            className="block text-sm font-medium mb-2"
+                            className="block text-sm font-medium mb-2 dark:text-slate-200"
                           >
                             Service Interest
                           </label>
@@ -248,30 +314,32 @@ function Contact(): JSX.Element {
                             name="service"
                             value={formData.service}
                             onChange={handleChange}
-                            className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                            className="flex h-11 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm dark:text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                           >
                             <option value="">Select a service</option>
-                            <option value="ai-development">
-                              AI Development
+                            <option value="founder-partner">
+                              Founder Product Partner
                             </option>
-                            <option value="cloud-architecture">
-                              Cloud Architecture
+                            <option value="mobile-launch">
+                              Mobile MVP Launch
                             </option>
-                            <option value="mobile-development">
-                              Mobile Development
+                            <option value="saas-build">SaaS Platform V1</option>
+                            <option value="ai-addon">
+                              AI Feature Integration
                             </option>
-                            <option value="web-development">
-                              Web Development
-                            </option>
-                            <option value="consulting">Consulting</option>
+                            <option value="other">Other</option>
                           </select>
-                        </div>
+                        </motion.div>
                       </div>
 
-                      <div>
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                      >
                         <label
                           htmlFor="message"
-                          className="block text-sm font-medium mb-2"
+                          className="block text-sm font-medium mb-2 dark:text-slate-200"
                         >
                           Message *
                         </label>
@@ -280,11 +348,12 @@ function Contact(): JSX.Element {
                           name="message"
                           value={formData.message}
                           onChange={handleChange}
-                          placeholder="Tell us about your project..."
+                          placeholder="Tell me about your project..."
                           rows={6}
                           required
+                          className="transition-all duration-300 focus:border-primary-400 focus:shadow-md"
                         />
-                      </div>
+                      </motion.div>
 
                       <p style={{ display: "none" }}>
                         <label>

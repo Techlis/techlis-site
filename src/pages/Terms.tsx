@@ -15,8 +15,14 @@ function Terms(): JSX.Element {
       <SEOHead seoData={seoData} />
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="section-padding bg-gradient-to-br from-gray-50 via-white to-blue-50">
-          <div data-testid="mobile-padding" className="container mobile-padding">
+        <section className="section-padding overflow-hidden relative">
+          {/* Background decoration */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 via-background to-blue-50/50 dark:from-slate-900/20 dark:via-background dark:to-blue-900/20 -z-10" />
+
+          <div
+            data-testid="mobile-padding"
+            className="container mobile-padding relative z-10"
+          >
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -25,24 +31,21 @@ function Terms(): JSX.Element {
             >
               <Badge
                 variant="secondary"
-                className="bg-gray-100 text-gray-700 px-3 py-1.5 text-xs sm:text-sm"
+                className="px-3 py-1.5 text-xs sm:text-sm border-gray-100 dark:border-gray-800/50"
               >
-                <FileText className="w-4 h-4 mr-2 inline" />
+                <FileText className="w-4 h-4 mr-2 inline text-gray-600 dark:text-gray-400" />
                 Terms of Service
               </Badge>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight px-2">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight px-2">
                 Terms and
-                <span className="bg-gradient-to-r from-gray-600 to-blue-600 bg-clip-text text-transparent">
-                  {" "}
-                  Conditions
-                </span>
+                <span className="gradient-text"> Conditions</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto px-2">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto px-2">
                 These Terms of Service govern your use of Techlis websites,
                 mobile applications, and services. By accessing or using our
                 services, you agree to be bound by these terms.
               </p>
-              <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+              <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
                 <Clock className="w-4 h-4" />
                 <span>Last Updated: September 10, 2025</span>
               </div>
@@ -51,22 +54,27 @@ function Terms(): JSX.Element {
         </section>
 
         {/* Legal Notice */}
-        <section className="section-padding bg-red-50">
-          <div data-testid="mobile-padding" className="container mobile-padding">
+        <section className="section-padding py-12 bg-destructive/10 dark:bg-destructive/5">
+          <div
+            data-testid="mobile-padding"
+            className="container mobile-padding"
+          >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="max-w-3xl mx-auto"
             >
-              <div className="bg-white border-l-4 border-red-500 p-6 rounded-lg shadow-sm">
-                <div className="flex items-start space-x-3">
-                  <AlertTriangle className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
+              <div className="bg-background border-l-4 border-destructive p-6 rounded-lg shadow-sm border border-border/50">
+                <div className="flex items-start space-x-4">
+                  <div className="p-2 bg-destructive/10 rounded-full flex-shrink-0">
+                    <AlertTriangle className="w-6 h-6 text-destructive" />
+                  </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-red-700 mb-2">
+                    <h3 className="text-lg font-semibold text-foreground mb-2">
                       Important Legal Notice
                     </h3>
-                    <p className="text-red-600 text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       Please read these Terms of Service carefully before using
                       Techlis websites, mobile applications, or services. By
                       accessing or using any of our services, you acknowledge
@@ -83,7 +91,10 @@ function Terms(): JSX.Element {
 
         {/* Terms Content */}
         <section className="section-padding">
-          <div data-testid="mobile-padding" className="container mobile-padding">
+          <div
+            data-testid="mobile-padding"
+            className="container mobile-padding"
+          >
             <div className="max-w-4xl mx-auto space-y-12">
               {/* Definitions */}
               <motion.div
@@ -91,10 +102,10 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   1. Definitions
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     In these Terms of Service, the following terms have the
                     meanings set forth below:
@@ -142,10 +153,10 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   2. Acceptance of Terms
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     By accessing or using any Techlis Services, including our
                     websites, mobile applications, or consulting services, you
@@ -172,10 +183,10 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   3. Changes to Terms
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     We reserve the right to modify or update these Terms of
                     Service at any time. We will notify you of material changes
@@ -206,21 +217,21 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   4. Use of Services
                 </h2>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   4.1 Website and Mobile Apps
                 </h3>
-                <div className="text-gray-600 space-y-4 mb-6">
+                <div className="text-muted-foreground space-y-4 mb-6">
                   <p>
                     You may access and use our websites and mobile applications
                     for your personal or internal business purposes, subject to
                     these Terms of Service. All rights not expressly granted to
                     you are reserved by Techlis.
                   </p>
-                  <h4 className="font-medium text-gray-700 mb-2">
+                  <h4 className="font-medium text-foreground mb-2">
                     Mobile App Downloads:
                   </h4>
                   <p>
@@ -236,16 +247,16 @@ function Terms(): JSX.Element {
                   </p>
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   4.2 Consulting and Development Services
                 </h3>
-                <div className="text-gray-600 space-y-4 mb-6">
+                <div className="text-muted-foreground space-y-4 mb-6">
                   <p>
                     When you engage Techlis for consulting or development
                     services, additional terms and conditions may apply as
                     specified in your service agreement or statement of work.
                   </p>
-                  <h4 className="font-medium text-gray-700 mb-2">
+                  <h4 className="font-medium text-foreground mb-2">
                     Service Levels and Deliverables:
                   </h4>
                   <ul className="list-disc pl-6 space-y-2">
@@ -262,7 +273,7 @@ function Terms(): JSX.Element {
                       individual agreements
                     </li>
                   </ul>
-                  <h4 className="font-medium text-gray-700 mb-2">
+                  <h4 className="font-medium text-foreground mb-2">
                     Third-Party Services:
                   </h4>
                   <p>
@@ -274,13 +285,13 @@ function Terms(): JSX.Element {
                   </p>
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   4.3 User Obligations
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-muted-foreground mb-4">
                   When using our Services, you agree to:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-600">
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
                   <li>Provide accurate, current, and complete information</li>
                   <li>Maintain the security of your account credentials</li>
                   <li>
@@ -303,14 +314,14 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   5. Intellectual Property
                 </h2>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   5.1 Techlis Property
                 </h3>
-                <div className="text-gray-600 space-y-4 mb-6">
+                <div className="text-muted-foreground space-y-4 mb-6">
                   <p>
                     All content, software, technology, and materials provided
                     through our websites and mobile applications, including but
@@ -329,10 +340,10 @@ function Terms(): JSX.Element {
                   </p>
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   5.2 Client Work Product
                 </h3>
-                <div className="text-gray-600 space-y-4 mb-6">
+                <div className="text-muted-foreground space-y-4 mb-6">
                   <p>
                     Intellectual property rights in custom work product created
                     for clients through our consulting and development services
@@ -353,10 +364,10 @@ function Terms(): JSX.Element {
                   </p>
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   5.3 Third-Party Content
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   Our Services may include third-party content or links to
                   third-party websites. We do not control and are not
                   responsible for any third-party content. Your use of
@@ -371,10 +382,10 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   6. User Content
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     You may be able to submit, upload, post, or otherwise make
                     available content through our Services ("User Content"). You
@@ -396,7 +407,7 @@ function Terms(): JSX.Element {
                     edit, or modify any User Content that we determine violates
                     these Terms.
                   </p>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">
                     Client Confidential Information
                   </h3>
                   <p>
@@ -414,21 +425,21 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   7. App Store and Platform Terms
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     When you download or use our mobile applications from
                     third-party platforms, you acknowledge that additional terms
                     from the platform provider may apply:
                   </p>
 
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">
                     7.1 Apple App Store
                   </h3>
-                  <div className="bg-gray-50 p-4 rounded-lg mb-4">
-                    <p className="text-gray-600">
+                  <div className="bg-secondary/50 backdrop-blur-sm border border-border/50 p-4 rounded-lg mb-4">
+                    <p className="text-muted-foreground">
                       If you downloaded our iOS application from Apple's App
                       Store, you acknowledge that:
                     </p>
@@ -452,11 +463,11 @@ function Terms(): JSX.Element {
                     </ul>
                   </div>
 
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">
                     7.2 Google Play Store
                   </h3>
-                  <div className="bg-gray-50 p-4 rounded-lg mb-4">
-                    <p className="text-gray-600">
+                  <div className="bg-secondary/50 backdrop-blur-sm border border-border/50 p-4 rounded-lg mb-4">
+                    <p className="text-muted-foreground">
                       If you downloaded our Android application from Google Play
                       Store, you acknowledge that:
                     </p>
@@ -480,10 +491,10 @@ function Terms(): JSX.Element {
                     </ul>
                   </div>
 
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">
                     7.3 Platform Guidelines
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-muted-foreground">
                     Our applications must comply with platform-specific
                     development guidelines, privacy policies, and content
                     policies. We reserve the right to modify our applications to
@@ -498,14 +509,14 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   8. Payment Terms
                 </h2>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   8.1 Pricing and Payment
                 </h3>
-                <div className="text-gray-600 space-y-4 mb-6">
+                <div className="text-muted-foreground space-y-4 mb-6">
                   <p>
                     Prices for our consulting and development services are
                     quoted in the service agreement or statement of work. All
@@ -519,10 +530,10 @@ function Terms(): JSX.Element {
                   </p>
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   8.2 In-App Purchases and Subscriptions
                 </h3>
-                <div className="text-gray-600 space-y-4 mb-6">
+                <div className="text-muted-foreground space-y-4 mb-6">
                   <p>
                     Our mobile applications may offer additional features,
                     content, or services through in-app purchases. All in-app
@@ -553,10 +564,10 @@ function Terms(): JSX.Element {
                   </ul>
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   8.3 Dispute Resolution
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   Any billing disputes must be reported within 30 days of the
                   transaction date. For app store transactions, you must contact
                   the platform provider directly as we cannot process refunds
@@ -570,14 +581,14 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.0 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   9. Disclaimer and Limitation of Liability
                 </h2>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   9.1 Disclaimer of Warranties
                 </h3>
-                <div className="text-gray-600 space-y-4 mb-6">
+                <div className="text-muted-foreground space-y-4 mb-6">
                   <p>
                     OUR SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT
                     WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING
@@ -598,10 +609,10 @@ function Terms(): JSX.Element {
                   </p>
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   9.2 Limitation of Liability
                 </h3>
-                <div className="text-gray-600 space-y-4 mb-6">
+                <div className="text-muted-foreground space-y-4 mb-6">
                   <p>
                     TO THE MAXIMUM EXTENT PERMITTED BY LAW, TECHLIS AND ITS
                     AFFILIATES, OFFICERS, EMPLOYEES, AGENTS, SUPPLIERS, OR
@@ -617,10 +628,10 @@ function Terms(): JSX.Element {
                   </p>
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
                   9.3 Applicability
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   THESE LIMITATIONS APPLY EVEN IF TECHLIS HAS BEEN ADVISED OF
                   THE POSSIBILITY OF SUCH DAMAGES AND REGARDLESS OF THE LEGAL
                   THEORY ON WHICH ANY CLAIM IS BASED.
@@ -633,10 +644,10 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   10. Confidentiality and Non-Disclosure
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     During the course of providing services, Techlis may have
                     access to confidential information of clients and users. We
@@ -668,10 +679,10 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   11. Termination and Suspension
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     We may terminate or suspend your access to our Services
                     immediately, without prior notice or liability, for any
@@ -705,10 +716,10 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.3 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   12. Indemnification
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     You agree to defend, indemnify, and hold harmless Techlis
                     and its affiliates, and their respective officers,
@@ -743,10 +754,10 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.4 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   13. Governing Law and Jurisdiction
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     These Terms of Service shall be governed by and construed in
                     accordance with the laws of the Province of British
@@ -774,10 +785,10 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.5 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   14. Dispute Resolution
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     <strong>Negotiation:</strong> Before initiating any formal
                     legal proceedings, you agree to first negotiate with us in
@@ -811,10 +822,10 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.6 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   15. Severability and Waiver
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     <strong>Severability:</strong> If any provision of these
                     Terms of Service is found to be unenforceable or invalid
@@ -840,13 +851,13 @@ function Terms(): JSX.Element {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.7 }}
-                className="bg-gray-50 rounded-lg p-8"
+                className="bg-secondary/50 backdrop-blur-sm border border-border/50 rounded-lg p-8"
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                  <Mail className="w-6 h-6 mr-3 text-gray-600" />
+                <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center">
+                  <Mail className="w-6 h-6 mr-3 text-muted-foreground" />
                   Contact Information
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     <strong>Legal Department:</strong>
                     <br />
@@ -900,10 +911,10 @@ function Terms(): JSX.Element {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.8 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   16. Entire Agreement
                 </h2>
-                <div className="text-gray-600 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <p>
                     These Terms of Service, together with our Privacy Policy and
                     any additional agreements you enter into with us, constitute

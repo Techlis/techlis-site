@@ -211,14 +211,14 @@ function Blog(): JSX.Element {
               Tech Insights & Articles
             </h1>
           </div>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-4 sm:mb-6 px-2">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto mb-4 sm:mb-6 px-2">
             Curated content about AI, machine learning, software development,
             and cloud technologies.
           </p>
 
           {/* Stats and Last Updated */}
           <div
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-gray-500"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-gray-500 dark:text-slate-400"
             role="region"
             aria-label="Blog statistics"
           >

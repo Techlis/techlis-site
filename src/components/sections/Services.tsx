@@ -15,7 +15,7 @@ import {
 import {
   Card,
   CardContent,
-  CardDescription,
+  // CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -68,7 +68,7 @@ export function Services(): JSX.Element {
   }
 
   return (
-    <section className="section-padding bg-gradient-to-b from-white via-gray-50/50 to-white relative overflow-hidden">
+    <section className="section-padding bg-white/30 dark:bg-transparent backdrop-blur-[2px] relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div
@@ -92,15 +92,14 @@ export function Services(): JSX.Element {
             variant="secondary"
             className="bg-primary-50 text-primary-700 border-primary-200"
           >
-            Premium Services
+            Specialized Capabilities
           </Badge>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
-            Our <span className="gradient-text">Expertise</span>
+            How I Can <span className="gradient-text">Help</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            From AI development to cloud architecture, we provide comprehensive
-            solutions that drive innovation and accelerate your business growth
-            with cutting-edge technology.
+          <p className="text-xl text-gray-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed">
+            I focus on the high-impact areas where I can deliver the most value
+            to your product. No fluff, just shipping code that works.
           </p>
         </motion.div>
 
@@ -122,7 +121,7 @@ export function Services(): JSX.Element {
                 whileHover="hover"
               >
                 <motion.div variants={cardHoverVariants} className="h-full">
-                  <Card className="h-full luxury-card group relative overflow-hidden">
+                  <Card className="h-full luxury-card group relative overflow-hidden flex flex-col">
                     {isPopular && (
                       <div className="absolute top-4 right-4">
                         <Badge variant="luxury" className="shadow-lg">
@@ -143,37 +142,50 @@ export function Services(): JSX.Element {
                             <Icon className="h-8 w-8 text-primary-600 group-hover:text-white transition-colors duration-500" />
                           </motion.div>
                           <div>
-                            <CardTitle className="text-2xl mb-2">
+                            <CardTitle className="text-xl sm:text-2xl mb-2">
                               {service.title}
                             </CardTitle>
-                            <div className="flex items-center space-x-2">
-                              <Badge variant="outline" className="text-xs">
-                                {service.pricing}
-                              </Badge>
-                            </div>
+                            <Badge
+                              variant="outline"
+                              className="text-xs font-medium"
+                            >
+                              {service.engagementModel}
+                            </Badge>
                           </div>
                         </div>
                       </div>
-                      <CardDescription className="text-base text-gray-600 leading-relaxed">
-                        {service.description}
-                      </CardDescription>
                     </CardHeader>
 
-                    <CardContent className="space-y-6">
-                      {/* Features */}
-                      <div>
-                        <h4 className="font-semibold mb-4 text-gray-900">
-                          Key Capabilities
+                    <CardContent className="space-y-6 flex-grow flex flex-col">
+                      <div className="text-base text-gray-600 dark:text-slate-400 leading-relaxed min-h-[50px]">
+                        {service.description}
+                      </div>
+
+                      {/* Target Audience */}
+                      <div className="bg-primary-50/50 dark:bg-slate-700/50 p-3 rounded-lg border border-primary-100/50 dark:border-slate-600/50">
+                        <h4 className="flex items-center text-sm font-semibold text-primary-900 dark:text-slate-100 mb-1">
+                          <Target className="w-4 h-4 mr-2" />
+                          Perfect For:
                         </h4>
-                        <div className="grid grid-cols-2 gap-3">
+                        <p className="text-sm text-primary-800 dark:text-slate-300">
+                          {service.targetAudience}
+                        </p>
+                      </div>
+
+                      {/* Features */}
+                      <div className="flex-grow">
+                        <h4 className="font-semibold mb-3 text-gray-900 dark:text-slate-100 text-sm uppercase tracking-wider">
+                          What's Included
+                        </h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {service.features.map((feature) => (
                             <motion.div
                               key={feature}
-                              whileHover={{ x: 4 }}
-                              className="flex items-center space-x-2"
+                              whileHover={{ x: 2 }}
+                              className="flex items-start space-x-2"
                             >
-                              <CheckCircle className="w-4 h-4 text-primary-500 flex-shrink-0" />
-                              <span className="text-sm text-gray-700">
+                              <CheckCircle className="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5" />
+                              <span className="text-sm text-gray-700 dark:text-slate-300 leading-tight">
                                 {feature}
                               </span>
                             </motion.div>
@@ -183,31 +195,35 @@ export function Services(): JSX.Element {
 
                       {/* Technologies */}
                       <div>
-                        <h4 className="font-semibold mb-4 text-gray-900">
-                          Technologies
-                        </h4>
+                        {/* <h4 className="font-semibold mb-3 text-gray-900 text-sm">
+                          Stack
+                        </h4> */}
                         <div className="flex flex-wrap gap-2">
-                          {service.technologies.map((tech) => (
-                            <motion.span
+                          {service.technologies.slice(0, 4).map((tech) => (
+                            <span
                               key={tech}
-                              whileHover={{ scale: 1.05 }}
-                              className="px-3 py-1 bg-gray-100 hover:bg-primary-50 text-gray-700 hover:text-primary-700 rounded-full text-xs font-medium transition-all duration-200 cursor-default"
+                              className="px-2 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-slate-300 rounded text-xs border border-gray-200 dark:border-slate-600"
                             >
                               {tech}
-                            </motion.span>
+                            </span>
                           ))}
+                          {service.technologies.length > 4 && (
+                            <span className="px-2 py-1 text-gray-400 text-xs">
+                              +{service.technologies.length - 4} more
+                            </span>
+                          )}
                         </div>
                       </div>
 
                       {/* CTA */}
-                      <div className="pt-4">
+                      <div className="pt-2 mt-auto">
                         <Button
                           variant={isPopular ? "default" : "outline"}
-                          className="w-full group shadow-lg"
+                          className="w-full group shadow-lg dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-transform"
                           asChild
                         >
                           <Link to={`/contact?service=${service.id}`}>
-                            Get Started
+                            Inquire about {service.title}
                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                           </Link>
                         </Button>
@@ -231,21 +247,34 @@ export function Services(): JSX.Element {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-primary-50 to-purple-50 rounded-3xl p-8 border border-primary-100">
-            <h3 className="text-2xl font-bold mb-4">Need a Custom Solution?</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Every business is unique. Let's discuss your specific requirements
-              and create a tailored solution that perfectly fits your needs.
+          <div className="bg-gradient-to-r from-primary-50 to-purple-50 dark:from-slate-800 dark:to-slate-800 rounded-3xl p-8 border border-primary-100 dark:border-slate-700">
+            <h3 className="text-2xl font-bold mb-4 dark:text-slate-100">
+              Need something else?
+            </h3>
+            <p className="text-gray-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
+              If you have a specific technical challenge not listed here, let's
+              chat. If I'm not the right fit, I'll tell you who is.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="shadow-xl" asChild>
                 <Link to="/contact">
-                  Schedule Consultation
+                  Book a Call
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
-                <Link to="/services">View All Services</Link>
+              <Button
+                variant="outline"
+                size="lg"
+                className="dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-transform"
+                asChild
+              >
+                <a
+                  href="https://jonnyn.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View My Work
+                </a>
               </Button>
             </div>
           </div>

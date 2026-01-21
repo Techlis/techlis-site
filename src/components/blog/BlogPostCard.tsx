@@ -111,11 +111,11 @@ export function BlogPostCard({
       </CardHeader>
 
       <CardContent className="pb-3 sm:pb-4 p-4 sm:p-6 pt-0">
-        <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
+        <p className="text-gray-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
           {truncateText(post.description, 150)}
         </p>
 
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs text-gray-500">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs text-gray-500 dark:text-slate-400">
           <div className="flex items-center gap-1">
             <Calendar className="w-3 h-3" />
             <span>{formatDate(post.pubDate)}</span>

@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Layout } from "@/components/layout/Layout"
+import { ThemeProvider } from "@/components/ThemeProvider"
 import { ToastProvider } from "@/components/ui"
 import { ScrollToTop } from "@/components/common/ScrollToTop"
+import { ScrollProgress } from "@/components/common/ScrollProgress"
 import {
   LazyHomeWrapper,
-  LazyAboutWrapper,
-  LazyServicesWrapper,
   LazyBlogWrapper,
   LazyContactWrapper,
   LazyPrivacyWrapper,
@@ -14,6 +14,7 @@ import {
 import { usePerformanceDashboard } from "@/components/dev/usePerformanceDashboard"
 import { initPerformanceMonitoring } from "@/lib/performance"
 import { validateEnvironmentConfig } from "@/lib/config"
+import { THEME_CONFIG } from "@/lib/constants"
 import type { JSX } from "react"
 
 // Initialize performance monitoring
@@ -30,23 +31,24 @@ function App(): JSX.Element {
   const { PerformanceDashboard } = usePerformanceDashboard()
 
   return (
-    <ToastProvider>
-      <Router>
-        <ScrollToTop />
-        <Layout>
-          <Routes>
-            <Route path="/" element={<LazyHomeWrapper />} />
-            <Route path="/about" element={<LazyAboutWrapper />} />
-            <Route path="/services" element={<LazyServicesWrapper />} />
-            <Route path="/blog" element={<LazyBlogWrapper />} />
-            <Route path="/contact" element={<LazyContactWrapper />} />
-            <Route path="/privacy" element={<LazyPrivacyWrapper />} />
-            <Route path="/terms" element={<LazyTermsWrapper />} />
-          </Routes>
-        </Layout>
-        {PerformanceDashboard}
-      </Router>
-    </ToastProvider>
+    <ThemeProvider defaultTheme={THEME_CONFIG.defaultTheme}>
+      <ToastProvider>
+        <Router>
+          <ScrollProgress />
+          <ScrollToTop />
+          <Layout>
+            <Routes>
+              <Route path="/" element={<LazyHomeWrapper />} />
+              <Route path="/blog" element={<LazyBlogWrapper />} />
+              <Route path="/contact" element={<LazyContactWrapper />} />
+              <Route path="/privacy" element={<LazyPrivacyWrapper />} />
+              <Route path="/terms" element={<LazyTermsWrapper />} />
+            </Routes>
+          </Layout>
+          {PerformanceDashboard}
+        </Router>
+      </ToastProvider>
+    </ThemeProvider>
   )
 }
 

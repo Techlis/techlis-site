@@ -1,342 +1,128 @@
 import { Link } from "react-router-dom"
-import { ArrowRight, Play, Sparkles, Zap, Shield, Award } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { easeInOut, motion } from "framer-motion"
-import type { JSX } from "react/jsx-runtime"
+import { motion, useScroll, useTransform } from "framer-motion"
+import type { JSX } from "react"
+import { RevealOnScroll } from "@/components/common/RevealOnScroll"
 
 export function Hero(): JSX.Element {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: easeInOut,
-      },
-    },
-  }
-
-  const floatingVariants = {
-    animate: {
-      y: [-20, 20, -20],
-      rotate: [0, 5, -5, 0],
-      transition: {
-        duration: 6,
-        repeat: Infinity,
-        ease: easeInOut,
-      },
-    },
-  }
+  const { scrollY } = useScroll()
+  const y1 = useTransform(scrollY, [0, 1000], [0, 400]) // Move down much slower
+  const y2 = useTransform(scrollY, [0, 1000], [0, -400]) // Move up much faster
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-primary-400/20 to-purple-400/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.5, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-full blur-3xl"
-        />
-
-        {/* Floating geometric shapes */}
-        <motion.div
-          variants={floatingVariants}
-          animate="animate"
-          className="absolute top-20 right-20 w-4 h-4 bg-primary-500 rounded-full opacity-60"
-        />
-        <motion.div
-          variants={floatingVariants}
-          animate="animate"
-          transition={{ delay: 1 }}
-          className="absolute top-40 left-20 w-6 h-6 bg-amber-400 rotate-45 opacity-40"
-        />
-        <motion.div
-          variants={floatingVariants}
-          animate="animate"
-          transition={{ delay: 2 }}
-          className="absolute bottom-40 right-40 w-3 h-3 bg-purple-500 rounded-full opacity-50"
-        />
-      </div>
-
-      <div className="container relative z-10 flex items-center min-h-screen">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full"
-        >
-          {/* Content */}
-          <div className="space-y-8">
-            {/* Badge */}
-            <motion.div variants={itemVariants}>
-              <Badge
-                variant="secondary"
-                className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-primary-200/50 text-primary-700 px-4 py-2 text-sm font-medium shadow-lg"
-              >
-                <Sparkles className="h-4 w-4" />
-                <span>AI-Powered Enterprise Solutions</span>
-              </Badge>
-            </motion.div>
-
-            {/* Headline */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight text-shadow">
-                Transform Ideas Into{" "}
-                <span className="gradient-text relative">
-                  AI-Powered
-                  <motion.div
-                    animate={{
-                      scaleX: [0, 1],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      delay: 1,
-                      ease: "easeOut",
-                    }}
-                    className="absolute bottom-0 left-0 h-2 bg-gradient-to-r from-primary-400 to-purple-400 rounded-full origin-left"
-                  />
-                </span>{" "}
-                Solutions
-              </h1>
-              <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed max-w-2xl">
-                Enterprise software development, AI integration, and cloud
-                solutions that scale with your business. From concept to
-                deployment, we build the future.
-              </p>
-            </motion.div>
-
-            {/* Trust Indicators */}
-            <motion.div variants={itemVariants}>
-              <div className="flex flex-wrap gap-4 mb-8">
-                {[
-                  { icon: Shield, text: "Enterprise Security" },
-                  { icon: Zap, text: "Lightning Fast" },
-                  { icon: Award, text: "Award Winning" },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center space-x-2 bg-white/60 backdrop-blur-sm px-3 py-2 rounded-full border border-gray-200/50 shadow-sm"
-                  >
-                    <item.icon className="h-4 w-4 text-primary-600" />
-                    <span className="text-sm font-medium text-gray-700">
-                      {item.text}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div variants={itemVariants}>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="xl"
-                  className="group shadow-2xl shadow-primary-500/25"
-                  asChild
-                >
-                  <Link to="/contact">
-                    Start Your Project
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="xl"
-                  className="group bg-white/80 backdrop-blur-sm border-2 hover:bg-white"
-                  asChild
-                >
-                  <Link to="/services">
-                    <Play className="mr-2 h-5 w-5" />
-                    Explore Services
-                  </Link>
-                </Button>
-              </div>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div variants={itemVariants}>
-              <div className="grid grid-cols-3 gap-8 pt-12 border-t border-gray-200/50">
-                {[
-                  { value: "50+", label: "Projects Delivered" },
-                  { value: "98%", label: "Client Satisfaction" },
-                  { value: "24/7", label: "Premium Support" },
-                ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.05 }}
-                    className="text-center"
-                  >
-                    <div className="text-3xl sm:text-4xl font-bold gradient-text mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-gray-600 font-medium">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Visual */}
-          <motion.div
-            variants={itemVariants}
-            className="relative lg:justify-self-end"
-          >
-            <div className="relative max-w-lg mx-auto">
-              {/* Main Dashboard Card */}
-              <motion.div
-                whileHover={{ scale: 1.02, rotateY: 5 }}
-                transition={{ duration: 0.3 }}
-                className="luxury-card rounded-3xl p-8 backdrop-blur-xl"
-              >
-                <div className="space-y-6">
-                  {/* Header */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-red-400 rounded-full" />
-                      <div className="w-3 h-3 bg-yellow-400 rounded-full" />
-                      <div className="w-3 h-3 bg-green-400 rounded-full" />
-                    </div>
-                    <Badge variant="luxury" className="text-xs">
-                      AI Powered
-                    </Badge>
-                  </div>
-
-                  {/* Content */}
-                  <div className="space-y-4">
-                    <div className="h-6 primary-gradient rounded-lg w-3/4 shimmer" />
-                    <div className="space-y-2">
-                      <div className="h-3 bg-gray-200 rounded w-full" />
-                      <div className="h-3 bg-gray-200 rounded w-5/6" />
-                      <div className="h-3 bg-gray-200 rounded w-2/3" />
-                    </div>
-
-                    {/* Interactive Elements */}
-                    <div className="flex space-x-2 pt-4">
-                      <motion.div
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="h-8 w-20 bg-primary-100 rounded-lg flex items-center justify-center"
-                      >
-                        <div className="w-2 h-2 bg-primary-500 rounded-full" />
-                      </motion.div>
-                      <motion.div
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: 0.5,
-                        }}
-                        className="h-8 w-20 bg-purple-100 rounded-lg flex items-center justify-center"
-                      >
-                        <div className="w-2 h-2 bg-purple-500 rounded-full" />
-                      </motion.div>
-                      <motion.div
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                        className="h-8 w-20 bg-amber-100 rounded-lg flex items-center justify-center"
-                      >
-                        <div className="w-2 h-2 bg-amber-500 rounded-full" />
-                      </motion.div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Floating Elements */}
-              <motion.div
-                animate={{
-                  y: [-15, 15, -15],
-                  rotate: [0, 10, -10, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-6 -right-6 bg-gradient-to-r from-amber-400 to-orange-400 text-white p-4 rounded-2xl shadow-2xl"
-              >
-                <Sparkles className="h-6 w-6" />
-              </motion.div>
-
-              <motion.div
-                animate={{
-                  y: [15, -15, 15],
-                  rotate: [0, -10, 10, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -bottom-6 -left-6 bg-gradient-to-r from-primary-500 to-blue-600 text-white p-4 rounded-2xl shadow-2xl"
-              >
-                <Zap className="h-6 w-6" />
-              </motion.div>
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.7, 1, 0.7],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute top-1/2 -right-12 bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-xl shadow-xl"
-              >
-                <Award className="h-5 w-5" />
-              </motion.div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Scroll Indicator */}
+    <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
+      {/* Parallax Background Elements */}
       <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2" />
+        style={{ y: y1 }}
+        className="absolute top-20 right-[10%] w-[500px] h-[500px] bg-gradient-to-br from-primary-200/40 to-purple-200/40 rounded-full blur-[100px] pointer-events-none"
+      />
+      <motion.div
+        style={{ y: y2 }}
+        className="absolute bottom-[-100px] left-[5%] w-[600px] h-[600px] bg-gradient-to-tr from-blue-200/40 to-sky-200/40 rounded-full blur-[100px] pointer-events-none"
+      />
+
+      <div className="container px-4 md:px-6 relative z-10">
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+          {/* Badge */}
+          <RevealOnScroll width="100%">
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center space-x-2 bg-primary-50 dark:bg-slate-800 border border-primary-100/50 dark:border-slate-700 rounded-full px-4 py-1.5">
+                <span className="flex h-2 w-2 rounded-full bg-primary-600 dark:bg-blue-400 animate-pulse"></span>
+                <span className="text-sm font-medium text-primary-700 dark:text-slate-200 tracking-wide">
+                  Specialized Product Engineering Studio
+                </span>
+              </div>
+            </div>
+          </RevealOnScroll>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-5xl md:text-7xl font-bold tracking-tight text-primary-900 dark:text-slate-100 mb-8 leading-[1.1]"
+          >
+            The Engineering Partner for <br className="hidden md:block" />
+            <span className="text-primary-600 dark:text-blue-400">
+              Visionary Founders.
+            </span>
+          </motion.h1>
+
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl md:text-2xl text-gray-500 dark:text-slate-400 mb-10 max-w-2xl leading-relaxed"
+          >
+            Techlis partners with founders to design, build, and ship
+            high-quality web and mobile products. No middle management, just
+            specific senior engineering expertise.
+          </motion.p>
+
+          {/* Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+          >
+            <Button
+              size="xl"
+              className="h-14 px-8 text-lg shadow-xl shadow-primary-900/10 hover:shadow-primary-900/20 transition-all font-semibold"
+              asChild
+            >
+              <Link to="/contact">
+                Work With Us
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button
+              size="xl"
+              variant="outline"
+              className="h-14 px-8 text-lg border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-700 dark:text-slate-200 hover:scale-105 transition-transform"
+              asChild
+            >
+              <a
+                href="https://jonnyn.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Selected Work
+                <ArrowRight className="ml-2 h-4 w-4 -rotate-45 group-hover:rotate-0 transition-transform" />
+              </a>
+            </Button>
+          </motion.div>
+
+          {/* Trust Indicators / Stats */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="mt-20 pt-10 border-t border-gray-100 dark:border-slate-700 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 w-full"
+          >
+            {[
+              { label: "Products Shipped", value: "50+" },
+              { label: "Years Experience", value: "15+" },
+              { label: "Client Revenue", value: "$50M+" },
+              { label: "Code Quality", value: "A+" },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center group cursor-default"
+              >
+                <div className="text-2xl md:text-3xl font-bold text-primary-900 dark:text-slate-100 font-mono mb-1 group-hover:text-primary-600 dark:group-hover:text-blue-400 transition-colors">
+                  {stat.value}
+                </div>
+                <div className="text-sm font-medium text-gray-400 dark:text-slate-500 uppercase tracking-wider">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }
