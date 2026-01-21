@@ -77,14 +77,14 @@ export function BlogPagination({
         size="sm"
         onClick={handlePrevious}
         disabled={currentPage === 1}
-        className="flex items-center gap-1"
+        className="flex items-center gap-1 dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-transform"
       >
         <ChevronLeft className="w-4 h-4" />
         Previous
       </Button>
 
       {/* Page Numbers */}
-      <div className="flex items-center space-x-1">
+      <div className="flex items-center space-x-1 dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-transform">
         {visiblePages.map((page, index) => {
           if (page === "...") {
             return (
@@ -117,7 +117,7 @@ export function BlogPagination({
         size="sm"
         onClick={handleNext}
         disabled={currentPage === totalPages}
-        className="flex items-center gap-1"
+        className="flex items-center gap-1 dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-transform"
       >
         Next
         <ChevronRight className="w-4 h-4" />

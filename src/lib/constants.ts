@@ -4,20 +4,26 @@ import type { RSSFeed, CompanyData } from "@/types"
 export const SITE_CONFIG = {
   name: "Techlis",
   description:
-    "AI Software Development Company - Transform Ideas Into AI-Powered Solutions",
+    "Your Specialized Product Engineering Partner - Mobile, Web, & AI Solutions for Founders",
   url: "https://techlis.com",
   ogImage: "https://techlis.com/og-image.jpg",
   links: {
-    twitter: "https://twitter.com/techlis",
+    twitter: "https://twitter.com/innovative_jonny",
     github: "https://github.com/techlis",
     linkedin: "https://linkedin.com/company/techlis",
   },
 }
 
+// Theme Configuration
+// Change defaultTheme to "dark" or "light" to override system preference
+export const THEME_CONFIG = {
+  defaultTheme: "system" as const, // "dark" | "light" | "system"
+}
+
 export const NAVIGATION_ITEMS = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
+  { name: "Services", href: "/#services" },
+  { name: "About", href: "/#about" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ]
@@ -25,19 +31,20 @@ export const NAVIGATION_ITEMS = [
 export const SERVICES = servicesData
 
 export const TECHNOLOGIES = [
-  { name: "React", category: "Frontend", icon: "⚛️" },
-  { name: "TypeScript", category: "Language", icon: "📘" },
-  { name: "Node.js", category: "Backend", icon: "🟢" },
-  { name: "Python", category: "AI/ML", icon: "🐍" },
-  { name: "AWS", category: "Cloud", icon: "☁️" },
-  { name: "Docker", category: "DevOps", icon: "🐳" },
-  { name: "PostgreSQL", category: "Database", icon: "🐘" },
-  { name: "TensorFlow", category: "AI/ML", icon: "🧠" },
-  { name: "Kubernetes", category: "DevOps", icon: "⚙️" },
+  { name: "React Native", category: "Mobile", icon: "📱" },
+  { name: "Expo", category: "Mobile", icon: "🚀" },
   { name: "Next.js", category: "Frontend", icon: "▲" },
+  { name: "TypeScript", category: "Language", icon: "📘" },
+  { name: "React", category: "Frontend", icon: "⚛️" },
+  { name: "Node.js", category: "Backend", icon: "🟢" },
+  { name: "PostgreSQL", category: "Database", icon: "🐘" },
+  { name: "Supabase", category: "Backend", icon: "🔥" },
   { name: "OpenAI", category: "AI/ML", icon: "🤖" },
-  { name: "Firebase", category: "Backend", icon: "🔥" },
+  { name: "Vercel", category: "Cloud", icon: "☁️" },
+  { name: "Docker", category: "DevOps", icon: "🐳" },
+  { name: "Python", category: "AI/ML", icon: "🐍" },
 ]
+
 // RSS Feed Configuration for Blog System
 export const RSS_FEEDS: RSSFeed[] = [
   {
@@ -126,6 +133,7 @@ export const CONTENT_KEYWORDS = {
     "data structure",
     "testing",
     "debugging",
+    "SaaS",
   ],
   "web-mobile": [
     "web development",
@@ -138,6 +146,8 @@ export const CONTENT_KEYWORDS = {
     "PWA",
     "iOS",
     "Android",
+    "Expo",
+    "React Native",
   ],
   "cloud-devops": [
     "cloud",
@@ -150,6 +160,7 @@ export const CONTENT_KEYWORDS = {
     "CI/CD",
     "infrastructure",
     "microservices",
+    "serverless",
   ],
 }
 
@@ -157,55 +168,55 @@ export const CONTENT_KEYWORDS = {
 export const COMPANY_DATA: CompanyData = {
   name: "Techlis",
   mission:
-    "To transform businesses through innovative AI and software solutions that drive growth and efficiency.",
+    "To help visionary founders turn their ideas into shipping products without the headache of managing a large team.",
   vision:
-    "To be the leading AI software development partner for enterprises worldwide, delivering cutting-edge solutions that shape the future of technology.",
+    "To be the technical superpower for the next generation of solo founders and small startups.",
   values: [
-    "Innovation-driven development",
-    "Client-centric approach",
-    "Quality and reliability",
-    "Continuous learning and improvement",
-    "Ethical AI practices",
+    "Direct Collaboration",
+    "Shipping Over Planning",
+    "Practical Engineering",
+    "Long-term Partnership",
+    "Zero Fluff",
   ],
   founder: {
     name: "Jonny Nguyen",
-    title: "Founder & CEO",
-    bio: "With over 15 years of experience in software development and AI, Jonny leads Techlis with a vision to democratize AI technology for businesses of all sizes. His expertise spans machine learning, cloud architecture, and enterprise software development.",
+    title: "Founder & Lead Engineer",
+    bio: "Jonny is a product engineer who partners directly with founders to build products that scale. Specializing in React Native, Expo, and Modern Web stacks, he acts as your technical co-founder for hire.",
     image: "/images/team/jonny-nguyen.jpg",
   },
   team: {
     onshoreTeam: {
-      size: 6,
+      size: 1, // Core Studio
       description:
-        "Our onshore team consists of senior developers, AI specialists, and project managers based in major tech hubs.",
+        "Techlis acts as your dedicated product studio. You work directly with me to ensure your vision is executed perfectly.",
       expertise: [
-        "AI/ML Engineering",
-        "Cloud Architecture",
-        "Full-Stack Development",
-        "DevOps & Infrastructure",
-        "Product Management",
+        "Product Architecture",
+        "Mobile Engineering",
+        "Full-Stack Web",
+        "Technical Strategy",
+        "MVP Development",
       ],
     },
     offshoreTeam: {
-      size: 15,
+      size: 10, // Available Network
       description:
-        "Our offshore development team provides 24/7 support and specialized expertise in various technologies.",
+        "i have a network of trusted specialists for when we need to scale up specific capabilities or extend the runway.",
       expertise: [
-        "Frontend Development",
-        "Backend Development",
-        "Mobile Development",
-        "QA & Testing",
-        "UI/UX Design",
+        "Specialized QA",
+        "Extended Development",
+        "Design Systems",
+        "Content Operations",
+        "Data labeling",
       ],
     },
   },
   established: "2020",
-  locations: ["Vancouver (BC, Canada)", "Ho Chi Minh City (Vietnam)"],
+  locations: ["Vancouver, BC (HQ)", "Remote Friendly"],
 }
 
 export const TRUSTED_COMPANIES = [
   {
-    name: "MaisieBeauty",
+    name: "Maisie Beauty",
     logo: "/images/companies/maisiebeauty.png",
   },
   {
@@ -221,7 +232,7 @@ export const TRUSTED_COMPANIES = [
     logo: "/images/companies/nfb.png",
   },
   {
-    name: "PocPix",
-    logo: "/images/companies/pocpix.png",
+    name: "Lyft Shipping",
+    logo: "/images/companies/lyftshipping.png",
   }
 ]

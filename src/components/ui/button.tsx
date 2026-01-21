@@ -13,14 +13,14 @@ const buttonVariants = cva(
         destructive:
           "bg-red-500 text-white shadow-lg hover:bg-red-600 sm:hover:scale-105 focus-visible:ring-red-500/30 active:scale-95",
         outline:
-          "border-2 border-primary-500 text-primary-500 hover:bg-primary-50 sm:hover:scale-105 focus-visible:ring-primary/30 active:scale-95",
+          "border-2 border-primary-500 text-primary-500 hover:bg-primary-50 sm:hover:scale-105 focus-visible:ring-primary/30 active:scale-95 dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-950",
         secondary:
-          "bg-gray-100 text-gray-900 shadow-sm hover:bg-gray-200 sm:hover:scale-105 active:scale-95",
+          "bg-gray-100 text-gray-900 shadow-sm hover:bg-gray-200 sm:hover:scale-105 active:scale-95 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600",
         ghost:
-          "text-gray-700 hover:bg-gray-100 sm:hover:scale-105 active:scale-95",
+          "text-gray-700 hover:bg-gray-100 sm:hover:scale-105 active:scale-95 dark:text-slate-300 dark:hover:bg-slate-800",
         luxury:
           "bg-gradient-to-r from-amber-400 to-yellow-400 text-gray-900 shadow-lg hover:shadow-xl sm:hover:scale-105 focus-visible:ring-amber-400/30 active:scale-95",
-        link: "text-primary-600 underline-offset-4 hover:underline active:opacity-70",
+        link: "text-primary-600 underline-offset-4 hover:underline active:opacity-70 dark:text-primary-400",
       },
       size: {
         default: "h-11 px-4 py-3 sm:px-6",

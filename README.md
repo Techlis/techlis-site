@@ -195,3 +195,16 @@ The codebase is well-documented and follows React/TypeScript best practices. All
 ## 📄 License
 
 This project is ready for production use. Customize as needed for your business.
+
+## 📊 Version
+
+** 1.0.0 - Branch: v1.0.0 **
+
+- Initial release Mutiple-page application
+- Feels generic and like an enterprise AI agency template
+
+** 2.0.0 - Branch: v2.0.0 **
+
+- Reflect Techlis's new positioning as a Specialized Product Engineering Partner. Rewrite the content to be more focused on product engineering and less on AI.
+- Hybrid navigation between multiple pages and a Single-Page Application (SPA) on Home page that includes Services about About.
+- Add more Tailwind CSS Animations and Transitions on Home page: Hero Parallax, Selected Works with Stackable cards, Subtle Background Animations, etc..

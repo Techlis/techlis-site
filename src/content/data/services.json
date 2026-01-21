@@ -1,139 +1,98 @@
 [
   {
-    "id": "ai-development",
-    "title": "AI & Machine Learning",
-    "icon": "Brain",
-    "description": "Enterprise-grade AI solutions that transform your business operations with intelligent automation, predictive analytics, and custom machine learning models.",
+    "id": "founder-partner",
+    "title": "Founder Product Partner",
+    "icon": "Target",
+    "description": "I act as your technical co-founder for a fraction of the cost. I handle everything product-related: from roadmap planning and architecture to shipping and iterating based on user feedback.",
     "features": [
-      "Custom AI Model Development",
-      "Natural Language Processing",
-      "Computer Vision Solutions",
-      "Predictive Analytics",
-      "AI Integration & Deployment",
-      "MLOps & Model Management"
-    ],
-    "technologies": [
-      "Python",
-      "TensorFlow",
-      "PyTorch",
-      "OpenAI GPT",
-      "Hugging Face",
-      "AWS SageMaker"
-    ],
-    "pricing": "Starting at $25,000"
-  },
-  {
-    "id": "cloud-architecture",
-    "title": "Cloud & DevOps",
-    "icon": "Cloud",
-    "description": "Scalable, secure cloud infrastructure and DevOps solutions that ensure your applications perform at enterprise scale with 99.9% uptime.",
-    "features": [
-      "Cloud Migration Strategy",
-      "Kubernetes Orchestration",
-      "CI/CD Pipeline Setup",
-      "Infrastructure as Code",
-      "Security & Compliance",
-      "Performance Monitoring"
-    ],
-    "technologies": [
-      "AWS",
-      "Azure",
-      "GCP",
-      "Docker",
-      "Kubernetes",
-      "Terraform",
-      "Jenkins"
-    ],
-    "pricing": "Starting at $18,000"
-  },
-  {
-    "id": "web-development",
-    "title": "Web Applications",
-    "icon": "Globe",
-    "description": "High-performance web applications built with modern frameworks, optimized for speed, security, and scalability to handle millions of users.",
-    "features": [
-      "Full-Stack Development",
-      "Progressive Web Apps",
-      "API Development",
-      "Database Architecture",
-      "Performance Optimization",
-      "Security Implementation"
-    ],
-    "technologies": [
-      "React",
-      "Next.js",
-      "Node.js",
-      "TypeScript",
-      "PostgreSQL",
-      "Redis"
-    ],
-    "pricing": "Starting at $15,000"
-  },
-  {
-    "id": "mobile-development",
-    "title": "Mobile Applications",
-    "icon": "Smartphone",
-    "description": "Native and cross-platform mobile applications that deliver exceptional user experiences across iOS and Android platforms.",
-    "features": [
-      "Native iOS & Android",
-      "Cross-Platform Development",
-      "App Store Optimization",
-      "Push Notifications",
-      "Offline Functionality",
-      "Analytics Integration"
+      "Weekly Product Roadmap Sessions",
+      "Full-Stack Development (Web & Mobile)",
+      "Technical Strategy & Architecture",
+      "Hiring & Team Vetting Support",
+      "Direct Slack/Discord Access",
+      "Undefined Scope (Agile)"
     ],
     "technologies": [
       "React Native",
-      "Flutter",
-      "Swift",
-      "Kotlin",
-      "Firebase",
-      "App Store Connect"
+      "Next.js",
+      "Node.js",
+      "Supabase",
+      "AWS",
+      "OpenAI"
     ],
-    "pricing": "Starting at $22,000"
+    "targetAudience": "Founders post-funding or revenue who need a senior lead to take ownership.",
+    "engagementModel": "Monthly Retainer (Pause anytime)"
   },
   {
-    "id": "consulting",
-    "title": "Technology Consulting",
-    "icon": "Target",
-    "description": "Strategic technology consulting to help you make informed decisions about your tech stack, architecture, and digital transformation journey.",
+    "id": "mobile-launch",
+    "title": "Launch-Ready Mobile MVP",
+    "icon": "Smartphone",
+    "description": "Go from idea to App Store in 4-8 weeks. I build a high-quality, cross-platform mobile app that is ready for real users and scalable enough for your Series A.",
     "features": [
-      "Technology Assessment",
-      "Architecture Review",
-      "Digital Strategy",
-      "Team Augmentation",
-      "Code Audits",
-      "Performance Analysis"
+      "iOS & Android (Expo Router)",
+      "Authentication & User Profiles",
+      "In-App Purchases (RevenueCat)",
+      "Push Notifications",
+      "App Store Submission Handling",
+      "Post-Launch Bug Fix Window"
     ],
     "technologies": [
-      "Various",
-      "Best Practices",
-      "Industry Standards",
-      "Security Frameworks"
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "RevenueCat",
+      "Supabase",
+      "EAS"
     ],
-    "pricing": "Starting at $5,000"
+    "targetAudience": "Early-stage founders validating a mobile-first idea.",
+    "engagementModel": "Fixed Scope & Price (4-8 Weeks)"
   },
   {
-    "id": "data-engineering",
-    "title": "Data Engineering",
-    "icon": "Database",
-    "description": "Build robust data pipelines and analytics platforms that turn your raw data into actionable business insights and competitive advantages.",
+    "id": "saas-build",
+    "title": "SaaS Platform V1",
+    "icon": "Globe",
+    "description": "A complete web product foundation. Not just a landing page, but a fully functional SaaS application with payments, user management, and your core unique features.",
     "features": [
-      "Data Pipeline Development",
-      "Real-time Analytics",
-      "Data Warehouse Design",
-      "ETL/ELT Processes",
-      "Business Intelligence",
-      "Data Governance"
+      "Next.js App Router Architecture",
+      "Stripe Subscription Integration",
+      "Admin Dashboard & Analytics",
+      "Role-Based Access Control",
+      "Email Transactional System",
+      "SEO-Optimized Marketing Pages"
     ],
     "technologies": [
-      "Apache Spark",
-      "Airflow",
-      "Snowflake",
-      "dbt",
-      "Tableau",
-      "Power BI"
+      "Next.js",
+      "React",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Stripe",
+      "Prisma"
     ],
-    "pricing": "Starting at $20,000"
+    "targetAudience": "B2B/B2C startups needing a robust web platform to acquire customers.",
+    "engagementModel": "Fixed Scope & Price (4-6 Weeks)"
+  },
+  {
+    "id": "ai-addon",
+    "title": "AI Feature Integration",
+    "icon": "Brain",
+    "description": "Add intelligent features to your existing product without a rewrite. I slot in specific AI capabilities that solve real user problems and increase retention.",
+    "features": [
+      "Custom Knowledge Chatbots (RAG)",
+      "Automated Content Summarization",
+      "Intelligent Data Extraction",
+      "Voice-to-Text Workflows",
+      "Prompt Engineering Optimization",
+      "Cost-Effective LLM Routing"
+    ],
+    "technologies": [
+      "OpenAI API",
+      "Vercel AI SDK",
+      "Pinecone",
+      "Whisper",
+      "Python",
+      "LangChain"
+    ],
+    "targetAudience": "Product teams with an existing app wanting to add AI capabilities.",
+    "engagementModel": "Project-Based (2-3 Weeks)"
   }
 ]

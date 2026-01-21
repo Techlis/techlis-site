@@ -10,10 +10,11 @@ const badgeVariants = cva(
         default:
           "border-transparent bg-primary-500 text-white hover:bg-primary-600",
         secondary:
-          "border-transparent bg-gray-100 text-gray-900 hover:bg-gray-200",
+          "border-transparent bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600",
         destructive:
           "border-transparent bg-red-500 text-white hover:bg-red-600",
-        outline: "text-gray-700 border border-gray-300 hover:bg-gray-50",
+        outline:
+          "text-gray-700 border border-gray-300 hover:bg-gray-50 dark:text-slate-300 dark:border-slate-600 dark:hover:bg-slate-800",
         luxury:
           "border-transparent bg-gradient-to-r from-amber-400 to-yellow-400 text-gray-900",
       },

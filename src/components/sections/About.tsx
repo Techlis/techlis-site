@@ -39,35 +39,6 @@ export function About(): JSX.Element {
     },
   ]
 
-  const features = [
-    {
-      icon: Target,
-      text: "Enterprise-grade AI solutions",
-      color: "text-blue-600",
-    },
-    {
-      icon: Shield,
-      text: "Scalable cloud architecture",
-      color: "text-purple-600",
-    },
-    {
-      icon: Rocket,
-      text: "Modern development practices",
-      color: "text-green-600",
-    },
-    {
-      icon: Award,
-      text: "Comprehensive testing & QA",
-      color: "text-amber-600",
-    },
-    {
-      icon: Users,
-      text: "Ongoing maintenance & support",
-      color: "text-red-600",
-    },
-    { icon: Zap, text: "Agile project management", color: "text-indigo-600" },
-  ]
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -92,7 +63,7 @@ export function About(): JSX.Element {
   }
 
   return (
-    <section className="section-padding bg-gradient-to-b from-white via-gray-50/30 to-white relative overflow-hidden">
+    <section className="section-padding bg-white/30 dark:bg-transparent backdrop-blur-[2px] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -136,35 +107,67 @@ export function About(): JSX.Element {
                 variant="secondary"
                 className="bg-primary-50 text-primary-700 border-primary-200 mb-6"
               >
-                About Techlis
+                The Founder Partner Model
               </Badge>
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                Why Choose <span className="gradient-text">Techlis</span>
+                Why Founders{" "}
+                <span className="gradient-text">Partner With Techlis</span>
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                We're not just developers – we're your technology partners. With
-                years of experience in AI, cloud computing, and enterprise
-                software, we deliver solutions that drive real business results
-                and accelerate growth.
+              <p className="text-xl text-gray-600 dark:text-slate-400 leading-relaxed">
+                On-demand technical co-founder support with senior engineering
+                execution. Skip the overhead of building and managing an
+                in-house team. Move fast, build right, and ship measurable
+                value.
               </p>
             </motion.div>
 
             {/* Features Grid */}
             <motion.div variants={itemVariants}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {features.map((feature) => (
+                {[
+                  {
+                    icon: Target,
+                    text: "Product-First Mindset",
+                    color: "text-blue-600",
+                  },
+                  {
+                    icon: Shield,
+                    text: "Scale-Ready V1s",
+                    color: "text-purple-600",
+                  },
+                  {
+                    icon: Rocket,
+                    text: "Rapid Iteration Cycles",
+                    color: "text-green-600",
+                  },
+                  {
+                    icon: Award,
+                    text: "High-Fidelity Engineering",
+                    color: "text-amber-600",
+                  },
+                  {
+                    icon: Users,
+                    text: "Long-term Partnership",
+                    color: "text-red-600",
+                  },
+                  {
+                    icon: Zap,
+                    text: "Direct Communication",
+                    color: "text-indigo-600",
+                  },
+                ].map((feature) => (
                   <motion.div
                     key={feature.text}
                     whileHover={{ x: 4, scale: 1.02 }}
                     transition={{ duration: 0.2 }}
-                    className="flex items-center space-x-3 p-3 rounded-xl hover:bg-white/60 transition-all duration-200"
+                    className="flex items-center space-x-3 p-3 rounded-xl hover:bg-white/60 dark:hover:bg-slate-800/60 transition-all duration-200"
                   >
                     <div
-                      className={`p-2 rounded-lg bg-gray-50 ${feature.color}`}
+                      className={`p-2 rounded-lg bg-gray-50 dark:bg-slate-800 ${feature.color}`}
                     >
                       <feature.icon className="h-5 w-5" />
                     </div>
-                    <span className="text-gray-700 font-medium">
+                    <span className="text-gray-700 dark:text-slate-300 font-medium">
                       {feature.text}
                     </span>
                   </motion.div>
@@ -174,14 +177,15 @@ export function About(): JSX.Element {
 
             {/* Mission Statement */}
             <motion.div variants={itemVariants}>
-              <div className="bg-gradient-to-r from-primary-50 to-purple-50 rounded-2xl p-6 border border-primary-100">
-                <h3 className="text-lg font-semibold mb-3 text-gray-900">
+              <div className="bg-gradient-to-r from-primary-50 to-purple-50 dark:from-slate-800 dark:to-slate-800 rounded-2xl p-6 border border-primary-100 dark:border-slate-700">
+                <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-slate-100">
                   Our Mission
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  To empower businesses with cutting-edge AI and cloud
-                  technologies, transforming complex challenges into competitive
-                  advantages through innovative software solutions.
+                <p className="text-gray-600 dark:text-slate-400 leading-relaxed">
+                  To empower visionary founders by bridging the gap between
+                  complex engineering and simple, usable product design. We
+                  build technology that serves the business, not the other way
+                  around.
                 </p>
               </div>
             </motion.div>
@@ -223,7 +227,7 @@ export function About(): JSX.Element {
                   >
                     {stat.value}
                   </motion.div>
-                  <div className="text-sm text-gray-600 font-medium">
+                  <div className="text-sm text-gray-600 dark:text-slate-400 font-medium">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -241,8 +245,10 @@ export function About(): JSX.Element {
           className="mt-24"
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4">Our Core Values</h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h3 className="text-3xl font-bold mb-4 dark:text-slate-100">
+              Our Core Values
+            </h3>
+            <p className="text-gray-600 dark:text-slate-400 max-w-2xl mx-auto">
               These principles guide everything we do and ensure we deliver
               exceptional results for our clients.
             </p>
@@ -286,8 +292,10 @@ export function About(): JSX.Element {
                 >
                   <value.icon className="h-8 w-8 text-white" />
                 </div>
-                <h4 className="text-xl font-semibold mb-3">{value.title}</h4>
-                <p className="text-gray-600 leading-relaxed">
+                <h4 className="text-xl font-semibold mb-3 dark:text-slate-100">
+                  {value.title}
+                </h4>
+                <p className="text-gray-600 dark:text-slate-400 leading-relaxed">
                   {value.description}
                 </p>
               </motion.div>

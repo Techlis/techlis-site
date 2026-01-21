@@ -78,7 +78,7 @@ export function CTA(): JSX.Element {
               variant="secondary"
               className="bg-white/20 text-white border-white/30 backdrop-blur-sm"
             >
-              Ready to Get Started?
+              Ready to Ship?
             </Badge>
           </motion.div>
 
@@ -91,10 +91,10 @@ export function CTA(): JSX.Element {
             className="space-y-6"
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Ready to Transform Your{" "}
+              Ready to Build Your{" "}
               <span className="relative">
                 <span className="bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
-                  Business?
+                  Product?
                 </span>
                 <motion.div
                   animate={{
@@ -110,9 +110,8 @@ export function CTA(): JSX.Element {
               </span>
             </h2>
             <p className="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
-              Let's discuss your project and explore how our AI-powered
-              solutions can drive innovation, accelerate growth, and give you a
-              competitive edge in your industry.
+              Stop planning and start building. Let's discuss your V1 or your
+              next big feature and get it into users' hands.
             </p>
           </motion.div>
 
@@ -147,7 +146,7 @@ export function CTA(): JSX.Element {
               >
                 <Link to="/contact">
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  Schedule a Call
+                  Book a Call
                 </Link>
               </Button>
             </motion.div>
@@ -162,7 +161,7 @@ export function CTA(): JSX.Element {
             className="pt-12 border-t border-white/20"
           >
             <p className="text-blue-100 mb-8 text-lg">
-              Trusted by innovative companies worldwide
+              Building with founders at
             </p>
 
             {/* Company Logos Placeholder */}
