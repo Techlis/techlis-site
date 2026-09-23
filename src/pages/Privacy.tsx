@@ -66,7 +66,7 @@ function Privacy(): JSX.Element {
               >
                 <Calendar className="w-6 h-6 text-muted-foreground mx-auto mb-3" />
                 <p className="text-sm text-muted-foreground">
-                  <strong>Last Updated:</strong> September 10, 2025
+                  <strong>Last Updated:</strong> September 23, 2026
                 </p>
               </motion.div>
 
@@ -174,10 +174,183 @@ function Privacy(): JSX.Element {
                     device identifiers)
                   </li>
                   <li>App usage analytics and crash reports</li>
-                  <li>Location data (if you grant permission)</li>
+                  <li>
+                    Location data: our citizenship study apps do not request
+                    precise location. Ad networks may use IP-based coarse
+                    location for ads where permitted by law and your consent
+                    choices.
+                  </li>
                   <li>Push notification tokens</li>
                   <li>In-app purchase history</li>
                 </ul>
+
+                <h3 className="text-lg font-semibold text-foreground mb-3">
+                  Mobile Citizenship Test Apps (Advertising &amp; Data)
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  This section applies to our free and premium citizenship and
+                  life-in-the-UK study apps published by Techlis on the Apple
+                  App Store and Google Play. These apps are study tools. They do
+                  not require an account and do not collect your name, email, or
+                  precise GPS location for core study features.
+                </p>
+
+                <h4 className="text-base font-semibold text-foreground mb-3">
+                  What We Store on Your Device
+                </h4>
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
+                  <li>
+                    Study progress, preferences such as language, and an
+                    anonymous local user ID
+                  </li>
+                  <li>Premium and purchase status after you buy or restore</li>
+                  <li>
+                    You can clear local app data from Settings &gt; Delete my
+                    data
+                  </li>
+                </ul>
+
+                <h4 className="text-base font-semibold text-foreground mb-3">
+                  Analytics and Crash Reporting
+                </h4>
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
+                  <li>
+                    We may use Google Firebase Analytics and Firebase
+                    Crashlytics to understand feature usage and diagnose crashes
+                  </li>
+                  <li>
+                    Events are tied to an anonymous ID and do not include names,
+                    emails, or precise location
+                  </li>
+                  <li>
+                    Typical signals include app opens, practice or exam start
+                    and completion, paywall funnel steps, ad-related events such
+                    as impressions, clicks, and errors, and non-fatal error
+                    reports
+                  </li>
+                </ul>
+
+                <h4 className="text-base font-semibold text-foreground mb-3">
+                  Advertising (Free Users Only)
+                </h4>
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
+                  <li>
+                    Free versions show ads through Google Mobile Ads (AdMob)
+                  </li>
+                  <li>
+                    AdMob may load ads from mediated partners, including Meta
+                    Audience Network and AppLovin, on the same ad placements
+                  </li>
+                  <li>
+                    Ad formats may include banners, interstitials after a
+                    completed session or exam, and rewarded ads such as an
+                    optional preview of mistake review. Interstitials are not
+                    shown while answering
+                  </li>
+                  <li>Premium, a one-time in-app purchase, removes ads</li>
+                  <li>
+                    Ads and mediation partners may process advertising
+                    identifiers (IDFA or GAID), IP address, device and app
+                    information, and interaction data to deliver and measure ads
+                  </li>
+                </ul>
+
+                <h4 className="text-base font-semibold text-foreground mb-3">
+                  In-App Purchases
+                </h4>
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
+                  <li>
+                    Purchases are processed by Apple or Google and managed with
+                    RevenueCat
+                  </li>
+                  <li>
+                    We receive purchase and entitlement status, such as whether
+                    Premium is active, not your full payment card details
+                  </li>
+                </ul>
+
+                <h4 className="text-base font-semibold text-foreground mb-3">
+                  EEA, UK, and Switzerland
+                </h4>
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
+                  <li>
+                    Where required, we obtain advertising and measurement
+                    consent through Google&apos;s User Messaging Platform (UMP)
+                    consent form in the app, and Apple&apos;s App Tracking
+                    Transparency prompt on iOS when applicable
+                  </li>
+                  <li>
+                    You can change or withdraw consent using the in-app privacy
+                    and consent options, when available, and your device
+                    settings such as Limit Ad Tracking or App Tracking
+                  </li>
+                  <li>
+                    If you decline personalized ads, you may still see
+                    non-personalized or limited ads where allowed
+                  </li>
+                </ul>
+
+                <h4 className="text-base font-semibold text-foreground mb-3">
+                  Advertising and Analytics Partners
+                </h4>
+                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-4">
+                  <li>
+                    <a
+                      href="https://policies.google.com/privacy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Google AdMob / Google Privacy Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/privacy/policy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Meta Audience Network
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.applovin.com/privacy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      AppLovin
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://firebase.google.com/support/privacy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Firebase (Google)
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.revenuecat.com/privacy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      RevenueCat
+                    </a>
+                  </li>
+                </ul>
+                <p className="text-muted-foreground">
+                  We do not sell your personal information. Sharing with the
+                  partners above is for advertising, analytics, crash
+                  diagnostics, and purchase entitlement, not for selling your
+                  data.
+                </p>
               </motion.div>
 
               {/* How We Use Your Information */}
@@ -340,6 +513,12 @@ function Privacy(): JSX.Element {
                   <li>Apple Inc. (for iOS apps and in-app purchases)</li>
                   <li>Google LLC (for Android apps and in-app purchases)</li>
                   <li>Analytics providers (with your consent)</li>
+                  <li>
+                    Google AdMob and mediated networks such as Meta Audience
+                    Network and AppLovin for advertising to free users; Firebase
+                    for analytics and crash reporting; RevenueCat for Premium
+                    entitlements
+                  </li>
                 </ul>
               </motion.div>
 
@@ -491,6 +670,18 @@ function Privacy(): JSX.Element {
                   >
                     hello@techlis.com
                   </a>
+                </p>
+                <p className="text-muted-foreground mt-4">
+                  For advertising consent in the EEA/UK, use the in-app consent
+                  form and privacy options, when shown, in addition to
+                  contacting us at{" "}
+                  <a
+                    href="mailto:hello@techlis.com"
+                    className="text-primary-600 hover:underline"
+                  >
+                    hello@techlis.com
+                  </a>
+                  .
                 </p>
               </motion.div>
 
